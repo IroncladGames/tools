@@ -1,0 +1,132 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Brush",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "disabled_state": {
+            "description": "The UI element is disabled.",
+            "$ref": "#/$defs/brush_state"
+        },
+        "dpi_source": {
+            "type": "string",
+            "enum": [
+                "user_interface",
+                "current_display_size"
+            ]
+        },
+        "focused_state": {
+            "description": "The UI element has focus. All keyboard input will be directed here before others.",
+            "$ref": "#/$defs/brush_state"
+        },
+        "hovered_state": {
+            "description": "The UI element is hovered, typically the mouse cursor is over it.",
+            "$ref": "#/$defs/brush_state"
+        },
+        "is_transient": {
+            "description": "If true this texture will be loaded and loaded on demand and NOT optimized onto a texture page. Only make true for large textures that should not stay resident.",
+            "type": "boolean"
+        },
+        "margins": {
+            "description": "When stretched will define the 9 pieces that are composited. https://docs.unity3d.com/Manual/9SliceSprites.html",
+            "type": "object",
+            "properties": {
+                "bottom": {
+                    "type": "integer"
+                },
+                "left": {
+                    "type": "integer"
+                },
+                "right": {
+                    "type": "integer"
+                },
+                "top": {
+                    "type": "integer"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "normal_state": {
+            "description": "Normal or default state of the brush",
+            "$ref": "#/$defs/brush_state"
+        },
+        "pressed_state": {
+            "description": "The UI element has be pressed, typically indicating the mouse button is down.",
+            "$ref": "#/$defs/brush_state"
+        },
+        "supported_dpis": {
+            "description": "What DPI this brush natively supports for higher resolution textures. By convention texture names must be post-fixed with the DPI value to be found. For example picture.png would also need picture150.png side-by-side if supported DPI of 150 was added. Typically should be [150, 200] if this feature is being used.",
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/dpi"
+            }
+        },
+        "tiles": {
+            "description": "Allows a brush to consist of multiple distinct pieces. Typically used for flipbook animations.",
+            "type": "object",
+            "properties": {
+                "column_count": {
+                    "type": "integer"
+                },
+                "tile_size": {
+                    "$ref": "#/$defs/size"
+                },
+                "tile_stride": {
+                    "$ref": "#/$defs/size"
+                },
+                "total_count": {
+                    "type": "integer"
+                }
+            },
+            "unevaluatedProperties": false
+        }
+    },
+    "unevaluatedProperties": false,
+    "$defs": {
+        "size": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            },
+            "minItems": 2,
+            "maxItems": 2
+        },
+        "brush_state": {
+            "type": "object",
+            "properties": {
+                "alpha_multiply": {
+                    "description": "Alpha multiply the brush texture when this state is active",
+                    "type": "number",
+                    "minimum": 0.0,
+                    "maximum": 1.0
+                },
+                "shader_type": {
+                    "description": "Control the shader this brush will be rendered with. Default is 'normal'",
+                    "type": "string",
+                    "enum": [
+                        "normal",
+                        "normal_overlay",
+                        "disabled",
+                        "focused",
+                        "pressed",
+                        "hovered",
+                        "hovered_overlay",
+                        "yuv_video"
+                    ]
+                },
+                "texture": {
+                    "description": "Name of texture",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "texture"
+            ],
+            "unevaluatedProperties": false
+        },
+        "dpi": {
+            "type": "integer",
+            "exclusiveMinimum": 100
+        }
+    }
+}

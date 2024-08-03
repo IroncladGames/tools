@@ -1,0 +1,83 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Formation",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "pattern": {
+            "type": "object",
+            "properties": {
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/formation_pattern_item"
+                    }
+                }
+            },
+            "required": [
+                "items"
+            ],
+            "unevaluatedProperties": false
+        },
+        "rank_distances": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "rank_groups": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "column_spacing": {
+                        "type": "number",
+                        "exclusiveMinimum": 0.0
+                    },
+                    "row_spacing": {
+                        "type": "number",
+                        "exclusiveMinimum": 0.0
+                    },
+                    "width_scalar": {
+                        "type": "number",
+                        "exclusiveMinimum": 0.0
+                    }
+                },
+                "required": [
+                    "column_spacing",
+                    "row_spacing",
+                    "width_scalar"
+                ],
+                "unevaluatedProperties": false
+            }
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "pattern",
+        "rank_distances",
+        "rank_groups"
+    ],
+    "unevaluatedProperties": false,
+    "$defs": {
+        "formation_pattern_item": {
+            "type": "object",
+            "properties": {
+                "column_weight": {
+                    "type": "number",
+                    "exclusiveMinimum": 0.0
+                },
+                "group_index": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "column_weight",
+                "group_index"
+            ],
+            "unevaluatedProperties": false
+        }
+    }
+}

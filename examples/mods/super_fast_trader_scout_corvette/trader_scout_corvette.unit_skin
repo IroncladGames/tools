@@ -1,0 +1,137 @@
+{
+    "version": 0,
+    "skin_stages": [
+    {
+        "is_main_view_icon_visible_camera_distance": 1827.833319,
+        "min_camera_distance": 133.152272,
+        "gui":
+        {
+            "hud_icon": "trader_scout_corvette_hud_icon",
+            "hud_monochrome_icon": "trader_scout_corvette_main_view_icon",
+            "hud_picture": "trader_scout_corvette_hud_picture",
+            "tooltip_picture": "trader_scout_corvette_tooltip_picture",
+            "name": "super_fast_trader_scout_corvette_name",
+            "description": "trader_scout_corvette_description"
+        },
+        "unit_mesh":
+        {
+            "mesh": "trader_scout_corvette",
+            "shader": "ship",
+            "is_shadow_blocker": true
+        },
+        "main_view_icon":
+        {
+            "group": "ship",
+            "icon": "trader_scout_corvette_main_view_icon",
+            "selected_icon": "trader_scout_corvette_main_view_icon_selected",
+            "sub_selected_icon": "trader_scout_corvette_main_view_icon_sub_selected"
+        },
+        "effects":
+        {
+            "exhaust_effects":
+            {
+                "particle_effects": [
+                {
+                    "particle_effect": "exhaust_tech_small_01"
+                }]
+            },
+            "hyperspace_effects":
+            {
+                "charge_effect": "hyperspace_tech_frigate_chargeup",
+                "charge_effect_between_stars": "hyperspace_tech_frigate_chargeup_interstellar",
+                "charge_effect_destabilized": "hyperspace_tech_frigate_chargeup_unstable",
+                "travel_effect": "hyperspace_tech_frigate_travel",
+                "travel_effect_between_stars": "hyperspace_tech_frigate_travel_interstellar",
+                "travel_effect_destabilized": "hyperspace_tech_frigate_travel_unstable",
+                "exit_effect": "hyperspace_tech_frigate_exit",
+                "charge_sound": "hyperspace_chargeup",
+                "enter_sound": "hyperspace_entry",
+                "exit_sound": "hyperspace_exit"
+            },
+            "damage_effects":
+            {
+                "max_damage_effect_count": 3,
+                "damage_effects": [
+                {
+                    "max_count": 2,
+                    "weight": 4.0,
+                    "hull_percentage_threshold": 0.99,
+                    "particle_effect": "tec_damage_embers"
+                },
+                {
+                    "max_count": 2,
+                    "weight": 4.0,
+                    "hull_percentage_threshold": 0.99,
+                    "particle_effect": "damage_smoke_1"
+                },
+                {
+                    "max_count": 2,
+                    "weight": 4.0,
+                    "hull_percentage_threshold": 0.75,
+                    "particle_effect": "tec_damage_plasma_sparks"
+                },
+                {
+                    "max_count": 1,
+                    "hull_percentage_threshold": 0.75,
+                    "particle_effect": "damage_electricity_2",
+                    "sound": "ambient_loop_electrical_damage_01"
+                }]
+            },
+            "flair_effects": [
+            {
+                "mesh_point_name": "center",
+                "particle_effect": "tec_damage_corvette",
+                "constraint": "is_crippled"
+            }],
+            "shield_effect": "trader_scout_corvette"
+        },
+        "sounds":
+        {
+            "move_sounds":
+            {
+                "engine": "engine_techcorvetteship",
+                "hyperspace_travel": "hyperspace_travel"
+            },
+            "dialogue":
+            {
+                "spawned":
+                {
+                    "neutral": [
+                        "trader_scout_corvette_spawned_neutral_0"]
+                },
+                "selected":
+                {
+                    "neutral": [
+                        "trader_scout_corvette_selected_neutral_0",
+                        "trader_scout_corvette_selected_neutral_1",
+                        "trader_scout_corvette_selected_neutral_2"
+                    ],
+                    "scared": [
+                        "trader_scout_corvette_selected_scared_0_placeholder",
+                        "trader_scout_corvette_selected_scared_1_placeholder",
+                        "trader_scout_corvette_selected_scared_2_placeholder"
+                    ]
+                },
+                "order_issued":
+                {
+                    "neutral": [
+                        "trader_scout_corvette_order_issued_neutral_0",
+                        "trader_scout_corvette_order_issued_neutral_1",
+                        "trader_scout_corvette_order_issued_neutral_2"
+                    ],
+                    "scared": [
+                        "trader_scout_corvette_order_issued_scared_0_placeholder",
+                        "trader_scout_corvette_order_issued_scared_1_placeholder",
+                        "trader_scout_corvette_order_issued_scared_2_placeholder"
+                    ]
+                },
+                "hyperspace_charge_started":
+                {
+                    "neutral": [
+                        "trader_scout_corvette_hyperspace_charge_started_neutral_0"]
+                }
+            }
+        },
+        "death_sequence_group": "corvette0"
+    }]
+}

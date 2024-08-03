@@ -1,0 +1,9 @@
+{
+    "version": 1,
+    "base_color_texture": "advent_interceptor_strikecraft_clr",
+    "occlusion_roughness_metallic_texture": "advent_interceptor_strikecraft_orm",
+    "normal_texture": "advent_interceptor_strikecraft_nrm",
+    "mask_texture": "advent_interceptor_strikecraft_msk",
+    "emissive_factor": 1.0,
+    "emissive_hue_strength": 1.0
+}

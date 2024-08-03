@@ -1,0 +1,3092 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Unit Items",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "abilities": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/unit_abilities_definition"
+            }
+        },
+        "action_effect_size": {
+            "type": "string",
+            "enum": [
+                "small_unit",
+                "medium_unit",
+                "large_unit"
+            ]
+        },
+        "ai": {
+            "$ref": "#/$defs/unit_ai_definition"
+        },
+        "ai_attack_target": {
+            "$ref": "#/$defs/unit_ai_attack_target_definition"
+        },
+        "antimatter": {
+            "$ref": "#/$defs/unit_antimatter_definition"
+        },
+        "asteroid": {
+            "$ref": "#/$defs/asteroid_definition"
+        },
+        "attack": {
+            "$ref": "#/$defs/unit_attack_definition"
+        },
+        "build": {
+            "$ref": "#/$defs/unit_build_definition"
+        },
+        "build_structure_ability": {
+            "$ref": "#/$defs/ability_definition_ptr"
+        },
+        "can_add_to_kill_statistics": {
+            "type": "boolean"
+        },
+        "can_join_fleet": {
+            "type": "boolean"
+        },
+        "can_player_automation_auto_level_up_abilities": {
+            "type": "boolean"
+        },
+        "carrier": {
+            "$ref": "#/$defs/carrier_definition"
+        },
+        "child_meshes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/unit_child_mesh_definition"
+            }
+        },
+        "colonize_ability": {
+            "$ref": "#/$defs/ability_definition_ptr"
+        },
+        "culture_provider": {
+            "$ref": "#/$defs/unit_culture_provider_definition"
+        },
+        "debris": {
+            "$ref": "#/$defs/unit_debris_definition"
+        },
+        "exotic_factory": {
+            "$ref": "#/$defs/exotic_factory_definition"
+        },
+        "exotics_factory": {
+            "$ref": "#/$defs/exotic_factory_definition"
+        },
+        "fleet": {
+            "$ref": "#/$defs/fleet_definition"
+        },
+        "formation": {
+            "$ref": "#/$defs/unit_formation_definition"
+        },
+        "gravity_well": {
+            "$ref": "#/$defs/gravity_well"
+        },
+        "gravity_well_fixture": {
+            "$ref": "#/$defs/gravity_well_fixture"
+        },
+        "health": {
+            "$ref": "#/$defs/unit_health_definition"
+        },
+        "hyperspace": {
+            "$ref": "#/$defs/unit_hyperspace_definition"
+        },
+        "is_always_detected": {
+            "type": "boolean"
+        },
+        "is_buff_agent": {
+            "type": "boolean"
+        },
+        "is_envoy": {
+            "type": "boolean"
+        },
+        "is_jump_inhibitor": {
+            "description": "identify this unit as a is_jump_inhibitor (for main view planet icons)",
+            "type": "boolean"
+        },
+        "is_loot_collector": {
+            "type": "boolean"
+        },
+        "is_orbital_cannon_shell": {
+            "type": "boolean"
+        },
+        "is_phase_lane_stabilizer": {
+            "type": "boolean"
+        },
+        "is_phase_resonance_synchronizer": {
+            "type": "boolean"
+        },
+        "items": {
+            "$ref": "#/$defs/unit_items_definition"
+        },
+        "levels": {
+            "$ref": "#/$defs/unit_levels_definition"
+        },
+        "move": {
+            "$ref": "#/$defs/unit_move_definition"
+        },
+        "passive_income": {
+            "$ref": "#/$defs/unit_passive_income_base_income_rates"
+        },
+        "phase_lane": {
+            "$ref": "#/$defs/phase_lane"
+        },
+        "physics": {
+            "$ref": "#/$defs/physics"
+        },
+        "planet": {
+            "$ref": "#/$defs/planet_definition"
+        },
+        "player_ai": {
+            "$ref": "#/$defs/unit_player_ai_definition"
+        },
+        "rally_point": {
+            "$ref": "#/$defs/rally_point"
+        },
+        "research_provider": {
+            "$ref": "#/$defs/unit_research_provider_definition"
+        },
+        "ruler_ship": {
+            "$ref": "#/$defs/unit_ruler_ship_definition"
+        },
+        "ship_component_shop": {
+            "$ref": "#/$defs/ship_component_shop_definition"
+        },
+        "ship_roles": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "skin_groups": {
+            "$ref": "#/$defs/unit_skin_definition_group"
+        },
+        "spatial": {
+            "$ref": "#/$defs/unit_spatial_definition"
+        },
+        "spawn_debris": {
+            "$ref": "#/$defs/spawn_debris_definition"
+        },
+        "stages": {
+            "$ref": "#/$defs/unit_stages_definition"
+        },
+        "strikecraft": {
+            "$ref": "#/$defs/strikecraft_definition"
+        },
+        "structure": {
+            "$ref": "#/$defs/structure_definition"
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "target_filter_unit_type": {
+            "type": "string",
+            "enum": [
+                "strikecraft",
+                "corvette",
+                "frigate",
+                "cruiser",
+                "capital_ship",
+                "titan",
+                "structure",
+                "starbase",
+                "planet",
+                "star",
+                "gravity_well",
+                "phase_lane",
+                "asteroid",
+                "torpedo",
+                "cannon_shell",
+                "buff_agent",
+                "loot",
+                "debris",
+                "untargetable"
+            ]
+        },
+        "torpedo": {
+            "$ref": "#/$defs/torpedo_definition"
+        },
+        "trade_port": {
+            "$ref": "#/$defs/trade_port_definition"
+        },
+        "unit_factory": {
+            "$ref": "#/$defs/unit_factory_definition"
+        },
+        "unit_modifiers": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/unit_modifier_definition"
+            }
+        },
+        "unity_provider": {
+            "$ref": "#/$defs/unit_unity_provider_definition"
+        },
+        "user_interface": {
+            "$ref": "#/$defs/unit_user_interface_definition"
+        },
+        "version": {
+            "type": "integer"
+        },
+        "virtual_supply_cost": {
+            "type": "integer"
+        },
+        "weapons": {
+            "$ref": "#/$defs/unit_weapons_definition"
+        },
+        "will_notify_enemy_player_when_entering_gravity_well_override": {
+            "type": "boolean"
+        }
+    },
+    "required": [
+        "spatial"
+    ],
+    "unevaluatedProperties": false,
+    "$defs": {
+        "unit_culture_provider_definition": {
+            "type": "object",
+            "properties": {
+                "base_culture_rate": {
+                    "type": "number"
+                },
+                "base_culture_resistance_rate": {
+                    "type": "number"
+                },
+                "has_ability_providing_culture_rate": {
+                    "type": "boolean"
+                },
+                "research_prerequisites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/prerequisites"
+                    }
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "brush_ptr": {
+            "type": "string"
+        },
+        "unit_factory_definition": {
+            "type": "object",
+            "properties": {
+                "build_kinds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "build_rate_scalar": {
+                    "type": "number"
+                },
+                "default_rally_point_offset": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "required_ability": {
+                    "type": "string"
+                },
+                "required_mutation": {
+                    "type": "string"
+                },
+                "will_spawn_units_in_hyperspace": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "build_kinds"
+            ],
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "will_spawn_units_in_hyperspace": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "spawn_units_in_hyperspace_delay_duration": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "will_spawn_units_in_hyperspace": {
+                                "const": false
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "base_build_point": {
+                                "$ref": "#/$defs/basis"
+                            }
+                        },
+                        "required": [
+                            "base_build_point"
+                        ]
+                    }
+                }
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_ai_definition": {
+            "type": "object",
+            "properties": {
+                "attack_target_type_groups": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "attack_target_type_groups_matching_weapon": {
+                    "type": "string"
+                },
+                "attack_target_type_groups_to_ignore": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "auto_follow_target_priority": {
+                    "type": "number"
+                },
+                "behaviors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "auto_attack_all",
+                            "auto_attack_all_no_move",
+                            "auto_attack_threats",
+                            "auto_attack_threats_no_move",
+                            "auto_attack_non_threats",
+                            "auto_attack_non_threats_no_move",
+                            "auto_bomb_planet",
+                            "auto_bomb_planet_no_move",
+                            "auto_follow_unit_attacking_any_or_is_damaged",
+                            "auto_follow_unit_attacking_any",
+                            "auto_follow_unit_attacking_threat"
+                        ]
+                    }
+                },
+                "pursuit": {
+                    "$ref": "#/$defs/unit_ai_pursuit_definition"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_abilities_definition": {
+            "type": "object",
+            "properties": {
+                "abilities": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "required_player": {
+                    "$ref": "#/$defs/player_definition_ptr"
+                },
+                "required_special_operation_unit_kind": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "abilities"
+            ],
+            "unevaluatedProperties": false
+        },
+        "ability_definition_ptr": {
+            "type": "string"
+        },
+        "structure_definition": {
+            "type": "object",
+            "properties": {
+                "abilities_for_range_in_build_rendering": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "asteroid_asset_type": {
+                    "type": "string",
+                    "enum": [
+                        "credits",
+                        "metal",
+                        "crystal"
+                    ]
+                },
+                "build_group_id": {
+                    "type": "string"
+                },
+                "planet_modifiers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/structure_planet_modifier_definition"
+                    }
+                },
+                "requires_any_research_points_to_build": {
+                    "type": "boolean"
+                },
+                "roles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "slot_type": {
+                    "type": "string",
+                    "enum": [
+                        "civilian",
+                        "military"
+                    ]
+                },
+                "slots_required": {
+                    "type": "integer"
+                },
+                "virtual_slot_type": {
+                    "description": "Used to get non-structures into the structure build menu of colonized planets (for starbases)",
+                    "type": "string",
+                    "enum": [
+                        "civilian",
+                        "military"
+                    ]
+                }
+            },
+            "required": [
+                "build_group_id"
+            ],
+            "unevaluatedProperties": false
+        },
+        "physics": {
+            "type": "object",
+            "properties": {
+                "can_move_angular": {
+                    "type": "boolean"
+                },
+                "can_move_linear": {
+                    "type": "boolean"
+                },
+                "can_strafe_linear": {
+                    "type": "boolean"
+                },
+                "death_angular_speed_range": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "disable_goal_tracking_on_death": {
+                    "type": "boolean"
+                },
+                "do_ray_checking_for_reach_or_pass_goal_position": {
+                    "type": "boolean"
+                },
+                "linear_acceleration_angle": {
+                    "type": "number"
+                },
+                "linear_speed_floor_to_brake_for_turn": {
+                    "type": "number"
+                }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "can_move_linear": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "max_linear_speed": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_move_linear": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "time_to_max_linear_speed": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_move_linear": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "arrival_tolerance_spatial_radius_scalar": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_move_linear": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "death_linear_speed_range": {
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_move_angular": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "max_angular_speed": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_move_angular": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "time_to_max_angular_speed": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_move_angular": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "max_bank_angle": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_strafe_linear": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "strafe_max_linear_speed": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_strafe_linear": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "time_to_strafe_max_linear_speed": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_strafe_linear": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "strafe_start_angle": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_strafe_linear": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "strafe_stop_angle": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_strafe_linear": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "strafe_speed_start_angle": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_strafe_linear": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "strafe_max_start_turning_angle": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "can_strafe_linear": {
+                                "const": true
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "strafe_max_linear_distance_spatial_radius_scalar": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                }
+            ],
+            "unevaluatedProperties": false
+        },
+        "asset_values": {
+            "type": "object",
+            "properties": {
+                "credits": {
+                    "type": "number"
+                },
+                "crystal": {
+                    "type": "number"
+                },
+                "metal": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "torpedo_definition": {
+            "type": "object",
+            "unevaluatedProperties": false
+        },
+        "asteroid_definition": {
+            "type": "object",
+            "properties": {
+                "asset_type": {
+                    "type": "string",
+                    "enum": [
+                        "credits",
+                        "metal",
+                        "crystal"
+                    ]
+                },
+                "attached_structure_offset": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "extraction_rate_scalar": {
+                    "type": "number"
+                },
+                "placement_radius": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "asset_type",
+                "attached_structure_offset",
+                "extraction_rate_scalar",
+                "placement_radius"
+            ],
+            "unevaluatedProperties": false
+        },
+        "attack_pattern": {
+            "type": "object",
+            "properties": {
+                "duration": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "move_limits_scalars": {
+                    "type": "object",
+                    "properties": {
+                        "max_angular_acceleration_scalar": {
+                            "type": "number"
+                        },
+                        "max_angular_deceleration_scalar": {
+                            "type": "number"
+                        },
+                        "max_angular_speed_scalar": {
+                            "type": "number"
+                        },
+                        "max_linear_acceleration_scalar": {
+                            "type": "number"
+                        },
+                        "max_linear_deceleration_scalar": {
+                            "type": "number"
+                        },
+                        "max_linear_speed_scalar": {
+                            "type": "number"
+                        },
+                        "strafe_max_linear_acceleration_scalar": {
+                            "type": "number",
+                            "minimum": 1.0
+                        },
+                        "strafe_max_linear_speed_scalar": {
+                            "type": "number",
+                            "minimum": 1.0
+                        }
+                    },
+                    "required": [
+                        "max_angular_acceleration_scalar",
+                        "max_angular_deceleration_scalar",
+                        "max_angular_speed_scalar",
+                        "max_linear_acceleration_scalar",
+                        "max_linear_deceleration_scalar",
+                        "max_linear_speed_scalar"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "immobile",
+                        "stop_and_fire",
+                        "strafe_and_pull_away",
+                        "circle_strafe"
+                    ]
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "immobile"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "alignment": {
+                                "type": "object",
+                                "properties": {
+                                    "allow_opposite_angle": {
+                                        "type": "boolean"
+                                    },
+                                    "angle": {
+                                        "type": "number"
+                                    },
+                                    "post_alignment_roll_angle": {
+                                        "type": "number"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "yaw",
+                                            "pitch",
+                                            "roll"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "angle",
+                                    "type"
+                                ],
+                                "unevaluatedProperties": false
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "immobile"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "rotate_only_on_plane": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "stop_and_fire"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "alignment": {
+                                "type": "object",
+                                "properties": {
+                                    "allow_opposite_angle": {
+                                        "type": "boolean"
+                                    },
+                                    "angle": {
+                                        "type": "number"
+                                    },
+                                    "post_alignment_roll_angle": {
+                                        "type": "number"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "yaw",
+                                            "pitch",
+                                            "roll"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "angle",
+                                    "type"
+                                ],
+                                "unevaluatedProperties": false
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "stop_and_fire"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "rotate_only_on_plane": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "strafe_and_pull_away"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "distance_to_start_pull_away": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "strafe_and_pull_away"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "distance_to_start_strafe": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "strafe_and_pull_away"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "distance_to_evade": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "strafe_and_pull_away"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "use_weapon_cooldown": {
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "use_weapon_cooldown"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "strafe_and_pull_away"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "weapon_cooldown_percent_to_start_strafe": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "weapon_cooldown_percent_to_start_strafe"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "strafe_and_pull_away"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "pull_away_angle_range": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "pull_away_angle_range"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "circle_strafe"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "alignment": {
+                                "type": "object",
+                                "properties": {
+                                    "allow_opposite_angle": {
+                                        "type": "boolean"
+                                    },
+                                    "angle": {
+                                        "type": "number"
+                                    },
+                                    "post_alignment_roll_angle": {
+                                        "type": "number"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "yaw",
+                                            "pitch",
+                                            "roll"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "angle",
+                                    "type"
+                                ],
+                                "unevaluatedProperties": false
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "circle_strafe"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "angle_range_off_gravity_well_plane": {
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_attack_definition": {
+            "type": "object",
+            "properties": {
+                "attack_pattern": {
+                    "$ref": "#/$defs/attack_pattern"
+                },
+                "immobile_attack_pattern": {
+                    "$ref": "#/$defs/attack_pattern"
+                },
+                "planet_bombing_attack_pattern": {
+                    "$ref": "#/$defs/attack_pattern"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "basis": {
+            "type": "object",
+            "properties": {
+                "position": {
+                    "$ref": "#/$defs/float3"
+                },
+                "rotation": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                }
+            },
+            "required": [
+                "position",
+                "rotation"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_levels_definition": {
+            "type": "object",
+            "properties": {
+                "levels": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "experience_to_next_level": {
+                                "type": "number"
+                            },
+                            "unit_modifiers": {
+                                "type": "object",
+                                "properties": {
+                                    "additive_values": {
+                                        "type": "object",
+                                        "properties": {
+                                            "ability_antimatter_cost": {
+                                                "type": "number"
+                                            },
+                                            "ability_armor_cost": {
+                                                "type": "number"
+                                            },
+                                            "ability_cooldown_duration": {
+                                                "type": "number"
+                                            },
+                                            "ability_hull_cost": {
+                                                "type": "number"
+                                            },
+                                            "ability_range": {
+                                                "type": "number"
+                                            },
+                                            "ability_shields_cost": {
+                                                "type": "number"
+                                            },
+                                            "antimatter_restore_rate": {
+                                                "type": "number"
+                                            },
+                                            "armor_point_restore_cooldown_duration_after_damage_taken": {
+                                                "type": "number"
+                                            },
+                                            "armor_point_restore_rate": {
+                                                "type": "number"
+                                            },
+                                            "armor_strength": {
+                                                "type": "number"
+                                            },
+                                            "civilian_research_points": {
+                                                "type": "number"
+                                            },
+                                            "credit_income_rate": {
+                                                "type": "number"
+                                            },
+                                            "crystal_income_rate": {
+                                                "type": "number"
+                                            },
+                                            "culture_rate": {
+                                                "type": "number"
+                                            },
+                                            "culture_resistance_rate": {
+                                                "type": "number"
+                                            },
+                                            "damage_taken": {
+                                                "type": "number"
+                                            },
+                                            "experience_gained_from_loot_collection": {
+                                                "type": "number"
+                                            },
+                                            "experience_gained_from_planet_bombing": {
+                                                "type": "number"
+                                            },
+                                            "experience_gained_from_unit_death": {
+                                                "type": "number"
+                                            },
+                                            "experience_given_on_death": {
+                                                "type": "number"
+                                            },
+                                            "hull_crippled_percentage": {
+                                                "type": "number"
+                                            },
+                                            "hull_point_restore_cooldown_duration_after_damage_taken": {
+                                                "type": "number"
+                                            },
+                                            "hull_point_restore_rate": {
+                                                "type": "number"
+                                            },
+                                            "hyperspace_charge_time": {
+                                                "type": "number"
+                                            },
+                                            "hyperspace_speed": {
+                                                "type": "number"
+                                            },
+                                            "loot_collection_duration": {
+                                                "type": "number"
+                                            },
+                                            "max_angular_speed": {
+                                                "type": "number"
+                                            },
+                                            "max_antimatter": {
+                                                "type": "number"
+                                            },
+                                            "max_armor_points": {
+                                                "type": "number"
+                                            },
+                                            "max_hull_points": {
+                                                "type": "number"
+                                            },
+                                            "max_linear_acceleration": {
+                                                "type": "number"
+                                            },
+                                            "max_linear_speed": {
+                                                "type": "number"
+                                            },
+                                            "max_shield_points": {
+                                                "type": "number"
+                                            },
+                                            "max_squadron_capacity": {
+                                                "type": "number"
+                                            },
+                                            "metal_income_rate": {
+                                                "type": "number"
+                                            },
+                                            "military_research_points": {
+                                                "type": "number"
+                                            },
+                                            "phase_resonance_bonus_duration": {
+                                                "type": "number"
+                                            },
+                                            "self_build_time": {
+                                                "type": "number"
+                                            },
+                                            "shield_burst_restore_cooldown_duration": {
+                                                "type": "number"
+                                            },
+                                            "shield_burst_restore_points": {
+                                                "type": "number"
+                                            },
+                                            "shield_point_restore_cooldown_duration_after_damage_taken": {
+                                                "type": "number"
+                                            },
+                                            "shield_point_restore_rate": {
+                                                "type": "number"
+                                            },
+                                            "ship_component_price": {
+                                                "type": "number"
+                                            },
+                                            "spell_power": {
+                                                "type": "number"
+                                            },
+                                            "strikecraft_build_time": {
+                                                "type": "number"
+                                            },
+                                            "trade_export_credits_points": {
+                                                "type": "number"
+                                            },
+                                            "trade_export_crystal_points": {
+                                                "type": "number"
+                                            },
+                                            "trade_export_metal_points": {
+                                                "type": "number"
+                                            },
+                                            "trade_import_points": {
+                                                "type": "number"
+                                            },
+                                            "unity_points": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "unevaluatedProperties": false
+                                    },
+                                    "scalar_values": {
+                                        "type": "object",
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "required": [
+                                    "additive_values",
+                                    "scalar_values"
+                                ],
+                                "unevaluatedProperties": false
+                            },
+                            "weapon_modifiers": {
+                                "type": "object",
+                                "properties": {
+                                    "additive_values": {
+                                        "type": "object",
+                                        "unevaluatedProperties": false
+                                    },
+                                    "scalar_values": {
+                                        "type": "object",
+                                        "properties": {
+                                            "bypass_shields_chance": {
+                                                "type": "number"
+                                            },
+                                            "cooldown_duration": {
+                                                "type": "number"
+                                            },
+                                            "damage": {
+                                                "type": "number"
+                                            },
+                                            "range": {
+                                                "type": "number"
+                                            },
+                                            "tracking_speed": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "required": [
+                                    "additive_values",
+                                    "scalar_values"
+                                ],
+                                "unevaluatedProperties": false
+                            }
+                        },
+                        "required": [
+                            "unit_modifiers"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "experience",
+                        "fixed"
+                    ]
+                }
+            },
+            "required": [
+                "levels",
+                "type"
+            ],
+            "unevaluatedProperties": false
+        },
+        "carrier_definition": {
+            "type": "object",
+            "properties": {
+                "base_max_squadron_capacity": {
+                    "type": "integer"
+                },
+                "hangar_points": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/basis"
+                    }
+                },
+                "launch_destination_formation": {
+                    "type": "string"
+                },
+                "launch_destination_formation_offset": {
+                    "type": "object",
+                    "properties": {
+                        "group": {
+                            "type": "integer"
+                        },
+                        "rank": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "group",
+                        "rank"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "strikecraft_kinds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "base_max_squadron_capacity",
+                "hangar_points",
+                "launch_destination_formation",
+                "launch_destination_formation_offset",
+                "strikecraft_kinds"
+            ],
+            "unevaluatedProperties": false
+        },
+        "localized_text_ptr": {
+            "type": "string"
+        },
+        "destroyed_planet_definition": {
+            "type": "object",
+            "properties": {
+                "skin": {
+                    "$ref": "#/$defs/unit_skin_definition_ptr"
+                },
+                "stripped_assets": {
+                    "$ref": "#/$defs/asset_values"
+                },
+                "stripped_exotics": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/exotic_type_count"
+                    }
+                }
+            },
+            "required": [
+                "skin",
+                "stripped_assets",
+                "stripped_exotics"
+            ],
+            "unevaluatedProperties": false
+        },
+        "exotic_type_count_vector": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/exotic_type_count"
+            }
+        },
+        "exotic_factory_definition": {
+            "type": "object",
+            "properties": {
+                "required_mutation": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_items_definition": {
+            "type": "object",
+            "properties": {
+                "levels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/unit_items_level_definition"
+                    }
+                },
+                "requires_ship_component_shop_to_purchase_items": {
+                    "type": "boolean"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_item_definition_ptr": {
+            "type": "string"
+        },
+        "exotic_type_count": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "number"
+                },
+                "exotic_type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "count",
+                "exotic_type"
+            ],
+            "unevaluatedProperties": false
+        },
+        "fleet_definition": {
+            "type": "object",
+            "properties": {
+                "icons": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/brush_ptr"
+                    }
+                }
+            },
+            "required": [
+                "icons"
+            ],
+            "unevaluatedProperties": false
+        },
+        "float3": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "float_range": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "gravity_well": {
+            "type": "object",
+            "properties": {
+                "gravity_well_jump_node_radius": {
+                    "type": "number"
+                },
+                "gravity_well_outer_move_area_distance": {
+                    "type": "number"
+                },
+                "gravity_well_vertical_plane_max_distance": {
+                    "type": "number"
+                },
+                "gravity_well_vertical_plane_return_distance": {
+                    "type": "number"
+                },
+                "min_gravity_well_inner_move_area_distance": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "gravity_well_jump_node_radius",
+                "gravity_well_outer_move_area_distance",
+                "gravity_well_vertical_plane_max_distance",
+                "gravity_well_vertical_plane_return_distance",
+                "min_gravity_well_inner_move_area_distance"
+            ],
+            "unevaluatedProperties": false
+        },
+        "gravity_well_fixture": {
+            "type": "object",
+            "properties": {
+                "axis_rotation_speed": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "axis_tilt_angle": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                },
+                "chance_of_retrograde_axis_rotation_direction": {
+                    "type": "number"
+                },
+                "inner_move_distance": {
+                    "type": "number"
+                },
+                "is_wormhole": {
+                    "type": "boolean"
+                },
+                "y_offset": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "axis_rotation_speed",
+                "axis_tilt_angle",
+                "inner_move_distance"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_research_provider_definition": {
+            "type": "object",
+            "properties": {
+                "provided_research_points": {
+                    "type": "object",
+                    "properties": {
+                        "civilian": {
+                            "type": "number"
+                        },
+                        "military": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "required": [
+                "provided_research_points"
+            ],
+            "unevaluatedProperties": false
+        },
+        "planet_definition": {
+            "type": "object",
+            "properties": {
+                "build_distance_from_inner_move_radius": {
+                    "type": "number"
+                },
+                "destroyed_planet": {
+                    "$ref": "#/$defs/destroyed_planet_definition"
+                },
+                "non_random_crystal_asteroids": {
+                    "description": "asteroids spawned with no randomness (typically home planets)",
+                    "type": "object",
+                    "properties": {
+                        "tiers": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "count": {
+                                        "description": "how many asteroids?",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        },
+                                        "minItems": 2,
+                                        "maxItems": 2
+                                    },
+                                    "tier": {
+                                        "description": "binding to specific asteroid type in planet.uniforms",
+                                        "type": "integer"
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            }
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "non_random_metal_asteroids": {
+                    "description": "asteroids spawned with no randomness (typically home planets)",
+                    "type": "object",
+                    "properties": {
+                        "tiers": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "count": {
+                                        "description": "how many asteroids?",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        },
+                                        "minItems": 2,
+                                        "maxItems": 2
+                                    },
+                                    "tier": {
+                                        "description": "binding to specific asteroid type in planet.uniforms",
+                                        "type": "integer"
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            }
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "planet_type": {
+                    "type": "string"
+                },
+                "random_crystal_asteroids": {
+                    "description": "asteroids spawned with randomness",
+                    "type": "object",
+                    "properties": {
+                        "tiers": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "count": {
+                                        "description": "how many asteroids?",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        },
+                                        "minItems": 2,
+                                        "maxItems": 2
+                                    },
+                                    "tier": {
+                                        "description": "binding to specific asteroid type in planet.uniforms",
+                                        "type": "integer"
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            }
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "random_metal_asteroids": {
+                    "description": "asteroids spawned with randomness",
+                    "type": "object",
+                    "properties": {
+                        "tiers": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "count": {
+                                        "description": "how many asteroids?",
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        },
+                                        "minItems": 2,
+                                        "maxItems": 2
+                                    },
+                                    "tier": {
+                                        "description": "binding to specific asteroid type in planet.uniforms",
+                                        "type": "integer"
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            }
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "required": [
+                "build_distance_from_inner_move_radius",
+                "non_random_crystal_asteroids",
+                "non_random_metal_asteroids",
+                "planet_type",
+                "random_crystal_asteroids",
+                "random_metal_asteroids"
+            ],
+            "unevaluatedProperties": false
+        },
+        "player_definition_ptr": {
+            "type": "string"
+        },
+        "unit_debris_definition": {
+            "type": "object",
+            "properties": {
+                "angular_speed": {
+                    "$ref": "#/$defs/float_range"
+                },
+                "lifetime": {
+                    "$ref": "#/$defs/float_range"
+                },
+                "linear_speed": {
+                    "$ref": "#/$defs/float_range"
+                }
+            },
+            "required": [
+                "angular_speed",
+                "lifetime",
+                "linear_speed"
+            ],
+            "unevaluatedProperties": false
+        },
+        "phase_lane": {
+            "type": "object",
+            "properties": {
+                "is_gravity_well_existence_known_when_other_explored": {
+                    "type": "boolean"
+                },
+                "unit_group_distance_tolerance": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "is_gravity_well_existence_known_when_other_explored",
+                "unit_group_distance_tolerance"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_spatial_definition": {
+            "type": "object",
+            "properties": {
+                "box": {
+                    "type": "object",
+                    "properties": {
+                        "center": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        },
+                        "extents": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "required": [
+                        "center",
+                        "extents"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "can_be_displaced_on_collision": {
+                    "type": "boolean"
+                },
+                "can_collide": {
+                    "type": "boolean"
+                },
+                "can_displace_target_on_collision": {
+                    "type": "boolean"
+                },
+                "collision_rank": {
+                    "type": "integer"
+                },
+                "line_of_sight_radius": {
+                    "type": "number"
+                },
+                "radius": {
+                    "type": "number"
+                },
+                "surface_radius": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "prerequisites": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "unit_health_definition": {
+            "type": "object",
+            "properties": {
+                "can_collide_duration_after_death": {
+                    "type": "number"
+                },
+                "can_ever_be_resurrected": {
+                    "description": "default=false",
+                    "type": "boolean"
+                },
+                "durability": {
+                    "type": "number"
+                },
+                "levels": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/unit_health_level_definition"
+                    }
+                },
+                "release_time_after_death": {
+                    "type": "number"
+                },
+                "round_max_points_up_to_5": {
+                    "description": "default=true",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "levels",
+                "release_time_after_death"
+            ],
+            "unevaluatedProperties": false
+        },
+        "rally_point": {
+            "type": "object",
+            "unevaluatedProperties": false
+        },
+        "ship_component_shop_definition": {
+            "type": "object",
+            "properties": {
+                "required_ability": {
+                    "$ref": "#/$defs/ability_definition_ptr"
+                },
+                "required_mutation": {
+                    "type": "string"
+                },
+                "required_prerequisites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/prerequisites"
+                    }
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "spawn_debris_definition": {
+            "type": "object",
+            "properties": {
+                "custom_debris": {
+                    "description": "Specific debris are big pieces only meant for this unit.",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "basis": {
+                                "$ref": "#/$defs/basis"
+                            },
+                            "unit": {
+                                "$ref": "#/$defs/unit_definition_ptr"
+                            }
+                        },
+                        "required": [
+                            "basis",
+                            "unit"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "generic_counts": {
+                    "type": "object",
+                    "properties": {
+                        "large_debris": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        },
+                        "small_debris": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "generic_group_name": {
+                    "type": "string"
+                },
+                "spawn_debris_time": {
+                    "type": "number"
+                },
+                "spawn_loot": {
+                    "type": "object",
+                    "properties": {
+                        "assets": {
+                            "type": "object",
+                            "properties": {
+                                "credits": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "crystal": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "metal": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "exotics": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "bundles": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "counts": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "types": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "required": [
+                                                "counts",
+                                                "types"
+                                            ],
+                                            "unevaluatedProperties": false
+                                        }
+                                    },
+                                    "weight": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "bundles",
+                                    "weight"
+                                ],
+                                "unevaluatedProperties": false
+                            }
+                        },
+                        "experience_given": {
+                            "type": "number"
+                        },
+                        "loot_level": {
+                            "type": "integer"
+                        },
+                        "loot_name": {
+                            "$ref": "#/$defs/localized_text_ptr"
+                        },
+                        "loot_unit": {
+                            "$ref": "#/$defs/unit_definition_ptr"
+                        }
+                    },
+                    "required": [
+                        "assets",
+                        "exotics",
+                        "experience_given",
+                        "loot_name",
+                        "loot_unit"
+                    ],
+                    "unevaluatedProperties": false
+                }
+            },
+            "required": [
+                "generic_counts",
+                "generic_group_name",
+                "spawn_debris_time"
+            ],
+            "unevaluatedProperties": false
+        },
+        "strikecraft_definition": {
+            "type": "object",
+            "properties": {
+                "build_time": {
+                    "type": "number"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "launch_destination_formation_offset": {
+                    "type": "object",
+                    "properties": {
+                        "group": {
+                            "type": "integer"
+                        },
+                        "rank": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "group",
+                        "rank"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "squadron_size": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "build_time",
+                "kind",
+                "launch_destination_formation_offset",
+                "squadron_size"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_ruler_ship_definition": {
+            "type": "object",
+            "properties": {
+                "prerequisites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/prerequisites"
+                    }
+                }
+            },
+            "required": [
+                "prerequisites"
+            ],
+            "unevaluatedProperties": false
+        },
+        "structure_planet_modifier_definition": {
+            "type": "object",
+            "properties": {
+                "modifier_type": {
+                    "type": "string",
+                    "enum": [
+                        "max_civilian_structure_slots",
+                        "max_military_structure_slots",
+                        "commerce_track_credit_income_rate",
+                        "mining_track_metal_income_rate",
+                        "mining_track_crystal_income_rate",
+                        "orbital_extraction_metal_income_rate",
+                        "orbital_extraction_crystal_income_rate",
+                        "civilian_research_points",
+                        "military_research_points",
+                        "civilian_research_rate",
+                        "military_research_rate",
+                        "culture_rate",
+                        "culture_resistance_rate",
+                        "unity_points",
+                        "max_health_points",
+                        "health_points_restore_rate",
+                        "max_shield_points",
+                        "shield_points_restore_rate",
+                        "factory_unit_build_price",
+                        "factory_unit_build_time",
+                        "factory_exotic_build_time",
+                        "any_development_track_build_price",
+                        "any_development_track_build_time",
+                        "defense_track_build_price",
+                        "defense_track_build_time",
+                        "logistics_track_build_price",
+                        "logistics_track_build_time",
+                        "commerce_track_build_price",
+                        "commerce_track_build_time",
+                        "mining_track_build_price",
+                        "mining_track_build_time",
+                        "research_track_build_price",
+                        "research_track_build_time",
+                        "surveying_track_build_price",
+                        "surveying_track_build_time",
+                        "structure_build_price",
+                        "structure_build_time",
+                        "gravity_well_radius",
+                        "structure_builder_count",
+                        "max_garrison_supply",
+                        "bombing_damage_taken",
+                        "planet_component_price",
+                        "max_planet_component_slots",
+                        "max_influence_points"
+                    ]
+                },
+                "prerequisites": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "sets": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "research_subject_definition_ptr": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "research_subject_definition_ptr"
+                                    ],
+                                    "unevaluatedProperties": false
+                                }
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                },
+                "value": {
+                    "type": "number"
+                },
+                "value_behavior": {
+                    "type": "string",
+                    "enum": [
+                        "additive",
+                        "scalar"
+                    ]
+                }
+            },
+            "required": [
+                "modifier_type",
+                "value",
+                "value_behavior"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_stage_requirements": {
+            "type": "object",
+            "properties": {
+                "prerequisites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/prerequisites"
+                    }
+                },
+                "requirements_type": {
+                    "type": "string",
+                    "enum": [
+                        "none",
+                        "research_prerequisites"
+                    ]
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_ai_attack_target_definition": {
+            "type": "object",
+            "properties": {
+                "attack_priority": {
+                    "type": "number"
+                },
+                "attack_target_type": {
+                    "type": "string",
+                    "enum": [
+                        "torpedo",
+                        "strikecraft",
+                        "corvette",
+                        "light",
+                        "flak",
+                        "heavy",
+                        "lrm",
+                        "capital",
+                        "titan",
+                        "starbase",
+                        "defense"
+                    ]
+                },
+                "is_always_a_threat": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "attack_priority",
+                "is_always_a_threat"
+            ],
+            "unevaluatedProperties": false
+        },
+        "trade_port_definition": {
+            "type": "object",
+            "properties": {
+                "create_trade_ship_offset": {
+                    "$ref": "#/$defs/float3"
+                },
+                "max_trade_ship_count": {
+                    "type": "integer"
+                },
+                "special_operation_unit_kind": {
+                    "type": "string"
+                },
+                "trade_ship": {
+                    "$ref": "#/$defs/unit_definition_ptr"
+                },
+                "trade_ship_construction_time": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "create_trade_ship_offset",
+                "max_trade_ship_count",
+                "special_operation_unit_kind",
+                "trade_ship",
+                "trade_ship_construction_time"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_ai_pursuit_definition": {
+            "type": "object",
+            "properties": {
+                "min_distance_to_target": {
+                    "type": "number"
+                },
+                "min_target_speed": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_skin_definition_group": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "skins": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "skins"
+                ],
+                "unevaluatedProperties": false
+            }
+        },
+        "unit_antimatter_definition": {
+            "type": "object",
+            "properties": {
+                "antimatter_restore_rate": {
+                    "type": "number"
+                },
+                "max_antimatter": {
+                    "type": "number"
+                },
+                "prerequisites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/prerequisites"
+                    }
+                }
+            },
+            "required": [
+                "antimatter_restore_rate",
+                "max_antimatter"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_build_definition": {
+            "type": "object",
+            "properties": {
+                "auto_cast_instead_of_rally_when_built": {
+                    "type": "boolean"
+                },
+                "build_group_id": {
+                    "type": "string"
+                },
+                "build_kind": {
+                    "type": "string"
+                },
+                "build_point_offset": {
+                    "$ref": "#/$defs/float3"
+                },
+                "build_radius": {
+                    "type": "number"
+                },
+                "build_time": {
+                    "type": "number"
+                },
+                "can_update_build_progress_by_default": {
+                    "type": "boolean"
+                },
+                "exotic_price": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "count": {
+                                "type": "integer"
+                            },
+                            "exotic_type": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "count",
+                            "exotic_type"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "prerequisites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/prerequisites"
+                    }
+                },
+                "price": {
+                    "type": "object",
+                    "properties": {
+                        "credits": {
+                            "type": "number"
+                        },
+                        "crystal": {
+                            "type": "number"
+                        },
+                        "metal": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "self_build_time_gravity_well_scalars": {
+                    "type": "object",
+                    "properties": {
+                        "enemy": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "prerequisites": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/$defs/prerequisites"
+                                        }
+                                    },
+                                    "value": {
+                                        "type": "number"
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            }
+                        },
+                        "friendly": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "prerequisites": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/$defs/prerequisites"
+                                        }
+                                    },
+                                    "value": {
+                                        "type": "number"
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            }
+                        },
+                        "neutral": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "prerequisites": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/$defs/prerequisites"
+                                        }
+                                    },
+                                    "value": {
+                                        "type": "number"
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            }
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "supply_cost": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "build_kind",
+                "build_time",
+                "price"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_stage_definition": {
+            "type": "object",
+            "properties": {
+                "requirements": {
+                    "$ref": "#/$defs/unit_stage_requirements"
+                }
+            },
+            "required": [
+                "requirements"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_child_mesh_definition": {
+            "type": "object",
+            "properties": {
+                "hidden_by_unit_item": {
+                    "$ref": "#/$defs/unit_item_definition_ptr"
+                },
+                "is_weapon_effects_destination": {
+                    "type": "boolean"
+                },
+                "mesh_alias_name": {
+                    "type": "string"
+                },
+                "mesh_point": {
+                    "type": "string"
+                },
+                "required_unit_item": {
+                    "$ref": "#/$defs/unit_item_definition_ptr"
+                },
+                "required_unit_item_level": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "is_weapon_effects_destination",
+                "mesh_alias_name",
+                "mesh_point"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_definition_ptr": {
+            "type": "string"
+        },
+        "unit_formation_definition": {
+            "type": "object",
+            "properties": {
+                "leader_priority": {
+                    "type": "integer"
+                },
+                "offsets_per_formation_type": {
+                    "type": "object",
+                    "properties": {
+                        "ships_and_structures": {
+                            "$ref": "#/$defs/unit_formation_offset_definition"
+                        },
+                        "strikecraft_only": {
+                            "$ref": "#/$defs/unit_formation_offset_definition"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "required": [
+                "leader_priority"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_unity_provider_definition": {
+            "type": "object",
+            "properties": {
+                "provided_unity_points": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "provided_unity_points"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_health_level_definition": {
+            "type": "object",
+            "properties": {
+                "armor_point_restore_cooldown_duration_after_damage_taken": {
+                    "type": "number"
+                },
+                "armor_point_restore_rate": {
+                    "type": "number"
+                },
+                "armor_strength": {
+                    "type": "number"
+                },
+                "experience_given_on_death": {
+                    "type": "number"
+                },
+                "hull_crippled_percentage": {
+                    "type": "number"
+                },
+                "hull_point_restore_cooldown_duration_after_damage_taken": {
+                    "type": "number"
+                },
+                "hull_point_restore_rate": {
+                    "type": "number"
+                },
+                "max_armor_points": {
+                    "type": "number"
+                },
+                "max_hull_points": {
+                    "type": "number"
+                },
+                "max_shield_points": {
+                    "type": "number"
+                },
+                "shield_burst_restore": {
+                    "type": "object",
+                    "properties": {
+                        "cooldown_duration": {
+                            "type": "number"
+                        },
+                        "restore_percentage": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "cooldown_duration",
+                        "restore_percentage"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "shield_point_restore_cooldown_duration_after_damage_taken": {
+                    "type": "number"
+                },
+                "shield_point_restore_rate": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_formation_offset_definition": {
+            "type": "object",
+            "properties": {
+                "group": {
+                    "type": "integer"
+                },
+                "rank": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "group",
+                "rank"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_player_ai_definition": {
+            "type": "object",
+            "properties": {
+                "max_count_at_planet": {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "enum": [
+                                "constant",
+                                "per_planet_count",
+                                "per_max_supply",
+                                "per_built_supply",
+                                "per_used_military_slots_at_planet"
+                            ]
+                        }
+                    },
+                    "allOf": [
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "constant"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "value": {
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "if": {
+                                "properties": {
+                                    "type": {
+                                        "const": "per_used_military_slots_at_planet"
+                                    }
+                                }
+                            },
+                            "then": {
+                                "properties": {
+                                    "max_value": {
+                                        "type": "number"
+                                    },
+                                    "per_count": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "required": [
+                                    "per_count"
+                                ]
+                            }
+                        }
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "max_count_to_fleet_supply_ratio": {
+                    "type": "integer"
+                },
+                "max_empire_owned_count_percentage": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_hyperspace_definition": {
+            "type": "object",
+            "properties": {
+                "can_hyperspace_enabled_by_default": {
+                    "type": "boolean"
+                },
+                "charge_time": {
+                    "type": "number"
+                },
+                "charge_time_variance": {
+                    "type": "number"
+                },
+                "max_charge_angle": {
+                    "type": "number"
+                },
+                "min_charge_angle": {
+                    "type": "number"
+                },
+                "speed": {
+                    "type": "number"
+                },
+                "speed_between_stars": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "charge_time",
+                "charge_time_variance",
+                "max_charge_angle",
+                "min_charge_angle",
+                "speed",
+                "speed_between_stars"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_items_level_definition": {
+            "type": "object",
+            "properties": {
+                "max_ship_component_count": {
+                    "type": "integer"
+                },
+                "min_unit_level": {
+                    "type": "integer"
+                },
+                "prerequisites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/prerequisites"
+                    }
+                }
+            },
+            "required": [
+                "max_ship_component_count"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_modifier_definition": {
+            "type": "object",
+            "properties": {
+                "is_pseudo_positive_buff": {
+                    "type": "boolean"
+                },
+                "modifier_type": {
+                    "type": "string",
+                    "enum": [
+                        "ability_cooldown_duration",
+                        "ability_antimatter_cost",
+                        "ability_hull_cost",
+                        "ability_armor_cost",
+                        "ability_shields_cost",
+                        "ability_range",
+                        "max_antimatter",
+                        "antimatter_restore_rate",
+                        "max_linear_speed",
+                        "max_linear_acceleration",
+                        "max_angular_speed",
+                        "hyperspace_charge_time",
+                        "hyperspace_speed",
+                        "max_hull_points",
+                        "hull_crippled_percentage",
+                        "hull_point_restore_rate",
+                        "hull_point_restore_cooldown_duration_after_damage_taken",
+                        "max_armor_points",
+                        "armor_point_restore_rate",
+                        "armor_point_restore_cooldown_duration_after_damage_taken",
+                        "armor_strength",
+                        "max_shield_points",
+                        "shield_point_restore_rate",
+                        "shield_point_restore_cooldown_duration_after_damage_taken",
+                        "shield_burst_restore_points",
+                        "shield_burst_restore_cooldown_duration",
+                        "damage_taken",
+                        "experience_gained_from_unit_death",
+                        "experience_gained_from_planet_bombing",
+                        "experience_gained_from_loot_collection",
+                        "experience_given_on_death",
+                        "max_squadron_capacity",
+                        "strikecraft_build_time",
+                        "credit_income_rate",
+                        "metal_income_rate",
+                        "crystal_income_rate",
+                        "civilian_research_points",
+                        "military_research_points",
+                        "culture_rate",
+                        "culture_resistance_rate",
+                        "ship_component_price",
+                        "self_build_time",
+                        "spell_power",
+                        "unity_points",
+                        "trade_import_points",
+                        "trade_export_credits_points",
+                        "trade_export_metal_points",
+                        "trade_export_crystal_points",
+                        "loot_collection_duration",
+                        "phase_resonance_bonus_duration"
+                    ]
+                },
+                "prerequisites": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/prerequisites"
+                    }
+                },
+                "value": {
+                    "type": "number"
+                },
+                "value_behavior": {
+                    "type": "string",
+                    "enum": [
+                        "additive",
+                        "scalar"
+                    ]
+                }
+            },
+            "required": [
+                "modifier_type",
+                "value",
+                "value_behavior"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_move_definition": {
+            "type": "object",
+            "properties": {
+                "flight_pattern_conditions": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "flight_patterns": {
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                }
+                            },
+                            "minimum_distance_to_destination": {
+                                "type": "number"
+                            },
+                            "minimum_time_between_flight_patterns": {
+                                "type": "array",
+                                "items": {
+                                    "type": "number"
+                                }
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "mirror",
+                                    "taking_fire"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "flight_patterns",
+                            "minimum_distance_to_destination",
+                            "minimum_time_between_flight_patterns",
+                            "type"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "follow_distance": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "follow_distance"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_passive_income_base_income_rates": {
+            "type": "object",
+            "properties": {
+                "credits": {
+                    "type": "number"
+                },
+                "crystal": {
+                    "type": "number"
+                },
+                "metal": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_skin_definition_ptr": {
+            "type": "string"
+        },
+        "unit_stages_definition": {
+            "type": "object",
+            "properties": {
+                "stages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/unit_stage_definition"
+                    }
+                }
+            },
+            "required": [
+                "stages"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_user_interface_definition": {
+            "type": "object",
+            "properties": {
+                "bar_size": {
+                    "type": "string",
+                    "enum": [
+                        "normal",
+                        "large"
+                    ]
+                },
+                "can_attack": {
+                    "type": "boolean"
+                },
+                "can_be_controlled": {
+                    "type": "boolean"
+                },
+                "can_be_controlled_by_selected_planet": {
+                    "type": "boolean"
+                },
+                "can_ever_be_selected": {
+                    "type": "boolean"
+                },
+                "can_move": {
+                    "type": "boolean"
+                },
+                "can_show_distance_to_plane_line": {
+                    "type": "boolean"
+                },
+                "can_show_max_weapon_range_in_tactical_view": {
+                    "type": "boolean"
+                },
+                "can_show_mesh_overlays": {
+                    "type": "boolean"
+                },
+                "has_sub_selection_grouping": {
+                    "type": "boolean"
+                },
+                "pip_type": {
+                    "type": "string",
+                    "enum": [
+                        "starbase",
+                        "titan",
+                        "capital_ship",
+                        "cruiser",
+                        "frigate",
+                        "strikecraft"
+                    ]
+                },
+                "selection_group_unit_type": {
+                    "type": "string",
+                    "enum": [
+                        "torpedo",
+                        "civilian_structure",
+                        "factory_structure",
+                        "military_structure",
+                        "scout_ship",
+                        "colony_ship",
+                        "strikecraft",
+                        "starbase",
+                        "combat_ship",
+                        "loot"
+                    ]
+                },
+                "selection_priority": {
+                    "type": "integer"
+                },
+                "selection_window_partial_stack_size": {
+                    "description": "max stack size if partial stacks is enabled",
+                    "type": "integer"
+                },
+                "skip_as_zoom_target_when_zooming_in_from_far": {
+                    "type": "boolean"
+                },
+                "under_cursor_type": {
+                    "type": "string",
+                    "enum": [
+                        "sphere",
+                        "sphere_box",
+                        "box_mesh"
+                    ]
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_weapons_definition": {
+            "type": "object",
+            "properties": {
+                "max_range_weapon_index": {
+                    "type": "integer"
+                },
+                "weapons": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "forward": {
+                                "$ref": "#/$defs/float3"
+                            },
+                            "mesh_point": {
+                                "type": "string"
+                            },
+                            "min_required_stage_index": {
+                                "type": "integer"
+                            },
+                            "non_turret_muzzle_positions": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/float3"
+                                }
+                            },
+                            "pitch_arc": {
+                                "$ref": "#/$defs/weapon_arc_definition"
+                            },
+                            "required_research_prerequisites": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/prerequisites"
+                                }
+                            },
+                            "required_unit_item": {
+                                "type": "string"
+                            },
+                            "up": {
+                                "$ref": "#/$defs/float3"
+                            },
+                            "weapon": {
+                                "type": "string"
+                            },
+                            "weapon_position": {
+                                "$ref": "#/$defs/float3"
+                            },
+                            "yaw_arc": {
+                                "$ref": "#/$defs/weapon_arc_definition"
+                            }
+                        },
+                        "required": [
+                            "forward",
+                            "mesh_point",
+                            "pitch_arc",
+                            "up",
+                            "weapon",
+                            "weapon_position",
+                            "yaw_arc"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                }
+            },
+            "required": [
+                "weapons"
+            ],
+            "unevaluatedProperties": false
+        },
+        "weapon_arc_definition": {
+            "type": "object",
+            "properties": {
+                "initial_angle": {
+                    "type": "number"
+                },
+                "max_angle": {
+                    "type": "number"
+                },
+                "min_angle": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "max_angle",
+                "min_angle"
+            ],
+            "unevaluatedProperties": false
+        }
+    }
+}

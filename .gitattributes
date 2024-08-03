@@ -1,0 +1,38 @@
+# https://help.github.com/articles/dealing-with-line-endings/
+
+# Forcing all files by default to have LF line endings.
+# This will overwrite the core.autocrlf setting and make sure
+# all text files are LF. Windows has no problems reading / writing
+# LF files so simpler to just keep it LF everywhere to be
+# compatible with linux.
+* text eol=lf
+
+*.dds filter=lfs diff=lfs merge=lfs -text
+*.tga filter=lfs diff=lfs merge=lfs -text
+*.mesh filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.ttf filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.ico filter=lfs diff=lfs merge=lfs -text
+*.ogg filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text
+*.lib filter=lfs diff=lfs merge=lfs -text
+*.pdb filter=lfs diff=lfs merge=lfs -text
+*.a filter=lfs diff=lfs merge=lfs -text
+*.so filter=lfs diff=lfs merge=lfs -text
+*.so.2 filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
+*.exp filter=lfs diff=lfs merge=lfs -text
+*.key filter=lfs diff=lfs merge=lfs -text
+*.xlsx filter=lfs diff=lfs merge=lfs -text
+*.xls filter=lfs diff=lfs merge=lfs -text
+
+# Windows Only (keep CRLF to be consistent with tooling)
+*.csproj text eol=crlf
+*.vcxproj text eol=crlf
+*.filters text eol=crlf
+*.sln text eol=crlf
+*.props text eol=crlf
+*.natvis text eol=crlf
+*.ruleset text eol=crlf

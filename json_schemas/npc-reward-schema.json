@@ -1,0 +1,3018 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "NPC Rewards",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "between_gravity_well_range": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "gravity_well_fixture_target_filter_id": {
+            "type": "string"
+        },
+        "gui": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "$ref": "#/$defs/localized_text_ptr"
+                },
+                "gravity_well_fixture_target_filter_description": {
+                    "$ref": "#/$defs/localized_text_ptr"
+                },
+                "hud_icon": {
+                    "$ref": "#/$defs/brush_ptr"
+                },
+                "name": {
+                    "$ref": "#/$defs/localized_text_ptr"
+                },
+                "tooltip_icon": {
+                    "$ref": "#/$defs/brush_ptr"
+                }
+            },
+            "required": [
+                "description",
+                "hud_icon",
+                "name"
+            ],
+            "unevaluatedProperties": false
+        },
+        "item": {
+            "$ref": "#/$defs/unit_item_definition_ptr"
+        },
+        "raid": {
+            "type": "object",
+            "properties": {
+                "action_data_source": {
+                    "$ref": "#/$defs/action_data_source_definition_ptr"
+                },
+                "arrival_delay_duration": {
+                    "type": "number"
+                },
+                "buff": {
+                    "$ref": "#/$defs/buff_definition_ptr"
+                },
+                "highest_used_supply_scalar": {
+                    "type": "number"
+                },
+                "supply": {
+                    "type": "integer"
+                },
+                "units": {
+                    "$ref": "#/$defs/spawn_units_definition"
+                }
+            },
+            "required": [
+                "units"
+            ],
+            "unevaluatedProperties": false
+        },
+        "targeting_ui": {
+            "type": "string",
+            "enum": [
+                "positive",
+                "negative",
+                "send_pirate_raid"
+            ]
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "ship_component",
+                "starbase_component",
+                "planet_component",
+                "random_ship_component",
+                "assets",
+                "exotics",
+                "random_exotics",
+                "random_assets_and_exotics",
+                "send_raid_action",
+                "ability",
+                "asset_market_exclusive_use",
+                "spawn_units",
+                "alliance",
+                "player_modifiers"
+            ]
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "type"
+    ],
+    "allOf": [
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "ship_component"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "item": {
+                        "$ref": "#/$defs/unit_item_definition_ptr"
+                    }
+                },
+                "required": [
+                    "item"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "planet_component"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "item": {
+                        "$ref": "#/$defs/unit_item_definition_ptr"
+                    }
+                }
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "random_ship_component"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "random_items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/$defs/npc_random_item_reward"
+                        }
+                    }
+                },
+                "required": [
+                    "random_items"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "assets"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "assets": {
+                        "$ref": "#/$defs/asset_values"
+                    }
+                },
+                "required": [
+                    "assets"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "exotics"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "exotics": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/$defs/exotic_type_count"
+                        }
+                    }
+                },
+                "required": [
+                    "exotics"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "random_exotics"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "random_exotics": {
+                        "$ref": "#/$defs/npc_random_exotics_reward_definition"
+                    }
+                },
+                "required": [
+                    "random_exotics"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "random_assets_and_exotics"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "random_assets_and_exotics": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "credits": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "crystal": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "exotics": {
+                                    "$ref": "#/$defs/npc_random_exotics_reward_definition"
+                                },
+                                "metal": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "weight": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "weight"
+                            ],
+                            "unevaluatedProperties": false
+                        }
+                    }
+                },
+                "required": [
+                    "random_assets_and_exotics"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "ability"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "ability": {
+                        "$ref": "#/$defs/ability_definition_ptr"
+                    }
+                },
+                "required": [
+                    "ability"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "asset_market_exclusive_use"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "exclusive_market": {
+                        "type": "object",
+                        "properties": {
+                            "asset_type": {
+                                "type": "string",
+                                "enum": [
+                                    "credits",
+                                    "metal",
+                                    "crystal"
+                                ]
+                            },
+                            "duration": {
+                                "type": "number",
+                                "minimum": 0.0
+                            },
+                            "modifiers": {
+                                "$ref": "#/$defs/player_modifiers_definition"
+                            }
+                        },
+                        "required": [
+                            "asset_type"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "required": [
+                    "exclusive_market"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "spawn_units"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "spawn_units": {
+                        "type": "object",
+                        "properties": {
+                            "action_data_source": {
+                                "$ref": "#/$defs/action_data_source_definition_ptr"
+                            },
+                            "arrival_delay_duration": {
+                                "type": "number"
+                            },
+                            "buff_on_units": {
+                                "$ref": "#/$defs/buff_definition_ptr"
+                            },
+                            "is_usable_by_player_ai": {
+                                "description": "default=true",
+                                "type": "boolean"
+                            },
+                            "spawn_units": {
+                                "type": "object",
+                                "properties": {
+                                    "formation_type": {
+                                        "$ref": "#/$defs/formation_type"
+                                    },
+                                    "random_units": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "options": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "forced_leveled_up_ability": {
+                                                            "$ref": "#/$defs/ability_definition_ptr"
+                                                        },
+                                                        "forced_strikecraft_index": {
+                                                            "type": "integer"
+                                                        },
+                                                        "is_temporary_ruler_ship": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "items": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "$ref": "#/$defs/unit_item_definition_ptr"
+                                                            }
+                                                        },
+                                                        "level": {
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "unevaluatedProperties": false
+                                                },
+                                                "unit": {
+                                                    "$ref": "#/$defs/unit_definition_ptr"
+                                                },
+                                                "weight": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "required": [
+                                                "unit",
+                                                "weight"
+                                            ],
+                                            "unevaluatedProperties": false
+                                        }
+                                    },
+                                    "required_units": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "integer"
+                                                    },
+                                                    "minItems": 2,
+                                                    "maxItems": 2
+                                                },
+                                                "options": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "forced_leveled_up_ability": {
+                                                            "$ref": "#/$defs/ability_definition_ptr"
+                                                        },
+                                                        "forced_strikecraft_index": {
+                                                            "type": "integer"
+                                                        },
+                                                        "is_temporary_ruler_ship": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "items": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "$ref": "#/$defs/unit_item_definition_ptr"
+                                                            }
+                                                        },
+                                                        "level": {
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "unevaluatedProperties": false
+                                                },
+                                                "unit": {
+                                                    "$ref": "#/$defs/unit_definition_ptr"
+                                                }
+                                            },
+                                            "required": [
+                                                "unit"
+                                            ],
+                                            "unevaluatedProperties": false
+                                        }
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            },
+                            "spawn_units_ownership_type": {
+                                "description": "default=targeting_player",
+                                "type": "string",
+                                "enum": [
+                                    "npc_player",
+                                    "targeting_player"
+                                ]
+                            },
+                            "special_operation_unit_kind": {
+                                "type": "string"
+                            },
+                            "supply": {
+                                "type": "integer"
+                            },
+                            "target_alert": {
+                                "type": "string",
+                                "enum": [
+                                    "ping_attention",
+                                    "ping_attack",
+                                    "ping_defend",
+                                    "rallied_to",
+                                    "positive_buff",
+                                    "negative_buff",
+                                    "targeted_by_ability"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "spawn_units"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "required": [
+                    "spawn_units"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "alliance"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "alliance": {
+                        "type": "object",
+                        "properties": {
+                            "alliance_type": {
+                                "description": "todo_json_object",
+                                "type": "string",
+                                "enum": [
+                                    "cease_fire",
+                                    "share_vision",
+                                    "synergy"
+                                ]
+                            },
+                            "duration_in_minutes": {
+                                "description": "todo_json_object",
+                                "type": "number"
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                },
+                "required": [
+                    "alliance"
+                ]
+            }
+        },
+        {
+            "if": {
+                "properties": {
+                    "type": {
+                        "const": "player_modifiers"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "player_modifiers": {
+                        "type": "object",
+                        "properties": {
+                            "duration_in_minutes": {
+                                "description": "todo_json_object",
+                                "type": "number"
+                            },
+                            "player_modifiers": {
+                                "description": "todo_json_object",
+                                "$ref": "#/$defs/player_modifiers_definition"
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                },
+                "required": [
+                    "player_modifiers"
+                ]
+            }
+        }
+    ],
+    "unevaluatedProperties": false,
+    "$defs": {
+        "brush_ptr": {
+            "type": "string"
+        },
+        "ability_definition_ptr": {
+            "type": "string"
+        },
+        "action_data_source_definition_ptr": {
+            "type": "string"
+        },
+        "weapon_tag": {
+            "type": "string"
+        },
+        "asset_values": {
+            "type": "object",
+            "properties": {
+                "credits": {
+                    "type": "number"
+                },
+                "crystal": {
+                    "type": "number"
+                },
+                "metal": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_item_definition_ptr": {
+            "type": "string"
+        },
+        "exotic_type_count": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "number"
+                },
+                "exotic_type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "count",
+                "exotic_type"
+            ],
+            "unevaluatedProperties": false
+        },
+        "asset_type": {
+            "type": "string",
+            "enum": [
+                "credits",
+                "metal",
+                "crystal"
+            ]
+        },
+        "weapon_tag_set": {
+            "type": "string"
+        },
+        "buff_definition_ptr": {
+            "type": "string"
+        },
+        "structure_slot_type": {
+            "type": "string",
+            "enum": [
+                "civilian",
+                "military"
+            ]
+        },
+        "exotic_type": {
+            "type": "string"
+        },
+        "formation_type": {
+            "type": "string",
+            "enum": [
+                "ships_and_structures",
+                "strikecraft_only"
+            ]
+        },
+        "localized_text_ptr": {
+            "type": "string"
+        },
+        "npc_random_exotics_reward_definition": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "exotics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "count",
+                "exotics"
+            ],
+            "unevaluatedProperties": false
+        },
+        "npc_random_item_reward": {
+            "type": "object",
+            "properties": {
+                "item": {
+                    "$ref": "#/$defs/unit_item_definition_ptr"
+                },
+                "weight": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "item",
+                "weight"
+            ],
+            "unevaluatedProperties": false
+        },
+        "npc_tags": {
+            "type": "string"
+        },
+        "planet_type": {
+            "type": "string"
+        },
+        "player_modifiers_definition": {
+            "type": "object",
+            "properties": {
+                "empire_modifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "modifier_type": {
+                                "type": "string",
+                                "enum": [
+                                    "credit_income_rate",
+                                    "metal_income_rate",
+                                    "crystal_income_rate",
+                                    "percentage_of_other_players_total_credit_income",
+                                    "surveying_bonus_exotic_chance",
+                                    "factory_build_exotic_price",
+                                    "civilian_research_rate",
+                                    "military_research_rate",
+                                    "max_supply",
+                                    "trade_credits_income_rate",
+                                    "trade_metal_income_rate",
+                                    "trade_crystal_income_rate",
+                                    "max_influence_points",
+                                    "influence_points_recharge_rate",
+                                    "unity_points",
+                                    "unity_max_mana_points",
+                                    "unity_mana_restore_rate"
+                                ]
+                            },
+                            "value": {
+                                "type": "number"
+                            },
+                            "value_behavior": {
+                                "type": "string",
+                                "enum": [
+                                    "additive",
+                                    "scalar"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "modifier_type",
+                            "value",
+                            "value_behavior"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "exotic_factory_modifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "exotic_types": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/exotic_type"
+                                }
+                            },
+                            "modifier_type": {
+                                "type": "string",
+                                "enum": [
+                                    "build_time"
+                                ]
+                            },
+                            "value": {
+                                "type": "number"
+                            },
+                            "value_behavior": {
+                                "type": "string",
+                                "enum": [
+                                    "additive",
+                                    "scalar"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "modifier_type",
+                            "value",
+                            "value_behavior"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "npc_modifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "modifier_type": {
+                                "type": "string",
+                                "enum": [
+                                    "buy_metal_credits_cost",
+                                    "sell_metal_credits_received",
+                                    "buy_crystal_credits_cost",
+                                    "sell_crystal_credits_received",
+                                    "sell_exotic_credits_received",
+                                    "send_raid_supply",
+                                    "auction_bid_bonus_influence_points",
+                                    "reputation_ability_cooldown_duration"
+                                ]
+                            },
+                            "tags": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/npc_tags"
+                                }
+                            },
+                            "value": {
+                                "type": "number"
+                            },
+                            "value_behavior": {
+                                "type": "string",
+                                "enum": [
+                                    "additive",
+                                    "scalar"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "modifier_type",
+                            "value",
+                            "value_behavior"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "planet_modifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "dynamic_multiplier": {
+                                "type": "string",
+                                "enum": [
+                                    "used_supply_percentage",
+                                    "inverse_used_supply_percentage"
+                                ]
+                            },
+                            "modifier_type": {
+                                "type": "string",
+                                "enum": [
+                                    "max_civilian_structure_slots",
+                                    "max_military_structure_slots",
+                                    "commerce_track_credit_income_rate",
+                                    "mining_track_metal_income_rate",
+                                    "mining_track_crystal_income_rate",
+                                    "orbital_extraction_metal_income_rate",
+                                    "orbital_extraction_crystal_income_rate",
+                                    "civilian_research_points",
+                                    "military_research_points",
+                                    "civilian_research_rate",
+                                    "military_research_rate",
+                                    "culture_rate",
+                                    "culture_resistance_rate",
+                                    "unity_points",
+                                    "max_health_points",
+                                    "health_points_restore_rate",
+                                    "max_shield_points",
+                                    "shield_points_restore_rate",
+                                    "factory_unit_build_price",
+                                    "factory_unit_build_time",
+                                    "factory_exotic_build_time",
+                                    "any_development_track_build_price",
+                                    "any_development_track_build_time",
+                                    "defense_track_build_price",
+                                    "defense_track_build_time",
+                                    "logistics_track_build_price",
+                                    "logistics_track_build_time",
+                                    "commerce_track_build_price",
+                                    "commerce_track_build_time",
+                                    "mining_track_build_price",
+                                    "mining_track_build_time",
+                                    "research_track_build_price",
+                                    "research_track_build_time",
+                                    "surveying_track_build_price",
+                                    "surveying_track_build_time",
+                                    "structure_build_price",
+                                    "structure_build_time",
+                                    "gravity_well_radius",
+                                    "structure_builder_count",
+                                    "max_garrison_supply",
+                                    "bombing_damage_taken",
+                                    "planet_component_price",
+                                    "max_planet_component_slots",
+                                    "max_influence_points"
+                                ]
+                            },
+                            "planet_types": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/planet_type"
+                                }
+                            },
+                            "value": {
+                                "type": "number"
+                            },
+                            "value_behavior": {
+                                "type": "string",
+                                "enum": [
+                                    "additive",
+                                    "scalar"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "modifier_type",
+                            "value",
+                            "value_behavior"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "strikecraft_modifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "modifier_type": {
+                                "type": "string",
+                                "enum": [
+                                    "squadron_size"
+                                ]
+                            },
+                            "strikecraft_kinds": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/strikecraft_types"
+                                }
+                            },
+                            "value": {
+                                "type": "number"
+                            },
+                            "value_behavior": {
+                                "type": "string",
+                                "enum": [
+                                    "additive",
+                                    "scalar"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "modifier_type",
+                            "value",
+                            "value_behavior"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "unit_factory_modifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "build_kinds": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/unit_build_kind_name"
+                                }
+                            },
+                            "modifier_type": {
+                                "type": "string",
+                                "enum": [
+                                    "build_time"
+                                ]
+                            },
+                            "value": {
+                                "type": "number"
+                            },
+                            "value_behavior": {
+                                "type": "string",
+                                "enum": [
+                                    "additive",
+                                    "scalar"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "modifier_type",
+                            "value",
+                            "value_behavior"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "unit_modifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "modifier_type": {
+                                "type": "string",
+                                "enum": [
+                                    "ability_cooldown_duration",
+                                    "ability_antimatter_cost",
+                                    "ability_hull_cost",
+                                    "ability_armor_cost",
+                                    "ability_shields_cost",
+                                    "ability_range",
+                                    "max_antimatter",
+                                    "antimatter_restore_rate",
+                                    "max_linear_speed",
+                                    "max_linear_acceleration",
+                                    "max_angular_speed",
+                                    "hyperspace_charge_time",
+                                    "hyperspace_speed",
+                                    "max_hull_points",
+                                    "hull_crippled_percentage",
+                                    "hull_point_restore_rate",
+                                    "hull_point_restore_cooldown_duration_after_damage_taken",
+                                    "max_armor_points",
+                                    "armor_point_restore_rate",
+                                    "armor_point_restore_cooldown_duration_after_damage_taken",
+                                    "armor_strength",
+                                    "max_shield_points",
+                                    "shield_point_restore_rate",
+                                    "shield_point_restore_cooldown_duration_after_damage_taken",
+                                    "shield_burst_restore_points",
+                                    "shield_burst_restore_cooldown_duration",
+                                    "damage_taken",
+                                    "experience_gained_from_unit_death",
+                                    "experience_gained_from_planet_bombing",
+                                    "experience_gained_from_loot_collection",
+                                    "experience_given_on_death",
+                                    "max_squadron_capacity",
+                                    "strikecraft_build_time",
+                                    "credit_income_rate",
+                                    "metal_income_rate",
+                                    "crystal_income_rate",
+                                    "civilian_research_points",
+                                    "military_research_points",
+                                    "culture_rate",
+                                    "culture_resistance_rate",
+                                    "ship_component_price",
+                                    "self_build_time",
+                                    "spell_power",
+                                    "unity_points",
+                                    "trade_import_points",
+                                    "trade_export_credits_points",
+                                    "trade_export_metal_points",
+                                    "trade_export_crystal_points",
+                                    "loot_collection_duration",
+                                    "phase_resonance_bonus_duration"
+                                ]
+                            },
+                            "tags": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/unit_tag"
+                                }
+                            },
+                            "value": {
+                                "type": "number"
+                            },
+                            "value_behavior": {
+                                "type": "string",
+                                "enum": [
+                                    "additive",
+                                    "scalar"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "modifier_type",
+                            "value",
+                            "value_behavior"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "weapon_modifiers": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "modifier_type": {
+                                "type": "string",
+                                "enum": [
+                                    "damage",
+                                    "cooldown_duration",
+                                    "range",
+                                    "tracking_speed",
+                                    "bypass_shields_chance"
+                                ]
+                            },
+                            "tags": {
+                                "$ref": "#/$defs/weapon_tag_set"
+                            },
+                            "value": {
+                                "type": "number"
+                            },
+                            "value_behavior": {
+                                "type": "string",
+                                "enum": [
+                                    "additive",
+                                    "scalar"
+                                ]
+                            },
+                            "weapon_type": {
+                                "type": "string",
+                                "enum": [
+                                    "normal",
+                                    "planet_bombing"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "value",
+                            "value_behavior"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "ship_role": {
+            "type": "string",
+            "enum": [
+                "explore",
+                "colonize",
+                "attack_ship",
+                "anti_structure",
+                "bomb_planet",
+                "raid"
+            ]
+        },
+        "unit_definition_ptr": {
+            "type": "string"
+        },
+        "spawn_units_definition": {
+            "type": "object",
+            "properties": {
+                "formation_type": {
+                    "$ref": "#/$defs/formation_type"
+                },
+                "random_units": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "options": {
+                                "type": "object",
+                                "properties": {
+                                    "forced_leveled_up_ability": {
+                                        "$ref": "#/$defs/ability_definition_ptr"
+                                    },
+                                    "forced_strikecraft_index": {
+                                        "type": "integer"
+                                    },
+                                    "is_temporary_ruler_ship": {
+                                        "type": "boolean"
+                                    },
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/$defs/unit_item_definition_ptr"
+                                        }
+                                    },
+                                    "level": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            },
+                            "unit": {
+                                "$ref": "#/$defs/unit_definition_ptr"
+                            },
+                            "weight": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "unit",
+                            "weight"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "required_units": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "count": {
+                                "type": "array",
+                                "items": {
+                                    "type": "integer"
+                                },
+                                "minItems": 2,
+                                "maxItems": 2
+                            },
+                            "options": {
+                                "type": "object",
+                                "properties": {
+                                    "forced_leveled_up_ability": {
+                                        "$ref": "#/$defs/ability_definition_ptr"
+                                    },
+                                    "forced_strikecraft_index": {
+                                        "type": "integer"
+                                    },
+                                    "is_temporary_ruler_ship": {
+                                        "type": "boolean"
+                                    },
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "$ref": "#/$defs/unit_item_definition_ptr"
+                                        }
+                                    },
+                                    "level": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            },
+                            "unit": {
+                                "$ref": "#/$defs/unit_definition_ptr"
+                            }
+                        },
+                        "required": [
+                            "unit"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "strikecraft_types": {
+            "type": "string"
+        },
+        "target_filter": {
+            "type": "object",
+            "properties": {
+                "constraints": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "constraint_type": {
+                                "type": "string",
+                                "enum": [
+                                    "has_definition",
+                                    "has_ability",
+                                    "has_adjacent_planet_with_ownership",
+                                    "has_antimatter",
+                                    "has_buff",
+                                    "has_missing_hull",
+                                    "has_missing_armor",
+                                    "has_missing_shields",
+                                    "has_missing_antimatter",
+                                    "has_missing_strikecraft",
+                                    "has_mutation",
+                                    "has_orders",
+                                    "has_permission",
+                                    "has_recently_been_damaged",
+                                    "has_recently_fired_weapon",
+                                    "has_build_price",
+                                    "has_health",
+                                    "has_shields",
+                                    "has_weapon",
+                                    "has_experience",
+                                    "has_planet_type",
+                                    "has_ship_role",
+                                    "has_unit_level",
+                                    "weapon_has_target",
+                                    "is_always_a_threat",
+                                    "is_bombing_planet",
+                                    "is_carrier",
+                                    "is_asteroid",
+                                    "is_colonizable_planet",
+                                    "is_culture_provider",
+                                    "is_explored_planet",
+                                    "is_fully_built",
+                                    "is_unit_factory",
+                                    "is_unit_factory_building_units",
+                                    "is_structure_with_slot_type",
+                                    "is_structure_plate_spin_changing",
+                                    "is_building_structures",
+                                    "is_detected",
+                                    "is_dead_soon",
+                                    "is_friendly",
+                                    "is_in_fleet",
+                                    "is_in_current_gravity_well",
+                                    "is_in_dominant_culture",
+                                    "is_inner_planet",
+                                    "can_ever_hyperspace",
+                                    "can_ever_move",
+                                    "not_self",
+                                    "composite_not",
+                                    "composite_and",
+                                    "composite_or"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "constraint_type"
+                        ],
+                        "anyOf": [
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_definition"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "unit_definition": {
+                                            "$ref": "#/$defs/unit_definition_ptr"
+                                        }
+                                    },
+                                    "required": [
+                                        "unit_definition"
+                                    ]
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_ability"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_adjacent_planet_with_ownership"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "max_jump_distance": {
+                                            "description": "how many jumps to consider as adjacent. Must be > 0. Default = 1",
+                                            "type": "integer",
+                                            "minimum": 1
+                                        },
+                                        "targeter_relationship_type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "self",
+                                                "ally",
+                                                "enemy",
+                                                "none"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "targeter_relationship_type"
+                                    ]
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_antimatter"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_buff"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "buff": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "buff"
+                                    ]
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_missing_hull"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "amount_missing_threshold": {
+                                            "type": "number"
+                                        },
+                                        "percentage_missing_threshold": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_missing_armor"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "amount_missing_threshold": {
+                                            "type": "number"
+                                        },
+                                        "percentage_missing_threshold": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_missing_shields"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "amount_missing_threshold": {
+                                            "type": "number"
+                                        },
+                                        "percentage_missing_threshold": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_missing_antimatter"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "amount_missing_threshold": {
+                                            "type": "number"
+                                        },
+                                        "percentage_missing_threshold": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_missing_strikecraft"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "amount_missing_threshold": {
+                                            "type": "number"
+                                        },
+                                        "percentage_missing_threshold": {
+                                            "type": "number"
+                                        },
+                                        "strikecraft_kind": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_mutation"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "mutation": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "mutation"
+                                    ]
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_orders"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_permission"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "permission_type": {
+                                            "$ref": "#/$defs/unit_permission_type"
+                                        }
+                                    },
+                                    "required": [
+                                        "permission_type"
+                                    ]
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_recently_been_damaged"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_recently_fired_weapon"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "weapon_type": {
+                                            "description": "default=normal",
+                                            "$ref": "#/$defs/weapon_type"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_build_price"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_health"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_shields"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_weapon"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "tag": {
+                                            "$ref": "#/$defs/weapon_tag"
+                                        },
+                                        "weapon_type": {
+                                            "$ref": "#/$defs/weapon_type"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_experience"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_planet_type"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "planet_types": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/$defs/planet_type"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "planet_types"
+                                    ]
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_ship_role"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "ship_roles": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/$defs/ship_role"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "ship_roles"
+                                    ]
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "has_unit_level"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "comparison_type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "less_than",
+                                                "less_than_equal_to",
+                                                "equal_to",
+                                                "equal_to_less_one",
+                                                "greater_than_equal_to",
+                                                "greater_than"
+                                            ]
+                                        },
+                                        "value_source": {
+                                            "type": "string",
+                                            "enum": [
+                                                "constraint_params",
+                                                "internal"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "comparison_type",
+                                        "value_source"
+                                    ],
+                                    "if": {
+                                        "properties": {
+                                            "value_source": {
+                                                "const": "internal"
+                                            }
+                                        }
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "internal_level": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "required": [
+                                            "internal_level"
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "weapon_has_target"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "weapon_type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "normal",
+                                                "planet_bombing"
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_always_a_threat"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_bombing_planet"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_carrier"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_asteroid"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "asset_type": {
+                                            "$ref": "#/$defs/asset_type"
+                                        }
+                                    },
+                                    "required": [
+                                        "asset_type"
+                                    ]
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_colonizable_planet"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "ignore_current_ownership": {
+                                            "description": "default=false",
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_culture_provider"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "has_base_culture_rate": {
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_explored_planet"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_fully_built"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_unit_factory"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "must_be_functional": {
+                                            "description": "default=false",
+                                            "type": "boolean"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_unit_factory_building_units"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_structure_with_slot_type"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "slot_type": {
+                                            "$ref": "#/$defs/structure_slot_type"
+                                        }
+                                    },
+                                    "required": [
+                                        "slot_type"
+                                    ]
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_structure_plate_spin_changing"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_building_structures"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_detected"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_dead_soon"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_friendly"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_in_fleet"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_in_current_gravity_well"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_in_dominant_culture"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "dominant_culture_player_relationship": {
+                                            "description": "relationship between targeter player and culture player",
+                                            "type": "string",
+                                            "enum": [
+                                                "self",
+                                                "ally",
+                                                "enemy",
+                                                "none"
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "is_inner_planet"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "can_ever_hyperspace"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "can_ever_move"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "not_self"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "composite_not"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "constraint": {
+                                            "$ref": "#/$defs/unit_constraint"
+                                        }
+                                    },
+                                    "required": [
+                                        "constraint"
+                                    ]
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "composite_and"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "constraints": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/$defs/unit_constraint"
+                                            },
+                                            "minItems": 2,
+                                            "maxItems": 5
+                                        }
+                                    },
+                                    "required": [
+                                        "constraints"
+                                    ]
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
+                                            "const": "composite_or"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "constraints": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/$defs/unit_constraint"
+                                            },
+                                            "minItems": 2,
+                                            "maxItems": 5
+                                        }
+                                    },
+                                    "required": [
+                                        "constraints"
+                                    ]
+                                }
+                            }
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "exemptions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "is_dead",
+                            "is_fully_unbuilt",
+                            "is_not_explored",
+                            "is_in_phase_space"
+                        ]
+                    }
+                },
+                "ownerships": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "none",
+                            "self",
+                            "ally",
+                            "friendly",
+                            "enemy"
+                        ]
+                    }
+                },
+                "respect_can_be_targeted_permissions": {
+                    "description": "default=true",
+                    "type": "boolean"
+                },
+                "unit_definitions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/unit_definition_ptr"
+                    }
+                },
+                "unit_types": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/target_filter_unit_type"
+                    },
+                    "maxItems": 19
+                }
+            },
+            "required": [
+                "ownerships"
+            ],
+            "unevaluatedProperties": false
+        },
+        "target_filter_unit_type": {
+            "type": "string"
+        },
+        "unit_build_kind_name": {
+            "type": "string"
+        },
+        "unit_constraint": {
+            "type": "object",
+            "properties": {
+                "constraint_type": {
+                    "type": "string",
+                    "enum": [
+                        "has_definition",
+                        "has_ability",
+                        "has_adjacent_planet_with_ownership",
+                        "has_antimatter",
+                        "has_buff",
+                        "has_missing_hull",
+                        "has_missing_armor",
+                        "has_missing_shields",
+                        "has_missing_antimatter",
+                        "has_missing_strikecraft",
+                        "has_mutation",
+                        "has_orders",
+                        "has_permission",
+                        "has_recently_been_damaged",
+                        "has_recently_fired_weapon",
+                        "has_build_price",
+                        "has_health",
+                        "has_shields",
+                        "has_weapon",
+                        "has_experience",
+                        "has_planet_type",
+                        "has_ship_role",
+                        "has_unit_level",
+                        "weapon_has_target",
+                        "is_always_a_threat",
+                        "is_bombing_planet",
+                        "is_carrier",
+                        "is_asteroid",
+                        "is_colonizable_planet",
+                        "is_culture_provider",
+                        "is_explored_planet",
+                        "is_fully_built",
+                        "is_unit_factory",
+                        "is_unit_factory_building_units",
+                        "is_structure_with_slot_type",
+                        "is_structure_plate_spin_changing",
+                        "is_building_structures",
+                        "is_detected",
+                        "is_dead_soon",
+                        "is_friendly",
+                        "is_in_fleet",
+                        "is_in_current_gravity_well",
+                        "is_in_dominant_culture",
+                        "is_inner_planet",
+                        "can_ever_hyperspace",
+                        "can_ever_move",
+                        "not_self",
+                        "composite_not",
+                        "composite_and",
+                        "composite_or"
+                    ]
+                }
+            },
+            "required": [
+                "constraint_type"
+            ],
+            "anyOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_definition"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "unit_definition": {
+                                "$ref": "#/$defs/unit_definition_ptr"
+                            }
+                        },
+                        "required": [
+                            "unit_definition"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_ability"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_adjacent_planet_with_ownership"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "max_jump_distance": {
+                                "description": "how many jumps to consider as adjacent. Must be > 0. Default = 1",
+                                "type": "integer",
+                                "minimum": 1
+                            },
+                            "targeter_relationship_type": {
+                                "type": "string",
+                                "enum": [
+                                    "self",
+                                    "ally",
+                                    "enemy",
+                                    "none"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "targeter_relationship_type"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_antimatter"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_buff"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "buff": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "buff"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_missing_hull"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "amount_missing_threshold": {
+                                "type": "number"
+                            },
+                            "percentage_missing_threshold": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_missing_armor"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "amount_missing_threshold": {
+                                "type": "number"
+                            },
+                            "percentage_missing_threshold": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_missing_shields"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "amount_missing_threshold": {
+                                "type": "number"
+                            },
+                            "percentage_missing_threshold": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_missing_antimatter"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "amount_missing_threshold": {
+                                "type": "number"
+                            },
+                            "percentage_missing_threshold": {
+                                "type": "number"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_missing_strikecraft"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "amount_missing_threshold": {
+                                "type": "number"
+                            },
+                            "percentage_missing_threshold": {
+                                "type": "number"
+                            },
+                            "strikecraft_kind": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_mutation"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "mutation": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "mutation"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_orders"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_permission"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "permission_type": {
+                                "$ref": "#/$defs/unit_permission_type"
+                            }
+                        },
+                        "required": [
+                            "permission_type"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_recently_been_damaged"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_recently_fired_weapon"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "weapon_type": {
+                                "description": "default=normal",
+                                "$ref": "#/$defs/weapon_type"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_build_price"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_health"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_shields"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_weapon"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "tag": {
+                                "$ref": "#/$defs/weapon_tag"
+                            },
+                            "weapon_type": {
+                                "$ref": "#/$defs/weapon_type"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_experience"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_planet_type"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "planet_types": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/planet_type"
+                                }
+                            }
+                        },
+                        "required": [
+                            "planet_types"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_ship_role"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "ship_roles": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/ship_role"
+                                }
+                            }
+                        },
+                        "required": [
+                            "ship_roles"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_unit_level"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "comparison_type": {
+                                "type": "string",
+                                "enum": [
+                                    "less_than",
+                                    "less_than_equal_to",
+                                    "equal_to",
+                                    "equal_to_less_one",
+                                    "greater_than_equal_to",
+                                    "greater_than"
+                                ]
+                            },
+                            "value_source": {
+                                "type": "string",
+                                "enum": [
+                                    "constraint_params",
+                                    "internal"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "comparison_type",
+                            "value_source"
+                        ],
+                        "if": {
+                            "properties": {
+                                "value_source": {
+                                    "const": "internal"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "internal_level": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "internal_level"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "weapon_has_target"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "weapon_type": {
+                                "type": "string",
+                                "enum": [
+                                    "normal",
+                                    "planet_bombing"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_always_a_threat"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_bombing_planet"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_carrier"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_asteroid"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "asset_type": {
+                                "$ref": "#/$defs/asset_type"
+                            }
+                        },
+                        "required": [
+                            "asset_type"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_colonizable_planet"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "ignore_current_ownership": {
+                                "description": "default=false",
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_culture_provider"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "has_base_culture_rate": {
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_explored_planet"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_fully_built"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_unit_factory"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "must_be_functional": {
+                                "description": "default=false",
+                                "type": "boolean"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_unit_factory_building_units"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_structure_with_slot_type"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "slot_type": {
+                                "$ref": "#/$defs/structure_slot_type"
+                            }
+                        },
+                        "required": [
+                            "slot_type"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_structure_plate_spin_changing"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_building_structures"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_detected"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_dead_soon"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_friendly"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_in_fleet"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_in_current_gravity_well"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_in_dominant_culture"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "dominant_culture_player_relationship": {
+                                "description": "relationship between targeter player and culture player",
+                                "type": "string",
+                                "enum": [
+                                    "self",
+                                    "ally",
+                                    "enemy",
+                                    "none"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "is_inner_planet"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "can_ever_hyperspace"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "can_ever_move"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "not_self"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "composite_not"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "constraint": {
+                                "$ref": "#/$defs/unit_constraint"
+                            }
+                        },
+                        "required": [
+                            "constraint"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "composite_and"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "constraints": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/unit_constraint"
+                                },
+                                "minItems": 2,
+                                "maxItems": 5
+                            }
+                        },
+                        "required": [
+                            "constraints"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "composite_or"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "constraints": {
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/$defs/unit_constraint"
+                                },
+                                "minItems": 2,
+                                "maxItems": 5
+                            }
+                        },
+                        "required": [
+                            "constraints"
+                        ]
+                    }
+                }
+            ],
+            "unevaluatedProperties": false
+        },
+        "unit_permission_type": {
+            "type": "string",
+            "enum": [
+                "can_hyperspace",
+                "can_be_targeted_by_allies",
+                "can_be_targeted_by_enemies",
+                "can_be_damaged",
+                "can_planet_be_damaged",
+                "can_have_hull_restored",
+                "can_have_armor_restored",
+                "can_have_shields_restored",
+                "can_have_shields_burst_restored",
+                "can_have_shields_bypassed",
+                "can_passively_regenerate_hull",
+                "can_passively_regenerate_armor",
+                "can_passively_regenerate_shields",
+                "can_update_build_progress",
+                "can_use_weapons",
+                "can_use_active_abilities",
+                "can_use_abilities_when_crippled",
+                "can_be_colonized",
+                "can_launch_or_dock_strikecraft",
+                "can_update_unit_production",
+                "can_create_retargeting_torpedoes"
+            ]
+        },
+        "unit_tag": {
+            "type": "string"
+        },
+        "weapon_type": {
+            "type": "string",
+            "enum": [
+                "normal",
+                "planet_bombing"
+            ]
+        }
+    }
+}

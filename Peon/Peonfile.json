@@ -1,0 +1,516 @@
+{
+    "ExcludePatterns": [
+        "**/*.bin",
+        "**/*.hlsli",
+        "**/*.texconv",
+        "**/smaa.hlsl"
+    ],
+    "Rules": [
+    {
+        "RuleName": "convert-texture",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".png",
+            ".tga"
+        ],
+        "DstFolderName": "textures",
+        "BuilderType": "ConvertTexture"
+    },
+    {
+        "RuleName": "compile-shader",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".hlsl"
+        ],
+        "BuilderType": "CompileShader",
+        "DstFolderName": "shaders",
+        "CompileShaderParams":
+        {
+            "VertexShaderProfile": "vs_5_0",
+            "PixelShaderProfile": "ps_5_0",
+            "ComputeShaderProfile": "cs_5_0",
+            "EnableStrictMode": true,
+            "EnableWarningsAsErrors": true,
+            "EnableDebuggingInformation": false,
+            "DisableOptimizations": false
+        }
+    },
+    {
+        "RuleName": "copy-texture",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".dds"
+        ],
+        "DstFolderName": "textures",
+        "BuilderType": "CopyFile"
+    },
+    {
+        "RuleName": "gui",
+        "DstFolderName": "gui",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".gui"
+        ],
+        "BuilderType": "CopyJsonFile"
+    },
+    {
+        "RuleName": "button_style",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".button_style"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "gui"
+    },
+    {
+        "RuleName": "label_style",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".label_style"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "gui"
+    },
+    {
+        "RuleName": "text_entry_box_style",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".text_entry_box_style"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "gui"
+    },
+    {
+        "RuleName": "drop_box_style",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".drop_box_style"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "gui"
+    },
+    {
+        "RuleName": "reflect_box_style",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".reflect_box_style"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "gui"
+    },
+    {
+        "RuleName": "list_box_style",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".list_box_style"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "gui"
+    },
+    {
+        "RuleName": "scroll_bar_style",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".scroll_bar_style"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "gui"
+    },
+    {
+        "RuleName": "mesh_material",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".mesh_material"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "mesh_materials"
+    },
+    {
+        "RuleName": "brush",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".brush"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "brushes",
+        "JsonSchemaName": "brush-schema.json"
+    },
+    {
+        "RuleName": "brush_animation",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".brush_animation"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "brushes"
+    },
+    {
+        "RuleName": "font",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".font",
+            ".ttf"
+        ],
+        "BuilderType": "CopyFile",
+        "DstFolderName": "fonts"
+    },
+    {
+        "RuleName": "build_localized_text",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".localized_text_csv"
+        ],
+        "DstExtension": ".localized_text",
+        "DstFolderName": "localized_text",
+        "BuilderType": "RunProcess",
+        "RunProcessParams":
+        {
+            "ProcessFileName": "LocalizedTextBuilder/bin/LocalizedTextBuilder.exe",
+            "ProcessArgumentsFormat": "--input_path {0} --output_path {1}"
+        }
+    },
+    {
+        "RuleName": "entity_manifest",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".entity_manifest"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "entities"
+    },
+    {
+        "RuleName": "buff",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".buff"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "buff-schema.json"
+    },{
+        "RuleName": "player",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".player"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "player-schema.json"
+    },{
+        "RuleName": "ability",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".ability"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "ability-schema.json"
+    },
+    {
+        "RuleName": "action_data_source",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".action_data_source"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "action-data-source-schema.json"
+    },{
+        "RuleName": "npc_rewards",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".npc_reward"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "npc-reward-schema.json"
+    },
+    {
+        "RuleName": "formation",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".formation"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "formation-schema.json"
+    },
+    {
+        "RuleName": "exotic",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".exotic"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "exotic-schema.json"
+    },
+    {
+        "RuleName": "weapon",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".weapon"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "weapon-schema.json"
+    },
+    {
+        "RuleName": "flight_pattern",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".flight_pattern"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "flight-pattern-schema.json"
+    },
+    {
+        "RuleName": "research_subject",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".research_subject"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "research-subject-schema.json"
+    },
+    {
+        "RuleName": "unit_skin",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".unit_skin"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "unit-skin-schema.json"
+    },
+    {
+        "RuleName": "unit_item",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+          ".unit_item"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "unit-item-schema.json"
+    },
+    {
+        "RuleName": "player",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".player"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "player-schema.json"
+    },
+    {
+        "RuleName": "unit",
+        "DstFolderName": "entities",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".unit"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "JsonSchemaName": "unit-schema.json"
+    },
+    {
+
+        "RuleName": "death_sequence_group",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".death_sequence_group"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "death_sequences"
+    },
+    {
+        "RuleName": "death_sequence",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".death_sequence"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "death_sequences"
+    },
+    {
+        "RuleName": "uniforms",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".uniforms"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "uniforms"
+    },
+    {
+        "RuleName": "scenarios",
+        "RuleType": "MatchFolderName",
+        "FolderNameToMatch": "scenarios",
+        "DstFolderName": "scenarios",
+        "DstExtension": ".scenario",
+        "BuilderType": "ZipFolder"
+    },
+    {
+        "RuleName": "cursors",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".cursor"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "cursors"
+    },
+    {
+        "RuleName": "named_colors",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".named_colors"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "colors"
+    },
+    {
+        "RuleName": "skybox",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".skybox"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "skyboxes"
+    },
+    {
+        "RuleName": "gravity_well_props",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".gravity_well_props"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "gravity_well_props"
+    },
+    {
+        "RuleName": "particle_effect",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".particle_effect"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "effects"
+    },
+    {
+        "RuleName": "exhaust_trail_effect",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".exhaust_trail_effect"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "effects"
+    },
+    {
+        "RuleName": "shield_effect",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".shield_effect"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "effects"
+    },
+    {
+        "RuleName": "beam_effect",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".beam_effect"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "effects"
+    },
+    {
+        "RuleName": "texture_animation",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".texture_animation"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "texture_animations"
+    },
+    {
+        "RuleName": "sound",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".sound"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "sounds"
+    },
+    {
+        "RuleName": "sound_data",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".ogg"
+        ],
+        "BuilderType": "CopyFile",
+        "DstFolderName": "sounds"
+    },
+    {
+        "RuleName": "player_color_group",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".player_color_group"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "player_colors"
+    },
+    {
+        "RuleName": "player_icon",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".player_icon"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "player_icons"
+    },
+    {
+        "RuleName": "player_portrait",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".player_portrait"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "player_portraits"
+    },
+    {
+        "RuleName": "auto_start",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".auto_start"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "auto_start"
+    },
+    {
+        "RuleName": "welcome_message",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".welcome_message"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "welcome"
+    },
+    {
+        "RuleName": "gdpr_accept_data",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".gdpr_accept_data"
+        ],
+        "BuilderType": "CopyJsonFile",
+        "DstFolderName": "gdpr"
+    },
+    {
+        "RuleName": "video",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".webm"
+        ],
+        "BuilderType": "CopyFile",
+        "DstFolderName": "videos"
+    }]
+}

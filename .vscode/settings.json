@@ -1,0 +1,101 @@
+{
+    "files.associations":
+    {
+        "*.gltf": "json",
+        "*.cursor": "json",
+        "*.gui": "json",
+        "*.scroll_bar_style": "json",
+        "*.list_box_style": "json",
+        "*.label_style": "json",
+        "*.button_style": "json",
+        "*.drop_box_style": "json",
+        "*.text_entry_box_style": "json",
+        "*.reflect_box_style": "json",
+        "*.font": "json",
+        "*.localized_text": "json",
+        "*.named_colors": "json",
+        "*.player": "json",
+        "*.unit": "json",
+        "*.unit_skin": "json",
+        "*.flight_pattern": "json",
+        "*.action_data_source": "json",
+        "*.buff": "json",
+        "*.ability": "json",
+        "*.weapon": "json",
+        "*.formation": "json",
+        "*.research_subject": "json",
+        "*.unit_item": "json",
+        "*.npc_reward": "json",
+        "*.exotic": "json",
+        "*.entity_manifest": "json",
+        "*.uniforms": "json",
+        "*.scenario": "json",
+        "*.particle_effect": "json",
+        "*.beam_effect": "json",
+        "*.hud_skin": "json",
+        "*.brush": "json",
+        "*.mesh_material": "json",
+        "*.player_color_group": "json",
+        "*.player_icon": "json",
+        "*.player_portrait": "json",
+        "*.death_sequence": "json",
+        "*.death_sequence_group": "json",
+        "*.texture_animation": "json",
+        "*.sound": "json"
+    },
+    "json.schemas": [
+    {
+        "fileMatch": ["*.ability"],
+        "url": "./json_schemas/ability-schema.json"
+    },{
+        "fileMatch": ["*.action_data_source"],
+        "url": "./json_schemas/action-data-source-schema.json"
+    },
+    {
+        "fileMatch": ["*.brush"],
+        "url": "./json_schemas/brush-schema.json"
+    },
+    {
+        "fileMatch": ["*.buff"],
+        "url": "./json_schemas/buff-schema.json"
+    },
+    {
+        "fileMatch": ["*.formation"],
+        "url": "./json_schemas/formation-schema.json"
+    },
+    {
+        "fileMatch": ["*.exotic"],
+        "url": "./json_schemas/exotic-schema.json"
+    },
+    {
+        "fileMatch": ["*.flight_pattern"],
+        "url": "./json_schemas/flight-pattern-schema.json"
+    },
+    {
+        "fileMatch": ["*.npc_reward"],
+        "url": "./json_schemas/npc-reward-schema.json"
+    },
+    {
+        "fileMatch": ["*.player"],
+        "url": "./json_schemas/player-schema.json"
+    },
+    {
+        "fileMatch": ["*.research_subject"],
+        "url": "./json_schemas/research-subject-schema.json"
+    },{
+        "fileMatch": ["*.unit"],
+        "url": "./json_schemas/unit-schema.json"
+    },
+    {
+        "fileMatch": ["*.unit_item"],
+        "url": "./json_schemas/unit-item-schema.json"
+    },
+    {
+        "fileMatch": ["*.unit_skin"],
+        "url": "./json_schemas/unit-skin-schema.json"
+    },
+    {
+        "fileMatch": ["*.weapon"],
+        "url": "./json_schemas/weapon-schema.json"
+    }]
+}

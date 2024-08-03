@@ -1,0 +1,174 @@
+{
+    "version": 0,
+    "spatial":
+    {
+        "radius": 17.525772,
+        "box":
+        {
+            "center": [-0.000266, -2.234797, 1.096578],
+            "extents": [9.529074, 7.929914, 15.051859]
+        },
+        "collision_rank": 1
+    },
+    "physics":
+    {
+        "can_move_linear": true,
+        "max_linear_speed": 12000.0,
+        "time_to_max_linear_speed": 4.0,
+        "arrival_tolerance_spatial_radius_scalar": 0.25,
+        "death_linear_speed_range": [1.0, 2.0],
+        "can_move_angular": true,
+        "max_angular_speed": 50.0,
+        "time_to_max_angular_speed": 2.5,
+        "max_bank_angle": 35.0,
+        "death_angular_speed_range": [5.0, 10.0],
+        "linear_acceleration_angle": 90.0,
+        "can_strafe_linear": true,
+        "strafe_max_linear_speed": 250.0,
+        "time_to_strafe_max_linear_speed": 8.888889,
+        "strafe_max_linear_distance_spatial_radius_scalar": 3.0,
+        "strafe_start_angle": 0.0,
+        "strafe_stop_angle": 180.0,
+        "strafe_speed_start_angle": 10.0,
+        "strafe_max_start_turning_angle": 170.0
+    },
+    "hyperspace":
+    {
+        "speed": 1550000.0,
+        "speed_between_stars": 465000.0,
+        "charge_time": 1.0,
+        "charge_time_variance": 1.0,
+        "min_charge_angle": 10.0,
+        "max_charge_angle": 45.0
+    },
+    "move":
+    {
+        "follow_distance": 339.686127
+    },
+    "attack":
+    {
+        "attack_pattern":
+        {
+            "type": "stop_and_fire"
+        }
+    },
+    "ai":
+    {
+        "attack_target_type_groups_to_ignore": [
+            "torpedo_strikecraft"
+        ],
+        "auto_follow_target_priority": -1.0
+    },
+    "ai_attack_target":
+    {
+        "attack_priority": 49.0,
+        "is_always_a_threat": false,
+        "attack_target_type": "corvette"
+    },
+    "user_interface":
+    {
+        "pip_type": "strikecraft",
+        "can_ever_be_selected": true,
+        "selection_priority": 300,
+        "selection_group_unit_type": "scout_ship",
+        "can_move": true,
+        "can_attack": true,
+        "can_show_distance_to_plane_line": true
+    },
+    "formation":
+    {
+        "leader_priority": 0,
+        "offsets_per_formation_type":
+        {
+            "ships_and_structures":
+            {
+                "rank": 2,
+                "group": 0
+            }
+        }
+    },
+    "spawn_debris":
+    {
+        "spawn_debris_time": 1.0,
+        "generic_group_name": "trader",
+        "generic_counts":
+        {
+            "small_debris": [2, 3]
+        }
+    },
+    "health":
+    {
+        "release_time_after_death": 60.0,
+        "can_collide_duration_after_death": 0.8,
+        "durability": 50.0,
+        "can_ever_be_resurrected": true,
+        "levels": [
+        {
+            "max_hull_points": 375.0,
+            "hull_point_restore_rate": 1.0,
+            "hull_point_restore_cooldown_duration_after_damage_taken": 60.0,
+            "max_armor_points": 350.0,
+            "armor_point_restore_rate": 0.8,
+            "armor_point_restore_cooldown_duration_after_damage_taken": 60.0,
+            "armor_strength": 20.0,
+            "shield_point_restore_rate": 2.0,
+            "shield_point_restore_cooldown_duration_after_damage_taken": 20.0,
+            "shield_burst_restore":
+            {
+                "cooldown_duration": 20.0,
+                "restore_percentage": 0.5
+            },
+            "experience_given_on_death": 5.0
+        }]
+    },
+    "build":
+    {
+        "build_time": 10.0,
+        "price":
+        {
+            "credits": 120.0
+        },
+        "build_kind": "corvette",
+        "supply_cost": 2,
+        "auto_cast_instead_of_rally_when_built": true,
+        "build_group_id": "corvette"
+    },
+    "unit_modifiers": [
+    {
+        "modifier_type": "hyperspace_charge_time",
+        "value_behavior": "scalar",
+        "value": -0.75,
+        "prerequisites": [
+            ["trader_scout_corvette_hyperspace_charge_time"]
+        ],
+        "is_pseudo_positive_buff": true
+    },
+    {
+        "modifier_type": "max_shield_points",
+        "value_behavior": "additive",
+        "value": 150.0,
+        "prerequisites": [
+            ["trader_shields_corvette"]
+        ]
+    }],
+    "target_filter_unit_type": "corvette",
+    "tags": [
+        "corvette"
+    ],
+    "will_notify_enemy_player_when_entering_gravity_well_override": false,
+    "abilities": [
+    {
+        "abilities": [
+            "trader_scout_corvette_scout",
+            "trader_scout_corvette_unstoppable_phase_jump"
+        ]
+    }],
+    "ship_roles": [
+        "explore"
+    ],
+    "skin_groups": [
+    {
+        "skins": [
+            "trader_scout_corvette"]
+    }]
+}

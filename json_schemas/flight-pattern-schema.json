@@ -1,0 +1,88 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Flight Pattern",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "segments": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "forward": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                    },
+                    "linear_direction": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                    },
+                    "move_limits_scalars": {
+                        "type": "object",
+                        "properties": {
+                            "max_angular_acceleration_scalar": {
+                                "type": "number"
+                            },
+                            "max_angular_deceleration_scalar": {
+                                "type": "number"
+                            },
+                            "max_angular_speed_scalar": {
+                                "type": "number"
+                            },
+                            "max_linear_acceleration_scalar": {
+                                "type": "number"
+                            },
+                            "max_linear_deceleration_scalar": {
+                                "type": "number"
+                            },
+                            "max_linear_speed_scalar": {
+                                "type": "number"
+                            },
+                            "strafe_max_linear_acceleration_scalar": {
+                                "type": "number",
+                                "minimum": 1.0
+                            },
+                            "strafe_max_linear_speed_scalar": {
+                                "type": "number",
+                                "minimum": 1.0
+                            }
+                        },
+                        "required": [
+                            "max_angular_acceleration_scalar",
+                            "max_angular_deceleration_scalar",
+                            "max_angular_speed_scalar",
+                            "max_linear_acceleration_scalar",
+                            "max_linear_deceleration_scalar",
+                            "max_linear_speed_scalar"
+                        ],
+                        "unevaluatedProperties": false
+                    },
+                    "stop_at_goal": {
+                        "type": "boolean"
+                    },
+                    "up": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                    }
+                },
+                "unevaluatedProperties": false
+            }
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "unevaluatedProperties": false
+}
