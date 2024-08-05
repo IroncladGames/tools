@@ -8,6 +8,11 @@ Iron Engine 3 was used to build [Sins of a Solar Empire II](https://store.steamp
 - Most of Iron Engine 3's tools have a soft dependency on [Python 3.x](https://www.python.org/downloads/) to automate cleaning up any JSON files that are generated.
 - Download and install `.NET Framework 4.7.2 Runtime` from https://dotnet.microsoft.com/download/dotnet-framework (needed for `SolarForge` and `Peon`)
 
+## Potential Issues
+
+- Do not have a folder structure with spaces in name as they do not work well as command line arguments necessary for Peon.
+  - `c:/My Cool Tools` should be `c:/my_cool_tools` or `c:/MyCoolTools`
+
 ## [Documentation](./docs/)
 
 - [Making a Mod to Mutate an Existing Ship](./docs/making_a_mod_to_mutate_existing_ship.md)
