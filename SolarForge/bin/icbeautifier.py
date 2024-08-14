@@ -23,8 +23,7 @@ EXCLUDE_SORT_LIST_KEYS = [
     "faction_research_subjects",
     "faction_buildable_units",
     "attack_target_type_groups",
-    "attack_target_type_group_ids",
-    "pickable_players"
+    "attack_target_type_group_ids"
 ]
 
 
