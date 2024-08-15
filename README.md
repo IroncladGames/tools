@@ -1,4 +1,4 @@
-# Iron Engine 3 Tools
+# [Iron Engine 3 Tools](https://github.com/IroncladGames/tools)
 
 Public tools provided by Ironclad Games to support modding Iron Engine 3. 
 Iron Engine 3 was used to build [Sins of a Solar Empire II](https://store.steampowered.com/app/1575940/Sins_of_a_Solar_Empire_II/)
