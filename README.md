@@ -5,7 +5,7 @@ Iron Engine 3 was used to build [Sins of a Solar Empire II](https://store.steamp
 
 ## Getting Started
 
-- If you are new to git or don't like using the command line, we recommend using https://git-fork.com/ to download these files. Downloading them directly from github will not work. After installing Fork click File->Clone and use [website URL](https://github.com/IroncladGames/tools) as the repository URL.
+- If you are new to git or don't like using the command line, we recommend using https://git-fork.com/ to download these files. Downloading them directly from github will not work. After installing Fork, click File->Clone and use [github.com/IroncladGames/tools](https://github.com/IroncladGames/tools) as the repository URL.
 - Most of Iron Engine 3's tools have a soft dependency on [Python 3.x](https://www.python.org/downloads/) to automate cleaning up any JSON files that are generated.
 - Download and install `.NET Framework 4.7.2 Runtime` from https://dotnet.microsoft.com/download/dotnet-framework (needed for `SolarForge` and `Peon`)
 
