@@ -63,7 +63,7 @@ For clarity, user interface elements should stay as `.png` and information on pa
 
 | Red | Green | Blue | Alpha |
 | --- | --- | --- | --- |
-| red | blue | green | opacity (material dependent) |
+| red | green | blue | opacity (material dependent) |
 
 #### Mesh Mask Texture
 
