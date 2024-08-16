@@ -4,7 +4,7 @@ This is a simple tutorial show all the steps necessary to make our starting TEC 
 
 1. Create a folder for your mod. For this example we will use [examples/mods/super_fast_trader_scout_corvette](../examples/mods/super_fast_trader_scout_corvette)
 
-2. Add a `trader_scout_corvette.unit` file. This will overwrite the `trader_scout_corvette` provided in the base game. Increase `max_linear_speed` from `1200` to `12000`, also incrase `hyperspace.speed` and `hyperspace.charge_time`.
+2. Add a `trader_scout_corvette.unit` file. This will overwrite the `trader_scout_corvette` provided in the base game. Increase `max_linear_speed` from `1200` to `12000`, also increase `hyperspace.speed` and `hyperspace.charge_time`.
 
 3. Add a `trader_scout_corvette.unit_skin` file to change it's ship name from `trader_scout_corvette_name` to `super_fast_trader_scout_corvette_name`.
 
