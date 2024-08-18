@@ -8,7 +8,7 @@
     - Before you Bake Preview it is important that you set the Skybox, otherwise you will have to manually edit your Scenario as this feature is missing SolarForge (will come soon). The game requires a skybox and won't look correct if none is provided. We recommend `skybox_random`.
     - ![Pick Skybox](images/making_a_custom_scenario/pick_skybox.png)
 
--  Modify the Scenario as you see fit. More documentation will be provided in future in future.
+-  Modify the Scenario as you see fit. More documentation will be provided in the future.
 
 -  File -> Save. Browse to %localappdata%/sins2/mods/. Make a new folder here with your scenario name. Then another folder called `scenarios`. Then save your new scenario file here.
 ```
