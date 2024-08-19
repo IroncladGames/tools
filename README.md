@@ -32,6 +32,7 @@ GUI editor for working with:
 
 - Run `SolarForge.exe` in [SolarForge/bin](./SolarForge/bin).
 - You will be prompted to find the game folder that contains `sins2.exe` as all game assets are located side-by-side in this folder. This is necessary for resolving dependencies between assets. For example a Particle Effect will require finding Textures and Scenarios will require all knowledge of planets and other game assets.
+- Early documentation on making a scenario (aka map) [Making a Scenario](./docs/making_a_custom_scenario.md)
 - More documentation on how to use SolarForge will be forthcoming.
 
 ## [MeshBuilder](./MeshBuilder/bin/)
