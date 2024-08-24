@@ -5,6 +5,7 @@ Script to make running Peon more convienent.
 import os
 import argparse
 import subprocess
+import shlex
 
 CURRENT_PATH = os.path.dirname(os.path.realpath(__file__))
 OUT_FOLDER = os.path.join(CURRENT_PATH, r".out")
@@ -16,15 +17,21 @@ def run_peon(verb, src_folder, dst_folder, texconv_exe_path, fxc_exe_path, packa
     if not os.path.exists(PEON_EXE_PATH):
         raise Exception(f"{PEON_EXE_PATH} does not exist")
     
-    command_line = f"{PEON_EXE_PATH} {verb} -s {src_folder} -d {dst_folder} -c {CONFIG_FOLDER} -w {OUT_FOLDER} --delete-unknown"
+    args = [f"{PEON_EXE_PATH}", f"{verb}"]
+    args.extend([f'--source-folder="{src_folder}"'])
+    args.extend([f'--destination-folder="{dst_folder}"'])
+    args.extend([f'--config-folder="{CONFIG_FOLDER}"'])
+    args.extend([f'--work-folder="{OUT_FOLDER}"'])
+    args.append(f'--delete-unknown')    
     if texconv_exe_path:
-        command_line += f" --texconv-exe-path {texconv_exe_path}"
+        args.extend([f'--texconv-exe-path="{texconv_exe_path}"'])
     if fxc_exe_path:
-        command_line += f" --fxc-exe-path {fxc_exe_path}"
+        args.extend([f'--fxc-exe-path="{fxc_exe_path}"'])
     if package_mod:
-        command_line += f" --package-mod"
+        args.append("--package-mod")
     if verbose:
-        command_line += f" --verbose"
+        args.append(f"--verbose")
+    command_line = str.join(" ", args)
     print("\n{} (cwd={})\n".format(command_line, CURRENT_PATH))
     subprocess.call(command_line, cwd=CURRENT_PATH)
 

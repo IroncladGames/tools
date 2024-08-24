@@ -185,7 +185,7 @@
         "RunProcessParams":
         {
             "ProcessFileName": "LocalizedTextBuilder/bin/LocalizedTextBuilder.exe",
-            "ProcessArgumentsFormat": "--input_path {0} --output_path {1}"
+            "ProcessArgumentsFormat": "--input_path=\"{0}\" --output_path=\"{1}\""
         }
     },
     {
