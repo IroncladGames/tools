@@ -9,11 +9,6 @@ Iron Engine 3 was used to build [Sins of a Solar Empire II](https://store.steamp
 - Most of Iron Engine 3's tools have a soft dependency on [Python 3.x](https://www.python.org/downloads/) to automate cleaning up any JSON files that are generated.
 - Download and install `.NET Framework 4.7.2 Runtime` from https://dotnet.microsoft.com/download/dotnet-framework (needed for `SolarForge` and `Peon`)
 
-## Potential Issues
-
-- Do not have a folder structure with spaces in name as they do not work well as command line arguments necessary for Peon.
-  - `c:/My Cool Tools` should be `c:/my_cool_tools` or `c:/MyCoolTools`
-
 ## [Documentation](./docs/)
 
 - [Making a Mod to Mutate an Existing Ship](./docs/making_a_mod_to_mutate_existing_ship.md)
@@ -174,7 +169,7 @@ Peon will then generate `foo.zip` in a form that can be directly uploaded as a c
 Use `run-peon.py` script to simplify the command line arguments necessary to run Peon.
 
 ```
-py .\run-peon.py -s .\examples\mods\super_fast_trader_scout_corvette\ -d .out\super_fast_trader_scout_corvette\
+py .\run-peon.py --src_folder=".\examples\mods\super_fast_trader_scout_corvette" --dst_folder=".out\super_fast_trader_scout_corvette"
 ```
 
 This will generate a usable mod folder that can be used locally by copying to `%localappdata%/sins2/mods/`
@@ -182,7 +177,7 @@ This will generate a usable mod folder that can be used locally by copying to `%
 You can also generate a .zip file to update to mod.io by adding `--package_mod`
 
 ```
-py .\run-peon.py -s .\examples\mods\super_fast_trader_scout_corvette\ -d .out\super_fast_trader_scout_corvette\ --package_mod
+py .\run-peon.py --src_folder=".\examples\mods\super_fast_trader_scout_corvette" --dst_folder=".out\super_fast_trader_scout_corvette" --package_mod
 ```
 
 ### Building Shaders
