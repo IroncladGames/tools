@@ -177,6 +177,14 @@ Use `run-peon.py` script to simplify the command line arguments necessary to run
 py .\run-peon.py -s .\examples\mods\super_fast_trader_scout_corvette\ -d .out\super_fast_trader_scout_corvette\
 ```
 
+This will generate a usable mod folder that can be used locally by copying to `%localappdata%/sins2/mods/`
+
+You can also generate a .zip file to update to mod.io by adding `--package_mod`
+
+```
+py .\run-peon.py -s .\examples\mods\super_fast_trader_scout_corvette\ -d .out\super_fast_trader_scout_corvette\ --package_mod
+```
+
 ### Building Shaders
 
 We will be providing official `.hlsl` shaders at a later date. If you want to create your own shaders you can use Peon to compile them for the game.

@@ -1,0 +1,11 @@
+{
+    "compatibility_version": 2,
+    "display_name": "SUPER FAST SCOUT CORVETTE",
+    "display_version": "1.2",
+    "short_description": "Short Description for this Mod.",
+    "long_description": "Long Description for this Mod.",
+    "logos": {
+        "small_logo": "mod_small_logo.png",
+        "large_logo": "mod_large_logo.png"      
+    }
+}

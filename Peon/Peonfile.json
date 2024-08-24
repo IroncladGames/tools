@@ -7,6 +7,25 @@
     ],
     "Rules": [
     {
+        "RuleName": "CopyModMetaData",
+        "RuleType": "MatchExtension",
+        "ExtensionsToMatch": [
+            ".mod_meta_data"
+        ],
+        "DstFolderName": "",
+        "BuilderType": "CopyFile"
+    },      
+    {
+        "RuleName": "CopyModLogos",
+        "RuleType": "MatchFileName",
+        "FileNamesToMatch": [
+            "mod_large_logo.png",
+            "mod_small_logo.png"
+        ],
+        "DstFolderName": "",
+        "BuilderType": "CopyFile"
+    },       
+    {
         "RuleName": "convert-texture",
         "RuleType": "MatchExtension",
         "ExtensionsToMatch": [
