@@ -1,4 +1,28 @@
-# Making a Custom Scenario (Map) for Game Client < 28.6 (SOON TO BE OLD)
+# Making a Custom Scenario (Map) for Game Client >= 28.6 (Without Mods)
+
+-  Run SolarForge and File -> New -> Scenario
+
+-  Change `Name` and `Description`, but preserve the `:` prefix. The `:` tells the engine that these are NOT localized strings. Otherwise you will have to also provide localized string files with your new Scenario which is out of scope for this tutorial.
+
+-  By default the topology of all new Scenarios is randomly Generated every game. If do not want this selection Scenario -> Bake Preview.
+    - Before you Bake Preview it is important that you set the Skybox, otherwise you will have to manually edit your Scenario as this feature is missing SolarForge (will come soon). The game requires a skybox and won't look correct if none is provided. We recommend `skybox_random`.
+    - ![Pick Skybox](images/making_a_custom_scenario/pick_skybox.png)
+
+-  Modify the Scenario as you see fit. More documentation will be provided in the future.
+
+-  File -> Save. Browse to %localappdata%/sins2/drop_in_scenarios/. Save your Scenario to this folder.
+```
+C:\Users\Jamie\AppData\Local\sins2\drop_in_scenarios\my_first_map.scenario
+```
+
+-  You should now be able to pick your new map in the list of maps.
+
+![Front End Scenario List](images/making_a_custom_scenario/front_end_scenario_list.png)
+
+- With version 28.4 and above you can host a multiplayer game with your new map. As a host you will auto-magically stream the content to all other players.
+
+
+# Making a Custom Scenario (Map) for Game Client using a Mod
 
 -  Run SolarForge and File -> New -> Scenario
 
@@ -55,27 +79,3 @@ Your folder structure should now look like this:
 
 - With version 28.4 and above you can host a multiplayer game with your new map. As a host you will auto-magically stream the content to all other players.
 
-
-
-# Making a Custom Scenario (Map) for Game Client >= 28.6 (SOON TO BE NEW)
-
--  Run SolarForge and File -> New -> Scenario
-
--  Change `Name` and `Description`, but preserve the `:` prefix. The `:` tells the engine that these are NOT localized strings. Otherwise you will have to also provide localized string files with your new Scenario which is out of scope for this tutorial.
-
--  By default the topology of all new Scenarios is randomly Generated every game. If do not want this selection Scenario -> Bake Preview.
-    - Before you Bake Preview it is important that you set the Skybox, otherwise you will have to manually edit your Scenario as this feature is missing SolarForge (will come soon). The game requires a skybox and won't look correct if none is provided. We recommend `skybox_random`.
-    - ![Pick Skybox](images/making_a_custom_scenario/pick_skybox.png)
-
--  Modify the Scenario as you see fit. More documentation will be provided in the future.
-
--  File -> Save. Browse to %localappdata%/sins2/drop_in_scenarios/. Save your Scenario to this folder.
-```
-C:\Users\Jamie\AppData\Local\sins2\drop_in_scenarios\my_first_map.scenario
-```
-
--  You should now be able to pick your new map in the list of maps.
-
-![Front End Scenario List](images/making_a_custom_scenario/front_end_scenario_list.png)
-
-- With version 28.4 and above you can host a multiplayer game with your new map. As a host you will auto-magically stream the content to all other players.
