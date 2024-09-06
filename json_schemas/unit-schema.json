@@ -1970,19 +1970,19 @@
                                 "credits": {
                                     "type": "array",
                                     "items": {
-                                        "type": "integer"
+                                        "type": "number"
                                     }
                                 },
                                 "crystal": {
                                     "type": "array",
                                     "items": {
-                                        "type": "integer"
+                                        "type": "number"
                                     }
                                 },
                                 "metal": {
                                     "type": "array",
                                     "items": {
-                                        "type": "integer"
+                                        "type": "number"
                                     }
                                 }
                             },
@@ -2654,7 +2654,7 @@
                             "then": {
                                 "properties": {
                                     "value": {
-                                        "type": "integer"
+                                        "type": "number"
                                     }
                                 }
                             }
