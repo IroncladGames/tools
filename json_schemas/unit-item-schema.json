@@ -536,6 +536,9 @@
             "items": {
                 "$ref": "#/$defs/unit_item_weapon_modifier"
             }
+        },
+        "will_make_planet_invulnerable": {
+            "type": "boolean"
         }
     },
     "required": [

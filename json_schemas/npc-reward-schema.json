@@ -256,7 +256,7 @@
                                     }
                                 },
                                 "weight": {
-                                    "type": "integer"
+                                    "type": "number"
                                 }
                             },
                             "required": [

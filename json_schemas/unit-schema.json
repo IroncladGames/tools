@@ -2019,7 +2019,7 @@
                                         }
                                     },
                                     "weight": {
-                                        "type": "integer"
+                                        "type": "number"
                                     }
                                 },
                                 "required": [
@@ -2689,6 +2689,9 @@
                 },
                 "max_empire_owned_count_percentage": {
                     "type": "number"
+                },
+                "attack_ship_weight_scalar": {
+                    "type": "number"
                 }
             },
             "unevaluatedProperties": false
@@ -2939,6 +2942,9 @@
                     "type": "boolean"
                 },
                 "can_move": {
+                    "type": "boolean"
+                },
+                "can_rotate": {
                     "type": "boolean"
                 },
                 "can_show_distance_to_plane_line": {

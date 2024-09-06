@@ -183,6 +183,9 @@
                 "establish_price": {
                     "$ref": "#/$defs/asset_price"
                 },
+                "establish_duration": {
+                    "type": "integer"
+                },
                 "levels": {
                     "type": "array",
                     "items": {
@@ -7635,10 +7638,12 @@
                 "base_max_mana": {
                     "type": "number",
                     "minimum": 0.0
+                },
+                "unity_agent": {
+                    "type": "string"
                 }
             },
             "required": [
-                "abilities",
                 "base_mana_restore_rate",
                 "base_max_mana"
             ],

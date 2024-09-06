@@ -857,7 +857,7 @@
             "$ref": "#/$defs/player_race_name"
         },
         "research_time": {
-            "type": "integer"
+            "type": "number"
         },
         "strikecraft_modifiers": {
             "type": "array",
