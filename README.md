@@ -114,8 +114,8 @@ Peon will build textures in two ways:
 1. Download [Texconv](https://github.com/Microsoft/DirectXTex/wiki/Texconv)
 2. Run Peon with path to `texconv.exe`
 ```
-py run-peon.py -s .\examples\meshes\textures\ -d .out\converted_mesh_textures\ --texconv_exe_path c:/path/to/your/texconv.exe
-py run-peon.py -s .\examples\particles\textures\ -d .out\converted_particle_textures\ --texconv_exe_path c:/path/to/your/texconv.exe
+py run-peon.py -s .\examples\meshes\textures -d .out\converted_mesh_textures --texconv_exe_path c:/path/to/your/texconv.exe
+py run-peon.py -s .\examples\particles\textures -d .out\converted_particle_textures --texconv_exe_path c:/path/to/your/texconv.exe
 ```
 
 ### Mesh Materials
@@ -189,7 +189,7 @@ If you would like to use Peon to compile shaders:
 - Download [DirectXShaderCompiler](https://github.com/microsoft/DirectXShaderCompiler/releases).
 
 ```
-py .\run-peon.py -s .\examples\shaders\ -d .out\shaders\ --fxc_exe_path c:/path/to/fxc.exe
+py .\run-peon.py -s .\examples\shaders -d .out\shaders --fxc_exe_path c:/path/to/fxc.exe
 ```
 
 ## [LocalizedTextBuilder](./LocalizedTextBuilder/bin/)
