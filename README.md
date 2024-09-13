@@ -180,7 +180,7 @@ You can also generate a .zip file to update to mod.io by adding `--package_mod`
 py .\run-peon.py --src_folder=".\examples\mods\super_fast_trader_scout_corvette" --dst_folder=".out\super_fast_trader_scout_corvette" --package_mod
 ```
 
-### Building Shaders
+### Building ShadersMakes the modding workflow cozier, with various QoL features to simplify ship rigging along with helpful documentation in the side panel
 
 We will be providing official `.hlsl` shaders at a later date. If you want to create your own shaders you can use Peon to compile them for the game.
 
@@ -195,3 +195,14 @@ py .\run-peon.py -s .\examples\shaders -d .out\shaders --fxc_exe_path c:/path/to
 ## [LocalizedTextBuilder](./LocalizedTextBuilder/bin/)
 
 Very simple command line app that converts [csv](https://en.wikipedia.org/wiki/Comma-separated_values) files to Iron Engine 3 compatible localized text in `JSON` format.
+
+
+# Other Links
+
+## [Sins2 Blender Extension](https://github.com/largeBIGsnooze/sins2-blender-extension)
+
+Export meshes directly from Blender.
+
+```
+Makes the modding workflow cozier, with various QoL features to simplify ship rigging along with helpful documentation in the side panel
+```
