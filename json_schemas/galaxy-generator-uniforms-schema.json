@@ -1,0 +1,458 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Galaxy Generator Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "base_fillings": {
+            "$ref": "#/$defs/galaxy_chart_fillings"
+        },
+        "combined_fillings": {
+            "$ref": "#/$defs/galaxy_chart_fillings"
+        },
+        "gravity_well_orbit_durations_by_hierarchy_depth": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/gravity_well_orbit_duration_min_max"
+            }
+        },
+        "gravity_well_y_offsets_by_hierarchy_depth": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/float_range"
+            }
+        },
+        "min_jumps_to_any_home_planet_for_loot_level": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "minimum_gravity_well_distances_by_hierarchy_depth": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "player_phase_resonance_points": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "secondary_fixture_y_offset": {
+            "$ref": "#/$defs/float_range"
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "unevaluatedProperties": false,
+    "$defs": {
+        "float_range": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            },
+            "maxItems": 2
+        },
+        "gravity_well_filling_socket": {
+            "type": "object",
+            "properties": {
+                "angle": {
+                    "$ref": "#/$defs/float_range"
+                },
+                "distance_as_percent_of_parent_inner_move_radius": {
+                    "$ref": "#/$defs/float_range"
+                },
+                "socket_children": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/gravity_well_filling_socket"
+                    }
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "gravity_well_orbit_duration": {
+            "type": "object",
+            "properties": {
+                "radius": {
+                    "type": "number"
+                },
+                "time_in_hours": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "gravity_well_orbit_duration_min_max": {
+            "type": "object",
+            "properties": {
+                "max": {
+                    "$ref": "#/$defs/gravity_well_orbit_duration"
+                },
+                "min": {
+                    "$ref": "#/$defs/gravity_well_orbit_duration"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "galaxy_chart_fillings": {
+            "type": "object",
+            "properties": {
+                "fixture_fillings": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "filling": {
+                                "type": "object",
+                                "properties": {
+                                    "entity_definition": {
+                                        "type": "string"
+                                    },
+                                    "militia_supply": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        },
+                                        "minItems": 2,
+                                        "maxItems": 2
+                                    },
+                                    "required_planet_bonuses": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                },
+                "gravity_well_fillings": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "filling": {
+                                "type": "object",
+                                "properties": {
+                                    "sockets": {
+                                        "type": "object",
+                                        "properties": {
+                                            "angle": {
+                                                "$ref": "#/$defs/float_range"
+                                            },
+                                            "distance_as_percent_of_parent_inner_move_radius": {
+                                                "$ref": "#/$defs/float_range"
+                                            },
+                                            "socket_children": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/gravity_well_filling_socket"
+                                                }
+                                            }
+                                        },
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                },
+                "moon_fillings": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "filling": {
+                                "type": "object",
+                                "properties": {
+                                    "moons": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "chance_of_first_planet_bonus": {
+                                                    "type": "number"
+                                                },
+                                                "chance_of_loot": {
+                                                    "type": "number"
+                                                },
+                                                "chance_of_retrograde_orbit": {
+                                                    "type": "number"
+                                                },
+                                                "chance_of_second_planet_bonus": {
+                                                    "type": "number"
+                                                },
+                                                "counts": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "count": {
+                                                                "type": "integer"
+                                                            },
+                                                            "probability": {
+                                                                "type": "number"
+                                                            }
+                                                        },
+                                                        "unevaluatedProperties": false
+                                                    }
+                                                },
+                                                "filling_name": {
+                                                    "type": "string"
+                                                },
+                                                "ignore_orbit_overlap_checks": {
+                                                    "type": "boolean"
+                                                },
+                                                "inherit_original_parent_orbit_direction": {
+                                                    "type": "boolean"
+                                                },
+                                                "orbit_parent": {
+                                                    "type": "boolean"
+                                                },
+                                                "orbit_speed_scalar": {
+                                                    "type": "number"
+                                                },
+                                                "planet_offset": {
+                                                    "$ref": "#/$defs/float_range"
+                                                },
+                                                "sync_orbit_to_parent": {
+                                                    "type": "boolean"
+                                                },
+                                                "use_parent_ownership": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "unevaluatedProperties": false
+                                        }
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                },
+                "node_fillings": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "filling": {
+                                "type": "object",
+                                "properties": {
+                                    "editor_color": {
+                                        "type": "string"
+                                    },
+                                    "editor_visual_tag": {
+                                        "type": "string"
+                                    },
+                                    "gravity_wells": {
+                                        "type": "string"
+                                    },
+                                    "is_existence_known_to_all": {
+                                        "type": "boolean"
+                                    },
+                                    "is_primary_fixture_player_home_planet": {
+                                        "type": "boolean"
+                                    },
+                                    "override_militia_supply": {
+                                        "type": "string"
+                                    },
+                                    "primary_random_fixture_filling_name": {
+                                        "type": "string"
+                                    },
+                                    "primary_random_fixture_with_moon_filling_name": {
+                                        "type": "string"
+                                    },
+                                    "secondary_random_fixture_filling_name": {
+                                        "type": "string"
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                },
+                "npc_fillings": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "filling": {
+                                "type": "object",
+                                "properties": {
+                                    "npc_filling_type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "militia",
+                                            "guardian",
+                                            "enemy_faction",
+                                            "friendly_faction"
+                                        ]
+                                    },
+                                    "npc_id": {
+                                        "type": "string"
+                                    },
+                                    "player_definition": {
+                                        "type": "string"
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                },
+                "overwrite_fixture_fillings": {
+                    "type": "boolean"
+                },
+                "overwrite_gravity_well_fillings": {
+                    "type": "boolean"
+                },
+                "overwrite_moon_fillings": {
+                    "type": "boolean"
+                },
+                "overwrite_node_fillings": {
+                    "type": "boolean"
+                },
+                "overwrite_npc_fillings": {
+                    "type": "boolean"
+                },
+                "overwrite_random_fixture_fillings": {
+                    "type": "boolean"
+                },
+                "overwrite_random_gravity_well_fillings": {
+                    "type": "boolean"
+                },
+                "overwrite_random_skybox_fillings": {
+                    "type": "boolean"
+                },
+                "random_fixture_fillings": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "filling": {
+                                "type": "object",
+                                "properties": {
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "probability": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "unevaluatedProperties": false
+                                        }
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                },
+                "random_gravity_well_fillings": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "filling": {
+                                "type": "object",
+                                "properties": {
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "probability": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "unevaluatedProperties": false
+                                        }
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                },
+                "random_skybox_fillings": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "filling": {
+                                "type": "object",
+                                "properties": {
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "probability": {
+                                                    "type": "number"
+                                                },
+                                                "skybox": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "unevaluatedProperties": false
+                                        }
+                                    }
+                                },
+                                "unevaluatedProperties": false
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                }
+            },
+            "unevaluatedProperties": false
+        }
+    }
+}

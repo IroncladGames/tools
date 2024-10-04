@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Debris Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "groups": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "debris_types": {
+                        "type": "object",
+                        "properties": {
+                            "sizes": {
+                                "type": "object",
+                                "properties": {
+                                    "large_debris": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "small_debris": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "large_debris",
+                                    "small_debris"
+                                ],
+                                "unevaluatedProperties": false
+                            }
+                        },
+                        "required": [
+                            "sizes"
+                        ],
+                        "unevaluatedProperties": false
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "debris_types",
+                    "name"
+                ],
+                "unevaluatedProperties": false
+            }
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "groups"
+    ],
+    "unevaluatedProperties": false
+}

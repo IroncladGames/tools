@@ -199,7 +199,6 @@
                 "asteroid",
                 "torpedo",
                 "cannon_shell",
-                "buff_agent",
                 "loot",
                 "debris",
                 "untargetable"
@@ -374,7 +373,8 @@
                             "auto_bomb_planet_no_move",
                             "auto_follow_unit_attacking_any_or_is_damaged",
                             "auto_follow_unit_attacking_any",
-                            "auto_follow_unit_attacking_threat"
+                            "auto_follow_unit_attacking_threat",
+                            "auto_capture_loot"
                         ]
                     }
                 },
@@ -1540,7 +1540,8 @@
             "type": "array",
             "items": {
                 "type": "number"
-            }
+            },
+            "maxItems": 2
         },
         "gravity_well": {
             "type": "object",
@@ -2019,7 +2020,7 @@
                                         }
                                     },
                                     "weight": {
-                                        "type": "integer"
+                                        "type": "number"
                                     }
                                 },
                                 "required": [
@@ -2628,6 +2629,9 @@
         "unit_player_ai_definition": {
             "type": "object",
             "properties": {
+                "attack_ship_weight_scalar": {
+                    "type": "number"
+                },
                 "max_count_at_planet": {
                     "type": "object",
                     "properties": {
@@ -2939,6 +2943,9 @@
                     "type": "boolean"
                 },
                 "can_move": {
+                    "type": "boolean"
+                },
+                "can_rotate": {
                     "type": "boolean"
                 },
                 "can_show_distance_to_plane_line": {

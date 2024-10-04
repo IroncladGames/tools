@@ -1,0 +1,301 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "User Interface Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "custom_click_failed_sound_spam_threshold": {
+            "type": "number"
+        },
+        "unit_alert": {
+            "type": "object",
+            "properties": {
+                "alert_types": {
+                    "type": "object",
+                    "properties": {
+                        "negative_buff": {
+                            "type": "object",
+                            "properties": {
+                                "blink_duration": {
+                                    "type": "number"
+                                },
+                                "fade_duration": {
+                                    "type": "number"
+                                },
+                                "max_color": {
+                                    "type": "string"
+                                },
+                                "min_color": {
+                                    "type": "string"
+                                },
+                                "total_duration": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "blink_duration",
+                                "fade_duration",
+                                "max_color",
+                                "min_color",
+                                "total_duration"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "ping_attack": {
+                            "type": "object",
+                            "properties": {
+                                "blink_duration": {
+                                    "type": "number"
+                                },
+                                "fade_duration": {
+                                    "type": "number"
+                                },
+                                "max_color": {
+                                    "type": "string"
+                                },
+                                "min_color": {
+                                    "type": "string"
+                                },
+                                "total_duration": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "blink_duration",
+                                "fade_duration",
+                                "max_color",
+                                "min_color",
+                                "total_duration"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "ping_attention": {
+                            "type": "object",
+                            "properties": {
+                                "blink_duration": {
+                                    "type": "number"
+                                },
+                                "fade_duration": {
+                                    "type": "number"
+                                },
+                                "max_color": {
+                                    "type": "string"
+                                },
+                                "min_color": {
+                                    "type": "string"
+                                },
+                                "total_duration": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "blink_duration",
+                                "fade_duration",
+                                "max_color",
+                                "min_color",
+                                "total_duration"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "ping_defend": {
+                            "type": "object",
+                            "properties": {
+                                "blink_duration": {
+                                    "type": "number"
+                                },
+                                "fade_duration": {
+                                    "type": "number"
+                                },
+                                "max_color": {
+                                    "type": "string"
+                                },
+                                "min_color": {
+                                    "type": "string"
+                                },
+                                "total_duration": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "blink_duration",
+                                "fade_duration",
+                                "max_color",
+                                "min_color",
+                                "total_duration"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "positive_buff": {
+                            "type": "object",
+                            "properties": {
+                                "blink_duration": {
+                                    "type": "number"
+                                },
+                                "fade_duration": {
+                                    "type": "number"
+                                },
+                                "max_color": {
+                                    "type": "string"
+                                },
+                                "min_color": {
+                                    "type": "string"
+                                },
+                                "total_duration": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "blink_duration",
+                                "fade_duration",
+                                "max_color",
+                                "min_color",
+                                "total_duration"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "rallied_to": {
+                            "type": "object",
+                            "properties": {
+                                "blink_duration": {
+                                    "type": "number"
+                                },
+                                "fade_duration": {
+                                    "type": "number"
+                                },
+                                "max_color": {
+                                    "type": "string"
+                                },
+                                "min_color": {
+                                    "type": "string"
+                                },
+                                "total_duration": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "blink_duration",
+                                "fade_duration",
+                                "max_color",
+                                "min_color",
+                                "total_duration"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "targeted_by_ability": {
+                            "type": "object",
+                            "properties": {
+                                "blink_duration": {
+                                    "type": "number"
+                                },
+                                "fade_duration": {
+                                    "type": "number"
+                                },
+                                "max_color": {
+                                    "type": "string"
+                                },
+                                "min_color": {
+                                    "type": "string"
+                                },
+                                "total_duration": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "blink_duration",
+                                "fade_duration",
+                                "max_color",
+                                "min_color",
+                                "total_duration"
+                            ],
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "required": [
+                        "negative_buff",
+                        "ping_attack",
+                        "ping_attention",
+                        "ping_defend",
+                        "positive_buff",
+                        "rallied_to",
+                        "targeted_by_ability"
+                    ],
+                    "unevaluatedProperties": false
+                }
+            },
+            "required": [
+                "alert_types"
+            ],
+            "unevaluatedProperties": false
+        },
+        "unspent_ability_points_fill_blink": {
+            "type": "object",
+            "properties": {
+                "down_function": {
+                    "type": "string",
+                    "enum": [
+                        "linear",
+                        "in_sine",
+                        "out_sine",
+                        "in_out_sine",
+                        "in_quad",
+                        "out_quad",
+                        "in_out_quad",
+                        "in_cubic",
+                        "out_cubic",
+                        "in_out_cubic",
+                        "in_quart",
+                        "out_quart",
+                        "in_out_quart",
+                        "in_quint",
+                        "out_quint",
+                        "in_out_quint",
+                        "in_expo",
+                        "out_expo",
+                        "in_out_expo"
+                    ]
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "up_function": {
+                    "type": "string",
+                    "enum": [
+                        "linear",
+                        "in_sine",
+                        "out_sine",
+                        "in_out_sine",
+                        "in_quad",
+                        "out_quad",
+                        "in_out_quad",
+                        "in_cubic",
+                        "out_cubic",
+                        "in_out_cubic",
+                        "in_quart",
+                        "out_quart",
+                        "in_out_quart",
+                        "in_quint",
+                        "out_quint",
+                        "in_out_quint",
+                        "in_expo",
+                        "out_expo",
+                        "in_out_expo"
+                    ]
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unspent_ability_points_fill_color": {
+            "type": "string"
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "custom_click_failed_sound_spam_threshold",
+        "unit_alert",
+        "unspent_ability_points_fill_blink",
+        "unspent_ability_points_fill_color"
+    ],
+    "unevaluatedProperties": false
+}

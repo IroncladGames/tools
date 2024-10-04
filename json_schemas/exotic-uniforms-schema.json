@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Exotic Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "type_datas": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/exotic_type_uniform_data"
+            }
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "unevaluatedProperties": false,
+    "$defs": {
+        "exotic_type_uniform_data": {
+            "type": "object",
+            "properties": {
+                "entity": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        }
+    }
+}

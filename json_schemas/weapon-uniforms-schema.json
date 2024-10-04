@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Weapon Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "recently_fired_time_threshold": {
+            "type": "number"
+        },
+        "version": {
+            "type": "integer"
+        },
+        "weapon_tags": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "localized_name": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "localized_name",
+                    "name"
+                ],
+                "unevaluatedProperties": false
+            }
+        }
+    },
+    "required": [
+        "recently_fired_time_threshold",
+        "weapon_tags"
+    ],
+    "unevaluatedProperties": false
+}

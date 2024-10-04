@@ -1,0 +1,186 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Planet Track Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "planet_tracks": {
+            "type": "object",
+            "properties": {
+                "commerce": {
+                    "type": "object",
+                    "properties": {
+                        "current_level_label": {
+                            "type": "string"
+                        },
+                        "desc": {
+                            "type": "string"
+                        },
+                        "hud_icon": {
+                            "type": "string"
+                        },
+                        "max_level_label": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "tooltip_icon": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "hud_icon",
+                        "tooltip_icon"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "defense": {
+                    "type": "object",
+                    "properties": {
+                        "current_level_label": {
+                            "type": "string"
+                        },
+                        "desc": {
+                            "type": "string"
+                        },
+                        "hud_icon": {
+                            "type": "string"
+                        },
+                        "max_level_label": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "tooltip_icon": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "hud_icon",
+                        "tooltip_icon"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "logistics": {
+                    "type": "object",
+                    "properties": {
+                        "current_level_label": {
+                            "type": "string"
+                        },
+                        "desc": {
+                            "type": "string"
+                        },
+                        "hud_icon": {
+                            "type": "string"
+                        },
+                        "max_level_label": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "tooltip_icon": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "hud_icon",
+                        "tooltip_icon"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "mining": {
+                    "type": "object",
+                    "properties": {
+                        "current_level_label": {
+                            "type": "string"
+                        },
+                        "desc": {
+                            "type": "string"
+                        },
+                        "hud_icon": {
+                            "type": "string"
+                        },
+                        "max_level_label": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "tooltip_icon": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "hud_icon",
+                        "tooltip_icon"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "research": {
+                    "type": "object",
+                    "properties": {
+                        "current_level_label": {
+                            "type": "string"
+                        },
+                        "desc": {
+                            "type": "string"
+                        },
+                        "hud_icon": {
+                            "type": "string"
+                        },
+                        "max_level_label": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "tooltip_icon": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "hud_icon",
+                        "tooltip_icon"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "surveying": {
+                    "type": "object",
+                    "properties": {
+                        "current_level_label": {
+                            "type": "string"
+                        },
+                        "desc": {
+                            "type": "string"
+                        },
+                        "hud_icon": {
+                            "type": "string"
+                        },
+                        "max_level_label": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "tooltip_icon": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "hud_icon",
+                        "tooltip_icon"
+                    ],
+                    "unevaluatedProperties": false
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "unevaluatedProperties": false
+}

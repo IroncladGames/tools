@@ -154,6 +154,9 @@
         "picture": {
             "type": "string"
         },
+        "pip_color": {
+            "type": "string"
+        },
         "small_icon": {
             "type": "string"
         },
@@ -170,6 +173,7 @@
         "large_icon",
         "name",
         "picture",
+        "pip_color",
         "small_icon",
         "tooltip_icon"
     ],

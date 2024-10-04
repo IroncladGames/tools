@@ -1,0 +1,363 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Unit Bar Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "crippled_hull_blink_duration": {
+            "type": "number"
+        },
+        "flat_bar_contexts": {
+            "type": "object",
+            "properties": {
+                "hud_icon": {
+                    "type": "object",
+                    "properties": {
+                        "background_color": {
+                            "type": "string"
+                        },
+                        "sizes": {
+                            "type": "object",
+                            "properties": {
+                                "large": {
+                                    "type": "object",
+                                    "properties": {
+                                        "background_gap": {
+                                            "type": "integer"
+                                        },
+                                        "horizontal_gap": {
+                                            "type": "integer"
+                                        },
+                                        "thick_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "thin_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "vertical_gap": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "horizontal_gap",
+                                        "thick_bar_height",
+                                        "thin_bar_height",
+                                        "vertical_gap"
+                                    ],
+                                    "unevaluatedProperties": false
+                                },
+                                "normal": {
+                                    "type": "object",
+                                    "properties": {
+                                        "background_gap": {
+                                            "type": "integer"
+                                        },
+                                        "horizontal_gap": {
+                                            "type": "integer"
+                                        },
+                                        "thick_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "thin_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "vertical_gap": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "horizontal_gap",
+                                        "thick_bar_height",
+                                        "thin_bar_height",
+                                        "vertical_gap"
+                                    ],
+                                    "unevaluatedProperties": false
+                                }
+                            },
+                            "required": [
+                                "large",
+                                "normal"
+                            ],
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "required": [
+                        "sizes"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "main_view_icon": {
+                    "type": "object",
+                    "properties": {
+                        "background_color": {
+                            "type": "string"
+                        },
+                        "sizes": {
+                            "type": "object",
+                            "properties": {
+                                "large": {
+                                    "type": "object",
+                                    "properties": {
+                                        "background_gap": {
+                                            "type": "integer"
+                                        },
+                                        "horizontal_gap": {
+                                            "type": "integer"
+                                        },
+                                        "thick_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "thin_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "vertical_gap": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "horizontal_gap",
+                                        "thick_bar_height",
+                                        "thin_bar_height",
+                                        "vertical_gap"
+                                    ],
+                                    "unevaluatedProperties": false
+                                },
+                                "normal": {
+                                    "type": "object",
+                                    "properties": {
+                                        "background_gap": {
+                                            "type": "integer"
+                                        },
+                                        "horizontal_gap": {
+                                            "type": "integer"
+                                        },
+                                        "thick_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "thin_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "vertical_gap": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "horizontal_gap",
+                                        "thick_bar_height",
+                                        "thin_bar_height",
+                                        "vertical_gap"
+                                    ],
+                                    "unevaluatedProperties": false
+                                }
+                            },
+                            "required": [
+                                "large",
+                                "normal"
+                            ],
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "required": [
+                        "sizes"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "main_view_mesh": {
+                    "type": "object",
+                    "properties": {
+                        "background_color": {
+                            "type": "string"
+                        },
+                        "sizes": {
+                            "type": "object",
+                            "properties": {
+                                "large": {
+                                    "type": "object",
+                                    "properties": {
+                                        "background_gap": {
+                                            "type": "integer"
+                                        },
+                                        "horizontal_gap": {
+                                            "type": "integer"
+                                        },
+                                        "thick_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "thin_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "vertical_gap": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "horizontal_gap",
+                                        "thick_bar_height",
+                                        "thin_bar_height",
+                                        "vertical_gap"
+                                    ],
+                                    "unevaluatedProperties": false
+                                },
+                                "normal": {
+                                    "type": "object",
+                                    "properties": {
+                                        "background_gap": {
+                                            "type": "integer"
+                                        },
+                                        "horizontal_gap": {
+                                            "type": "integer"
+                                        },
+                                        "thick_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "thin_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "vertical_gap": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "horizontal_gap",
+                                        "thick_bar_height",
+                                        "thin_bar_height",
+                                        "vertical_gap"
+                                    ],
+                                    "unevaluatedProperties": false
+                                }
+                            },
+                            "required": [
+                                "large",
+                                "normal"
+                            ],
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "required": [
+                        "sizes"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "ship_window": {
+                    "type": "object",
+                    "properties": {
+                        "background_color": {
+                            "type": "string"
+                        },
+                        "sizes": {
+                            "type": "object",
+                            "properties": {
+                                "large": {
+                                    "type": "object",
+                                    "properties": {
+                                        "background_gap": {
+                                            "type": "integer"
+                                        },
+                                        "horizontal_gap": {
+                                            "type": "integer"
+                                        },
+                                        "thick_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "thin_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "vertical_gap": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "horizontal_gap",
+                                        "thick_bar_height",
+                                        "thin_bar_height",
+                                        "vertical_gap"
+                                    ],
+                                    "unevaluatedProperties": false
+                                },
+                                "normal": {
+                                    "type": "object",
+                                    "properties": {
+                                        "background_gap": {
+                                            "type": "integer"
+                                        },
+                                        "horizontal_gap": {
+                                            "type": "integer"
+                                        },
+                                        "thick_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "thin_bar_height": {
+                                            "type": "integer"
+                                        },
+                                        "vertical_gap": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "horizontal_gap",
+                                        "thick_bar_height",
+                                        "thin_bar_height",
+                                        "vertical_gap"
+                                    ],
+                                    "unevaluatedProperties": false
+                                }
+                            },
+                            "required": [
+                                "large",
+                                "normal"
+                            ],
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "required": [
+                        "sizes"
+                    ],
+                    "unevaluatedProperties": false
+                }
+            },
+            "required": [
+                "hud_icon",
+                "main_view_icon",
+                "main_view_mesh",
+                "ship_window"
+            ],
+            "unevaluatedProperties": false
+        },
+        "max_mesh_view_width": {
+            "type": "integer"
+        },
+        "max_shield_to_armor_width_ratio": {
+            "type": "number"
+        },
+        "min_mesh_view_width": {
+            "type": "integer"
+        },
+        "planet_health_to_shield_width_ratio": {
+            "type": "number"
+        },
+        "scuttle_blink_duration": {
+            "type": "number"
+        },
+        "shield_burst_blink_duration": {
+            "type": "number"
+        },
+        "shield_burst_blink_visible_duration": {
+            "type": "number"
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "crippled_hull_blink_duration",
+        "flat_bar_contexts",
+        "max_mesh_view_width",
+        "max_shield_to_armor_width_ratio",
+        "min_mesh_view_width",
+        "planet_health_to_shield_width_ratio",
+        "scuttle_blink_duration",
+        "shield_burst_blink_duration",
+        "shield_burst_blink_visible_duration"
+    ],
+    "unevaluatedProperties": false
+}

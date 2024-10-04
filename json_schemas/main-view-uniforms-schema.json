@@ -1,0 +1,2152 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Main View Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "ability_between_gravity_well_range": {
+            "type": "object",
+            "properties": {
+                "line_circle_segment_count": {
+                    "type": "integer"
+                },
+                "line_circle_thickness": {
+                    "type": "number"
+                },
+                "line_color": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "ability_range": {
+            "type": "object",
+            "properties": {
+                "line_circle_segment_count": {
+                    "type": "integer"
+                },
+                "line_circle_thickness": {
+                    "type": "number"
+                },
+                "line_color": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "attack_bandbox": {
+            "type": "string"
+        },
+        "auto_order_range": {
+            "type": "object",
+            "properties": {
+                "line_circle_segment_count": {
+                    "type": "integer"
+                },
+                "line_circle_thickness": {
+                    "type": "number"
+                },
+                "line_color": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "build_structure_cursor": {
+            "type": "object",
+            "properties": {
+                "circle_color_if_can_build": {
+                    "type": "string"
+                },
+                "circle_color_if_can_not_build": {
+                    "type": "string"
+                },
+                "circle_line_thickness": {
+                    "type": "number"
+                },
+                "circle_segment_count": {
+                    "type": "integer"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "build_structure_range": {
+            "type": "object",
+            "properties": {
+                "circle_color_if_can_build": {
+                    "type": "string"
+                },
+                "circle_color_if_can_not_build": {
+                    "type": "string"
+                },
+                "circle_line_thickness": {
+                    "type": "number"
+                },
+                "circle_segment_count": {
+                    "type": "integer"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "debug_text_block_font": {
+            "type": "string"
+        },
+        "default_bandbox": {
+            "type": "string"
+        },
+        "effects": {
+            "type": "object",
+            "properties": {
+                "hyperspace_travel_effect_early_start_time": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "extra_alert_fill_alpha_for_hud": {
+            "type": "number"
+        },
+        "fill_light": {
+            "type": "object",
+            "properties": {
+                "light_horizontal_angle": {
+                    "type": "number"
+                },
+                "light_vertical_angle": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "fow_overlay": {
+            "type": "string"
+        },
+        "gravity_well_border_line_culture_color_transition_distance": {
+            "type": "number"
+        },
+        "gravity_well_inner_border_line": {
+            "type": "object",
+            "properties": {
+                "alpha": {
+                    "type": "number"
+                },
+                "thickness": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "gravity_well_inner_border_line_when_outer_visible": {
+            "type": "object",
+            "properties": {
+                "alpha": {
+                    "type": "number"
+                },
+                "thickness": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "gravity_well_outer_border_line": {
+            "type": "object",
+            "properties": {
+                "alpha": {
+                    "type": "number"
+                },
+                "thickness": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "gravity_well_props": {
+            "type": "object",
+            "properties": {
+                "begin_cloud_fade_distance": {
+                    "type": "number"
+                },
+                "end_cloud_fade_distance": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "invalid_ability_target_planet_alpha": {
+            "type": "number"
+        },
+        "invalid_npc_reputation_reward_target_planet_alpha": {
+            "type": "number"
+        },
+        "invalid_pick_alliance_offer_planet_alpha": {
+            "type": "number"
+        },
+        "key_light": {
+            "type": "object",
+            "properties": {
+                "light_horizontal_angle": {
+                    "type": "number"
+                },
+                "light_vertical_angle": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "loot": {
+            "type": "object",
+            "properties": {
+                "collection_active_blink_duration": {
+                    "type": "number"
+                },
+                "default_range_color": {
+                    "type": "string"
+                },
+                "range_line_thickness": {
+                    "type": "number"
+                },
+                "range_segment_count": {
+                    "type": "integer"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "mesh_outline": {
+            "type": "object",
+            "properties": {
+                "edge_threshold": {
+                    "type": "number"
+                },
+                "non_planet_distance_scalar": {
+                    "type": "number"
+                },
+                "non_planet_thickness": {
+                    "type": "number"
+                },
+                "planet_distance_scalar": {
+                    "type": "number"
+                },
+                "planet_thickness": {
+                    "type": "number"
+                },
+                "ui_status_alphas": {
+                    "type": "object",
+                    "properties": {
+                        "bandboxed": {
+                            "type": "number"
+                        },
+                        "none": {
+                            "type": "number"
+                        },
+                        "owner_fleet_bandboxed": {
+                            "type": "number"
+                        },
+                        "owner_fleet_sub_selected": {
+                            "type": "number"
+                        },
+                        "owner_fleet_under_cursor": {
+                            "type": "number"
+                        },
+                        "selected": {
+                            "type": "number"
+                        },
+                        "sub_selected": {
+                            "type": "number"
+                        },
+                        "under_cursor": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "move_area_polygon_segment_count": {
+            "type": "integer"
+        },
+        "non_planet_mesh_player_icon_center_offset_scalar": {
+            "type": "number"
+        },
+        "orbital_path_arc": {
+            "type": "object",
+            "properties": {
+                "arc_projection_in_seconds": {
+                    "type": "number"
+                },
+                "begin_point_circle": {
+                    "type": "object",
+                    "properties": {
+                        "color": {
+                            "type": "string"
+                        },
+                        "line_thickness": {
+                            "type": "number"
+                        },
+                        "position": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minItems": 3,
+                            "maxItems": 3
+                        },
+                        "radius": {
+                            "type": "number"
+                        },
+                        "rotation": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minItems": 3,
+                            "maxItems": 3
+                        },
+                        "segment_count": {
+                            "type": "integer"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "clockwise_begin_color": {
+                    "type": "string"
+                },
+                "clockwise_end_color": {
+                    "type": "string"
+                },
+                "counter_clockwise_begin_color": {
+                    "type": "string"
+                },
+                "counter_clockwise_end_color": {
+                    "type": "string"
+                },
+                "end_fade_in_arc_percentage": {
+                    "type": "number"
+                },
+                "end_point_circle": {
+                    "type": "object",
+                    "properties": {
+                        "color": {
+                            "type": "string"
+                        },
+                        "line_thickness": {
+                            "type": "number"
+                        },
+                        "position": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minItems": 3,
+                            "maxItems": 3
+                        },
+                        "radius": {
+                            "type": "number"
+                        },
+                        "rotation": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            },
+                            "minItems": 3,
+                            "maxItems": 3
+                        },
+                        "segment_count": {
+                            "type": "integer"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "line_thickness": {
+                    "type": "number"
+                },
+                "max_arc_length": {
+                    "type": "number"
+                },
+                "segment_count": {
+                    "type": "integer"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "order_line": {
+            "type": "object",
+            "properties": {
+                "fade_delay_duration": {
+                    "type": "number"
+                },
+                "fade_duration": {
+                    "type": "number"
+                },
+                "line_alpha_when_not_highlighted": {
+                    "type": "number"
+                },
+                "line_thickness": {
+                    "type": "number"
+                },
+                "line_types": {
+                    "type": "object",
+                    "properties": {
+                        "attack": {
+                            "type": "object",
+                            "properties": {
+                                "primary_color": {
+                                    "type": "string"
+                                },
+                                "pulse_begin_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_color": {
+                                    "type": "string"
+                                },
+                                "pulse_easing_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "pulse_end_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_interval": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "dock": {
+                            "type": "object",
+                            "properties": {
+                                "primary_color": {
+                                    "type": "string"
+                                },
+                                "pulse_begin_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_color": {
+                                    "type": "string"
+                                },
+                                "pulse_easing_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "pulse_end_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_interval": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "hyperspace": {
+                            "type": "object",
+                            "properties": {
+                                "primary_color": {
+                                    "type": "string"
+                                },
+                                "pulse_begin_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_color": {
+                                    "type": "string"
+                                },
+                                "pulse_easing_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "pulse_end_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_interval": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "launch": {
+                            "type": "object",
+                            "properties": {
+                                "primary_color": {
+                                    "type": "string"
+                                },
+                                "pulse_begin_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_color": {
+                                    "type": "string"
+                                },
+                                "pulse_easing_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "pulse_end_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_interval": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "move": {
+                            "type": "object",
+                            "properties": {
+                                "primary_color": {
+                                    "type": "string"
+                                },
+                                "pulse_begin_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_color": {
+                                    "type": "string"
+                                },
+                                "pulse_easing_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "pulse_end_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_interval": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "rally": {
+                            "type": "object",
+                            "properties": {
+                                "primary_color": {
+                                    "type": "string"
+                                },
+                                "pulse_begin_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_color": {
+                                    "type": "string"
+                                },
+                                "pulse_easing_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "pulse_end_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_interval": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "retreat": {
+                            "type": "object",
+                            "properties": {
+                                "primary_color": {
+                                    "type": "string"
+                                },
+                                "pulse_begin_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_color": {
+                                    "type": "string"
+                                },
+                                "pulse_easing_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "pulse_end_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_interval": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "use_ability": {
+                            "type": "object",
+                            "properties": {
+                                "primary_color": {
+                                    "type": "string"
+                                },
+                                "pulse_begin_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_color": {
+                                    "type": "string"
+                                },
+                                "pulse_easing_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "pulse_end_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_interval": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "wormhole_travel": {
+                            "type": "object",
+                            "properties": {
+                                "primary_color": {
+                                    "type": "string"
+                                },
+                                "pulse_begin_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_color": {
+                                    "type": "string"
+                                },
+                                "pulse_easing_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "pulse_end_length_perc": {
+                                    "type": "number"
+                                },
+                                "pulse_interval": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "phase_lanes": {
+            "type": "object",
+            "properties": {
+                "ability": {
+                    "type": "object",
+                    "properties": {
+                        "alpha": {
+                            "type": "number"
+                        },
+                        "color": {
+                            "type": "string"
+                        },
+                        "line_thickness": {
+                            "type": "number"
+                        },
+                        "removed_blink_duration": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "normal": {
+                    "type": "object",
+                    "properties": {
+                        "alpha": {
+                            "type": "number"
+                        },
+                        "color": {
+                            "type": "string"
+                        },
+                        "line_thickness": {
+                            "type": "number"
+                        },
+                        "removed_blink_duration": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "stabilized_gravity_wells": {
+                    "type": "object",
+                    "properties": {
+                        "alpha": {
+                            "type": "number"
+                        },
+                        "color": {
+                            "type": "string"
+                        },
+                        "line_thickness": {
+                            "type": "number"
+                        },
+                        "removed_blink_duration": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "star": {
+                    "type": "object",
+                    "properties": {
+                        "alpha": {
+                            "type": "number"
+                        },
+                        "color": {
+                            "type": "string"
+                        },
+                        "line_thickness": {
+                            "type": "number"
+                        },
+                        "removed_blink_duration": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "wormhole": {
+                    "type": "object",
+                    "properties": {
+                        "alpha": {
+                            "type": "number"
+                        },
+                        "color": {
+                            "type": "string"
+                        },
+                        "line_thickness": {
+                            "type": "number"
+                        },
+                        "removed_blink_duration": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "pip_group": {
+            "type": "object",
+            "properties": {
+                "phase_lane_unit_group": {
+                    "type": "object",
+                    "properties": {
+                        "considered_full_supply_cost": {
+                            "type": "integer"
+                        },
+                        "icon_size": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            },
+                            "maxItems": 2
+                        },
+                        "icon_top_left_offset_from_center": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            },
+                            "maxItems": 2
+                        },
+                        "pip_offsets": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/$defs/point"
+                            },
+                            "maxItems": 10
+                        },
+                        "pips_brush": {
+                            "type": "string"
+                        },
+                        "underlay_brush": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "planet_elevator_car_visible_threshold": {
+            "type": "number"
+        },
+        "planet_mesh_player_icon_center_offset_scalar": {
+            "type": "number"
+        },
+        "planet_mesh_view_name_font": {
+            "type": "string"
+        },
+        "planet_mesh_view_name_spacing": {
+            "type": "number"
+        },
+        "planet_player_color_transition_duration": {
+            "type": "number"
+        },
+        "rim_light": {
+            "type": "object",
+            "properties": {
+                "light_horizontal_angle": {
+                    "type": "number"
+                },
+                "light_vertical_angle": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "selected_pip_color": {
+            "type": "string"
+        },
+        "selected_unit_mesh_user_interface": {
+            "type": "object",
+            "properties": {
+                "line_circle_segment_count": {
+                    "type": "integer"
+                },
+                "line_circle_thickness": {
+                    "type": "number"
+                },
+                "line_to_plane_thickness": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "structure_plate_arc": {
+            "type": "object",
+            "properties": {
+                "begin_color": {
+                    "type": "string"
+                },
+                "end_color": {
+                    "type": "string"
+                },
+                "end_fade_in_arc_percentage": {
+                    "type": "number"
+                },
+                "line_thickness": {
+                    "type": "number"
+                },
+                "segment_count": {
+                    "type": "integer"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "tactical_grid": {
+            "type": "object",
+            "properties": {
+                "line_color": {
+                    "type": "string"
+                },
+                "line_segment_length": {
+                    "type": "number"
+                },
+                "line_thickness": {
+                    "type": "number"
+                },
+                "planet_cutout_border_line": {
+                    "type": "object",
+                    "properties": {
+                        "alpha": {
+                            "type": "number"
+                        },
+                        "thickness": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "targeting_line": {
+            "type": "object",
+            "properties": {
+                "bad_path_color": {
+                    "type": "string"
+                },
+                "line_circle_segment_count": {
+                    "type": "integer"
+                },
+                "line_colors": {
+                    "type": "object",
+                    "properties": {
+                        "attack": {
+                            "type": "string"
+                        },
+                        "build_structure": {
+                            "type": "string"
+                        },
+                        "debug_spawn_unit": {
+                            "type": "string"
+                        },
+                        "focus": {
+                            "type": "string"
+                        },
+                        "move": {
+                            "type": "string"
+                        },
+                        "not_visible": {
+                            "type": "string"
+                        },
+                        "pick_ai_directive_target_attack": {
+                            "type": "string"
+                        },
+                        "pick_ai_directive_target_defend": {
+                            "type": "string"
+                        },
+                        "pick_alliance_offer_planet": {
+                            "type": "string"
+                        },
+                        "ping_attack": {
+                            "type": "string"
+                        },
+                        "ping_attention": {
+                            "type": "string"
+                        },
+                        "ping_defend": {
+                            "type": "string"
+                        },
+                        "rotate": {
+                            "type": "string"
+                        },
+                        "rotate_structure_plate": {
+                            "type": "string"
+                        },
+                        "set_rally_point": {
+                            "type": "string"
+                        },
+                        "set_unit_factory_deliverable_destination": {
+                            "type": "string"
+                        },
+                        "standard": {
+                            "type": "string"
+                        },
+                        "use_ability": {
+                            "type": "string"
+                        },
+                        "use_item": {
+                            "type": "string"
+                        },
+                        "use_npc_reward_negative": {
+                            "type": "string"
+                        },
+                        "use_npc_reward_positive": {
+                            "type": "string"
+                        },
+                        "use_npc_reward_send_pirate_raid": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "line_thickness": {
+                    "type": "number"
+                },
+                "rally_point_destination_circle_radius": {
+                    "type": "number"
+                },
+                "rally_point_destination_circle_segment_count": {
+                    "type": "integer"
+                },
+                "rally_point_destination_circle_thickness": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_icons": {
+            "type": "object",
+            "properties": {
+                "fleet_icon": {
+                    "type": "object",
+                    "properties": {
+                        "extra_rotation": {
+                            "description": "extra rotation applied to icon (due to icon being reused in selection window)",
+                            "type": "number"
+                        },
+                        "group": {
+                            "$ref": "#/$defs/unit_main_view_icon_group"
+                        },
+                        "has_rotation": {
+                            "type": "boolean"
+                        },
+                        "icon": {
+                            "$ref": "#/$defs/brush_ptr"
+                        },
+                        "is_additive": {
+                            "type": "boolean"
+                        },
+                        "override_icon_background_color": {
+                            "type": "string"
+                        },
+                        "selected_icon": {
+                            "$ref": "#/$defs/brush_ptr"
+                        },
+                        "sub_selected_icon": {
+                            "$ref": "#/$defs/brush_ptr"
+                        },
+                        "use_owner_player_color": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "group"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "fleet_icon_gravity_well_icon_y_offset": {
+                    "type": "number"
+                },
+                "fleet_icon_viewport_position_y_offset": {
+                    "type": "number"
+                },
+                "gravity_well_player_status_blinks": {
+                    "type": "object",
+                    "properties": {
+                        "enemy_culture_being_established": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "enemy_culture_being_lost": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "enemy_jump_inhibitor_blocking_units": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "enemy_units_detected_at_owned_planet": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "enemy_units_detected_at_unowned_planet": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "friendly_culture_being_established": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "friendly_culture_being_lost": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "planet_bombed": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "gravity_well_player_status_cross_fade_duration": {
+                    "type": "number"
+                },
+                "icon_fade_rate": {
+                    "type": "number"
+                },
+                "main_view_icon_fill_color_with_artifact": {
+                    "type": "string"
+                },
+                "phase_lane_unit_group_overlap_size": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "unit_alert_blinks": {
+                    "type": "object",
+                    "properties": {
+                        "negative_buff": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "ping_attack": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "ping_attention": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "ping_defend": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "positive_buff": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "rallied_to": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "targeted_by_ability": {
+                            "type": "object",
+                            "properties": {
+                                "down_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                },
+                                "duration": {
+                                    "type": "number"
+                                },
+                                "up_function": {
+                                    "type": "string",
+                                    "enum": [
+                                        "linear",
+                                        "in_sine",
+                                        "out_sine",
+                                        "in_out_sine",
+                                        "in_quad",
+                                        "out_quad",
+                                        "in_out_quad",
+                                        "in_cubic",
+                                        "out_cubic",
+                                        "in_out_cubic",
+                                        "in_quart",
+                                        "out_quart",
+                                        "in_out_quart",
+                                        "in_quint",
+                                        "out_quint",
+                                        "in_out_quint",
+                                        "in_expo",
+                                        "out_expo",
+                                        "in_out_expo"
+                                    ]
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "user_interface_status_colors": {
+                    "type": "object",
+                    "properties": {
+                        "bandboxed": {
+                            "type": "string"
+                        },
+                        "none": {
+                            "type": "string"
+                        },
+                        "owner_fleet_bandboxed": {
+                            "type": "string"
+                        },
+                        "owner_fleet_sub_selected": {
+                            "type": "string"
+                        },
+                        "owner_fleet_under_cursor": {
+                            "type": "string"
+                        },
+                        "selected": {
+                            "type": "string"
+                        },
+                        "sub_selected": {
+                            "type": "string"
+                        },
+                        "under_cursor": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unowned_planet_player_icon": {
+            "type": "string"
+        },
+        "version": {
+            "type": "integer"
+        },
+        "weapon_range": {
+            "type": "object",
+            "properties": {
+                "line_circle_segment_count": {
+                    "type": "integer"
+                },
+                "line_circle_thickness": {
+                    "type": "number"
+                },
+                "line_color_when_highlighted": {
+                    "type": "string"
+                },
+                "line_color_when_not_highlighted": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        }
+    },
+    "required": [
+        "attack_bandbox",
+        "debug_text_block_font",
+        "default_bandbox",
+        "extra_alert_fill_alpha_for_hud",
+        "fow_overlay",
+        "gravity_well_props",
+        "invalid_ability_target_planet_alpha",
+        "invalid_npc_reputation_reward_target_planet_alpha",
+        "invalid_pick_alliance_offer_planet_alpha",
+        "loot",
+        "mesh_outline",
+        "move_area_polygon_segment_count",
+        "non_planet_mesh_player_icon_center_offset_scalar",
+        "planet_elevator_car_visible_threshold",
+        "planet_mesh_player_icon_center_offset_scalar",
+        "planet_mesh_view_name_font",
+        "planet_mesh_view_name_spacing",
+        "planet_player_color_transition_duration",
+        "selected_pip_color",
+        "unowned_planet_player_icon"
+    ],
+    "unevaluatedProperties": false,
+    "$defs": {
+        "brush_ptr": {
+            "type": "string"
+        },
+        "point": {
+            "type": "array",
+            "items": {
+                "type": "integer"
+            },
+            "maxItems": 2
+        },
+        "unit_main_view_icon_group": {
+            "type": "string"
+        }
+    }
+}

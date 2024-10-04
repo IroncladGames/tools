@@ -1,0 +1,1033 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Player Race Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "races": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "icons": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "localized_name": {
+                        "type": "string"
+                    },
+                    "music": {
+                        "type": "object",
+                        "properties": {
+                            "in_game_music_pools": {
+                                "type": "object",
+                                "properties": {
+                                    "ambient": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "battle_losing": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "battle_neutral": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "battle_winning": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "early_game_losing": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "early_game_neutral": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "early_game_winning": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "front_end": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "game_lost": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "game_won": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "late_game_losing": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "late_game_neutral": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "late_game_winning": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "loading": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "mid_game_losing": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "mid_game_neutral": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    },
+                                    "mid_game_winning": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exhaustive_shuffle": {
+                                                "type": "boolean"
+                                            },
+                                            "extra_music_tracks_pool_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "front_end",
+                                                    "loading",
+                                                    "ambient",
+                                                    "early_game_neutral",
+                                                    "early_game_winning",
+                                                    "early_game_losing",
+                                                    "mid_game_neutral",
+                                                    "mid_game_winning",
+                                                    "mid_game_losing",
+                                                    "late_game_neutral",
+                                                    "late_game_winning",
+                                                    "late_game_losing",
+                                                    "battle_neutral",
+                                                    "battle_winning",
+                                                    "battle_losing",
+                                                    "game_lost",
+                                                    "game_won"
+                                                ]
+                                            },
+                                            "first_music_track_index": {
+                                                "type": "integer"
+                                            },
+                                            "music_tracks": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "sound": {
+                                                            "type": "string"
+                                                        },
+                                                        "weight": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "sound",
+                                                        "weight"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            }
+                                        },
+                                        "required": [
+                                            "music_tracks"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "required": [
+                                    "ambient",
+                                    "battle_losing",
+                                    "battle_neutral",
+                                    "battle_winning",
+                                    "early_game_losing",
+                                    "early_game_neutral",
+                                    "early_game_winning",
+                                    "front_end",
+                                    "game_lost",
+                                    "game_won",
+                                    "late_game_losing",
+                                    "late_game_neutral",
+                                    "late_game_winning",
+                                    "loading",
+                                    "mid_game_losing",
+                                    "mid_game_neutral",
+                                    "mid_game_winning"
+                                ],
+                                "unevaluatedProperties": false
+                            }
+                        },
+                        "required": [
+                            "in_game_music_pools"
+                        ],
+                        "unevaluatedProperties": false
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "portraits": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "localized_name",
+                    "music",
+                    "name"
+                ],
+                "unevaluatedProperties": false
+            }
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "races"
+    ],
+    "unevaluatedProperties": false
+}

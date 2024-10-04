@@ -47,7 +47,8 @@
     {
         "fileMatch": ["*.ability"],
         "url": "./json_schemas/ability-schema.json"
-    },{
+    },
+    {
         "fileMatch": ["*.action_data_source"],
         "url": "./json_schemas/action-data-source-schema.json"
     },
@@ -97,5 +98,161 @@
     {
         "fileMatch": ["*.weapon"],
         "url": "./json_schemas/weapon-schema.json"
+    },
+    {
+        "fileMatch": ["*.weapon"],
+        "url": "./json_schemas/weapon-schema.json"
+    },
+    {
+        "fileMatch": ["galaxy_chart.uniforms"],
+        "url": "./json_schemas/galaxy-chart-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["action.uniforms"],
+        "url": "./json_schemas/action-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["attack_target_type_group.uniforms"],
+        "url": "./json_schemas/attack-target-type-group-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["culture.uniforms"],
+        "url": "./json_schemas/culture-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["debris.uniforms"],
+        "url": "./json_schemas/debris-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["exotic.uniforms"],
+        "url": "./json_schemas/exotic-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["formation.uniforms"],
+        "url": "./json_schemas/formation-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["front_end.uniforms"],
+        "url": "./json_schemas/front-end-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["future_orbit.uniforms"],
+        "url": "./json_schemas/future-orbit-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["galaxy_generator.uniformss"],
+        "url": "./json_schemas/galaxy-generator-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["game_renderer.uniforms"],
+        "url": "./json_schemas/game-renderer-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["gui.uniforms"],
+        "url": "./json_schemas/gui-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["hud_skin.uniforms"],
+        "url": "./json_schemas/hud-skin-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["loot.uniforms"],
+        "url": "./json_schemas/loot-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["main_view.uniforms"],
+        "url": "./json_schemas/main-view-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["music.uniforms"],
+        "url": "./json_schemas/music-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["notification.uniforms"],
+        "url": "./json_schemas/notification-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["planet.uniforms"],
+        "url": "./json_schemas/planet-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["planet-track.uniforms"],
+        "url": "./json_schemas/planet-track-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["player.uniforms"],
+        "url": "./json_schemas/player-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["player_ai.uniforms"],
+        "url": "./json_schemas/player-ai-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["player_color.uniforms"],
+        "url": "./json_schemas/player-color-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["player_race.uniforms"],
+        "url": "./json_schemas/player-race-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["random_skybox_fillings.uniforms"],
+        "url": "./json_schemas/random-skybox-fillings-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["research.uniforms"],
+        "url": "./json_schemas/research-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["scenario.uniforms"],
+        "url": "./json_schemas/scenario-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["special_operation_unit.uniforms"],
+        "url": "./json_schemas/special-operation-unit-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["strikecraft.uniforms"],
+        "url": "./json_schemas/strikecraft-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["target_filter.uniforms"],
+        "url": "./json_schemas/target-filter-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["tutorial.uniforms"],
+        "url": "./json_schemas/tutorial-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["unit.uniforms"],
+        "url": "./json_schemas/unit-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["unit_bar.uniforms"],
+        "url": "./json_schemas/unit-bar-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["unit_build.uniforms"],
+        "url": "./json_schemas/unit-build-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["unit_mutation.uniforms"],
+        "url": "./json_schemas/unit-mutation-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["unit_tag.uniforms"],
+        "url": "./json_schemas/unit-tag-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["user_interface.uniforms"],
+        "url": "./json_schemas/user-interface-uniforms-schema.json"
+    },
+    {
+        "fileMatch": ["weapon.uniforms"],
+        "url": "./json_schemas/weapon-uniforms-schema.jso"
+    },
+    {
+        "fileMatch": ["galaxy_chart.json"],
+        "url": "./json_schemas/galaxy-chart-schema.json"
     }]
 }

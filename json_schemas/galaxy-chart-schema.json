@@ -1,0 +1,165 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Galaxy Chart",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "phase_lanes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/galaxy_chart_phase_lane"
+            }
+        },
+        "recommended_team_count": {
+            "type": "integer"
+        },
+        "root_nodes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/galaxy_chart_node"
+            }
+        },
+        "skybox": {
+            "type": "string"
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "phase_lanes",
+        "root_nodes",
+        "skybox"
+    ],
+    "unevaluatedProperties": false,
+    "$defs": {
+        "galaxy_chart_node": {
+            "type": "object",
+            "properties": {
+                "chance_of_first_planet_bonus": {
+                    "type": "number"
+                },
+                "chance_of_loot": {
+                    "type": "number"
+                },
+                "chance_of_retrograde_orbit": {
+                    "type": "number"
+                },
+                "chance_of_second_planet_bonus": {
+                    "type": "number"
+                },
+                "child_nodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/galaxy_chart_node"
+                    }
+                },
+                "design_name": {
+                    "type": "string"
+                },
+                "filling_name": {
+                    "type": "string"
+                },
+                "has_artifact": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "ignore_orbit_overlap_checks": {
+                    "type": "boolean"
+                },
+                "inherit_original_parent_orbit_direction": {
+                    "type": "boolean"
+                },
+                "loot_level": {
+                    "type": "integer"
+                },
+                "orbit_speed_scalar": {
+                    "type": "number"
+                },
+                "original_parent_id": {
+                    "type": "integer"
+                },
+                "ownership": {
+                    "$ref": "#/$defs/galaxy_chart_node_ownership"
+                },
+                "position": {
+                    "$ref": "#/$defs/point"
+                },
+                "primary_fixture_override_name": {
+                    "type": "string"
+                },
+                "rotation": {
+                    "type": "number"
+                },
+                "sync_orbit_to_parent": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "filling_name",
+                "id"
+            ],
+            "unevaluatedProperties": false
+        },
+        "point": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "galaxy_chart_node_ownership": {
+            "type": "object",
+            "properties": {
+                "are_secondary_fixtures_owned": {
+                    "type": "boolean"
+                },
+                "npc_filling_name": {
+                    "type": "string"
+                },
+                "npc_filling_type": {
+                    "type": "string",
+                    "enum": [
+                        "militia",
+                        "guardian",
+                        "enemy_faction",
+                        "friendly_faction"
+                    ]
+                },
+                "player_index": {
+                    "type": "integer"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "galaxy_chart_phase_lane": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "node_a": {
+                    "type": "integer"
+                },
+                "node_b": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "normal",
+                        "star",
+                        "wormhole"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "node_a",
+                "node_b"
+            ],
+            "unevaluatedProperties": false
+        }
+    }
+}

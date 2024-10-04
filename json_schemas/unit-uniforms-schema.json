@@ -1,0 +1,199 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Unit Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "add_new_phase_lane_max_direct_distance": {
+            "type": "number"
+        },
+        "add_new_phase_lane_min_jump_distance": {
+            "type": "integer"
+        },
+        "ai": {
+            "type": "object",
+            "properties": {
+                "auto_order_engagement_range": {
+                    "type": "number"
+                },
+                "pathfinding_threat_avoidance_base": {
+                    "type": "number"
+                },
+                "pathfinding_threat_avoidance_scalar": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "auto_order_engagement_range",
+                "pathfinding_threat_avoidance_base",
+                "pathfinding_threat_avoidance_scalar"
+            ],
+            "unevaluatedProperties": false
+        },
+        "buff_agent_units_by_effect_size": {
+            "type": "object",
+            "properties": {
+                "large_unit": {
+                    "type": "string"
+                },
+                "medium_unit": {
+                    "type": "string"
+                },
+                "small_unit": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "can_build_items_in_combat": {
+            "type": "boolean"
+        },
+        "culture_provider_buff_agent_unit": {
+            "type": "string"
+        },
+        "damage_scalar_per_additive_defensive_value": {
+            "type": "number"
+        },
+        "default_gravity_well": {
+            "type": "string"
+        },
+        "default_phase_lane": {
+            "type": "string"
+        },
+        "default_rally_point": {
+            "type": "string"
+        },
+        "dialogue_scared_supply_ratio_threshold": {
+            "type": "number"
+        },
+        "dialogue_scared_when_crippled_enemy_supply_threshold": {
+            "type": "integer"
+        },
+        "dialogue_smug_supply_ratio_threshold": {
+            "type": "number"
+        },
+        "disable_weapons_while_channeling_ability_mutation": {
+            "type": "string"
+        },
+        "estimated_incoming_damage_dead_soon_scalar": {
+            "type": "number"
+        },
+        "max_hyperspace_charge_time_unit_count": {
+            "type": "integer"
+        },
+        "phase_lane_marked_for_delete_duration_before_release": {
+            "type": "number"
+        },
+        "recently_bombed_time_threshold": {
+            "type": "number"
+        },
+        "recently_damaged_time_threshold": {
+            "type": "number"
+        },
+        "resurrectable_unit_types": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "strikecraft",
+                    "corvette",
+                    "frigate",
+                    "cruiser",
+                    "capital_ship",
+                    "titan",
+                    "structure",
+                    "starbase",
+                    "planet",
+                    "star",
+                    "gravity_well",
+                    "phase_lane",
+                    "asteroid",
+                    "torpedo",
+                    "cannon_shell",
+                    "loot",
+                    "debris",
+                    "untargetable"
+                ]
+            }
+        },
+        "scuttle_duration": {
+            "type": "number"
+        },
+        "spawn_in_fixture_build_radius_scalars": {
+            "$ref": "#/$defs/float_range"
+        },
+        "spawn_in_fixture_move_area_radius_scalars": {
+            "$ref": "#/$defs/float_range"
+        },
+        "starbase_tag": {
+            "type": "string"
+        },
+        "unit_names": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "group_name": {
+                        "type": "string"
+                    },
+                    "localized_text": {
+                        "$ref": "#/$defs/localized_text_group"
+                    }
+                },
+                "required": [
+                    "localized_text"
+                ],
+                "unevaluatedProperties": false
+            }
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "add_new_phase_lane_max_direct_distance",
+        "add_new_phase_lane_min_jump_distance",
+        "ai",
+        "buff_agent_units_by_effect_size",
+        "can_build_items_in_combat",
+        "culture_provider_buff_agent_unit",
+        "damage_scalar_per_additive_defensive_value",
+        "default_gravity_well",
+        "default_phase_lane",
+        "default_rally_point",
+        "dialogue_scared_supply_ratio_threshold",
+        "dialogue_scared_when_crippled_enemy_supply_threshold",
+        "dialogue_smug_supply_ratio_threshold",
+        "disable_weapons_while_channeling_ability_mutation",
+        "estimated_incoming_damage_dead_soon_scalar",
+        "max_hyperspace_charge_time_unit_count",
+        "phase_lane_marked_for_delete_duration_before_release",
+        "recently_bombed_time_threshold",
+        "recently_damaged_time_threshold",
+        "resurrectable_unit_types",
+        "scuttle_duration",
+        "spawn_in_fixture_build_radius_scalars",
+        "spawn_in_fixture_move_area_radius_scalars",
+        "starbase_tag",
+        "unit_names"
+    ],
+    "unevaluatedProperties": false,
+    "$defs": {
+        "float_range": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            },
+            "maxItems": 2
+        },
+        "localized_text_group": {
+            "type": "object",
+            "properties": {
+                "id_prefix": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        }
+    }
+}

@@ -1,0 +1,2778 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Gui Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "asset": {
+            "type": "object",
+            "properties": {
+                "asset_types": {
+                    "type": "object",
+                    "properties": {
+                        "credits": {
+                            "type": "object",
+                            "properties": {
+                                "hud_icon": {
+                                    "type": "string"
+                                },
+                                "main_view_overlay_icon": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "negative_rate_max_color": {
+                                    "type": "string"
+                                },
+                                "negative_rate_max_value": {
+                                    "type": "number"
+                                },
+                                "negative_rate_min_color": {
+                                    "type": "string"
+                                },
+                                "positive_rate_max_color": {
+                                    "type": "string"
+                                },
+                                "positive_rate_max_value": {
+                                    "type": "number"
+                                },
+                                "positive_rate_min_color": {
+                                    "type": "string"
+                                },
+                                "tooltip_icon": {
+                                    "type": "string"
+                                },
+                                "value_colors": {
+                                    "type": "object",
+                                    "properties": {
+                                        "gift": {
+                                            "type": "string"
+                                        },
+                                        "insufficient": {
+                                            "type": "string"
+                                        },
+                                        "none": {
+                                            "type": "string"
+                                        },
+                                        "offer": {
+                                            "type": "string"
+                                        },
+                                        "refund": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "gift",
+                                        "insufficient",
+                                        "none",
+                                        "offer",
+                                        "refund"
+                                    ],
+                                    "unevaluatedProperties": false
+                                }
+                            },
+                            "required": [
+                                "hud_icon",
+                                "main_view_overlay_icon",
+                                "name",
+                                "negative_rate_max_color",
+                                "negative_rate_max_value",
+                                "negative_rate_min_color",
+                                "positive_rate_max_color",
+                                "positive_rate_max_value",
+                                "positive_rate_min_color",
+                                "tooltip_icon",
+                                "value_colors"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "crystal": {
+                            "type": "object",
+                            "properties": {
+                                "hud_icon": {
+                                    "type": "string"
+                                },
+                                "main_view_overlay_icon": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "negative_rate_max_color": {
+                                    "type": "string"
+                                },
+                                "negative_rate_max_value": {
+                                    "type": "number"
+                                },
+                                "negative_rate_min_color": {
+                                    "type": "string"
+                                },
+                                "positive_rate_max_color": {
+                                    "type": "string"
+                                },
+                                "positive_rate_max_value": {
+                                    "type": "number"
+                                },
+                                "positive_rate_min_color": {
+                                    "type": "string"
+                                },
+                                "tooltip_icon": {
+                                    "type": "string"
+                                },
+                                "value_colors": {
+                                    "type": "object",
+                                    "properties": {
+                                        "gift": {
+                                            "type": "string"
+                                        },
+                                        "insufficient": {
+                                            "type": "string"
+                                        },
+                                        "none": {
+                                            "type": "string"
+                                        },
+                                        "offer": {
+                                            "type": "string"
+                                        },
+                                        "refund": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "gift",
+                                        "insufficient",
+                                        "none",
+                                        "offer",
+                                        "refund"
+                                    ],
+                                    "unevaluatedProperties": false
+                                }
+                            },
+                            "required": [
+                                "hud_icon",
+                                "main_view_overlay_icon",
+                                "name",
+                                "negative_rate_max_color",
+                                "negative_rate_max_value",
+                                "negative_rate_min_color",
+                                "positive_rate_max_color",
+                                "positive_rate_max_value",
+                                "positive_rate_min_color",
+                                "tooltip_icon",
+                                "value_colors"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "metal": {
+                            "type": "object",
+                            "properties": {
+                                "hud_icon": {
+                                    "type": "string"
+                                },
+                                "main_view_overlay_icon": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "negative_rate_max_color": {
+                                    "type": "string"
+                                },
+                                "negative_rate_max_value": {
+                                    "type": "number"
+                                },
+                                "negative_rate_min_color": {
+                                    "type": "string"
+                                },
+                                "positive_rate_max_color": {
+                                    "type": "string"
+                                },
+                                "positive_rate_max_value": {
+                                    "type": "number"
+                                },
+                                "positive_rate_min_color": {
+                                    "type": "string"
+                                },
+                                "tooltip_icon": {
+                                    "type": "string"
+                                },
+                                "value_colors": {
+                                    "type": "object",
+                                    "properties": {
+                                        "gift": {
+                                            "type": "string"
+                                        },
+                                        "insufficient": {
+                                            "type": "string"
+                                        },
+                                        "none": {
+                                            "type": "string"
+                                        },
+                                        "offer": {
+                                            "type": "string"
+                                        },
+                                        "refund": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "gift",
+                                        "insufficient",
+                                        "none",
+                                        "offer",
+                                        "refund"
+                                    ],
+                                    "unevaluatedProperties": false
+                                }
+                            },
+                            "required": [
+                                "hud_icon",
+                                "main_view_overlay_icon",
+                                "name",
+                                "negative_rate_max_color",
+                                "negative_rate_max_value",
+                                "negative_rate_min_color",
+                                "positive_rate_max_color",
+                                "positive_rate_max_value",
+                                "positive_rate_min_color",
+                                "tooltip_icon",
+                                "value_colors"
+                            ],
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "required": [
+                "asset_types"
+            ],
+            "unevaluatedProperties": false
+        },
+        "home_planet_tooltip_icon": {
+            "type": "string"
+        },
+        "hud_empire_units_window": {
+            "type": "object",
+            "properties": {
+                "capital_ship_view_tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "starbase_view_tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "hud_unit_icon": {
+            "type": "object",
+            "properties": {
+                "crystal_asteroid_hud_icon": {
+                    "type": "string"
+                },
+                "has_planet_maintenance_costs_icon": {
+                    "type": "string"
+                },
+                "has_planet_maintenance_costs_layout": {
+                    "type": "object",
+                    "properties": {
+                        "dpi_source": {
+                            "type": "string",
+                            "enum": [
+                                "user_interface",
+                                "current_display_size"
+                            ]
+                        },
+                        "height": {
+                            "type": "number"
+                        },
+                        "horizontal_alignment": {
+                            "type": "string",
+                            "enum": [
+                                "center",
+                                "left",
+                                "right",
+                                "stretch"
+                            ]
+                        },
+                        "margins": {
+                            "type": "object",
+                            "properties": {
+                                "bottom": {
+                                    "type": "number"
+                                },
+                                "left": {
+                                    "type": "number"
+                                },
+                                "right": {
+                                    "type": "number"
+                                },
+                                "top": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "vertical_alignment": {
+                            "type": "string",
+                            "enum": [
+                                "center",
+                                "top",
+                                "bottom",
+                                "stretch"
+                            ]
+                        },
+                        "width": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "has_unspent_ability_points_icon": {
+                    "type": "string"
+                },
+                "has_unspent_ability_points_layout": {
+                    "type": "object",
+                    "properties": {
+                        "dpi_source": {
+                            "type": "string",
+                            "enum": [
+                                "user_interface",
+                                "current_display_size"
+                            ]
+                        },
+                        "height": {
+                            "type": "number"
+                        },
+                        "horizontal_alignment": {
+                            "type": "string",
+                            "enum": [
+                                "center",
+                                "left",
+                                "right",
+                                "stretch"
+                            ]
+                        },
+                        "margins": {
+                            "type": "object",
+                            "properties": {
+                                "bottom": {
+                                    "type": "number"
+                                },
+                                "left": {
+                                    "type": "number"
+                                },
+                                "right": {
+                                    "type": "number"
+                                },
+                                "top": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "vertical_alignment": {
+                            "type": "string",
+                            "enum": [
+                                "center",
+                                "top",
+                                "bottom",
+                                "stretch"
+                            ]
+                        },
+                        "width": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "home_planet_overlay": {
+                    "type": "string"
+                },
+                "metal_asteroid_hud_icon": {
+                    "type": "string"
+                },
+                "planet_level_color": {
+                    "type": "string"
+                },
+                "planet_level_font": {
+                    "type": "string"
+                },
+                "planet_level_layout": {
+                    "type": "object",
+                    "properties": {
+                        "dpi_source": {
+                            "type": "string",
+                            "enum": [
+                                "user_interface",
+                                "current_display_size"
+                            ]
+                        },
+                        "height": {
+                            "type": "number"
+                        },
+                        "horizontal_alignment": {
+                            "type": "string",
+                            "enum": [
+                                "center",
+                                "left",
+                                "right",
+                                "stretch"
+                            ]
+                        },
+                        "margins": {
+                            "type": "object",
+                            "properties": {
+                                "bottom": {
+                                    "type": "number"
+                                },
+                                "left": {
+                                    "type": "number"
+                                },
+                                "right": {
+                                    "type": "number"
+                                },
+                                "top": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "vertical_alignment": {
+                            "type": "string",
+                            "enum": [
+                                "center",
+                                "top",
+                                "bottom",
+                                "stretch"
+                            ]
+                        },
+                        "width": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "special_operation_unit_icon_layout": {
+                    "type": "object",
+                    "properties": {
+                        "dpi_source": {
+                            "type": "string",
+                            "enum": [
+                                "user_interface",
+                                "current_display_size"
+                            ]
+                        },
+                        "height": {
+                            "type": "number"
+                        },
+                        "horizontal_alignment": {
+                            "type": "string",
+                            "enum": [
+                                "center",
+                                "left",
+                                "right",
+                                "stretch"
+                            ]
+                        },
+                        "margins": {
+                            "type": "object",
+                            "properties": {
+                                "bottom": {
+                                    "type": "number"
+                                },
+                                "left": {
+                                    "type": "number"
+                                },
+                                "right": {
+                                    "type": "number"
+                                },
+                                "top": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "vertical_alignment": {
+                            "type": "string",
+                            "enum": [
+                                "center",
+                                "top",
+                                "bottom",
+                                "stretch"
+                            ]
+                        },
+                        "width": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "unit_level_color": {
+                    "type": "string"
+                },
+                "unit_level_font": {
+                    "type": "string"
+                },
+                "unit_level_layout": {
+                    "type": "object",
+                    "properties": {
+                        "dpi_source": {
+                            "type": "string",
+                            "enum": [
+                                "user_interface",
+                                "current_display_size"
+                            ]
+                        },
+                        "height": {
+                            "type": "number"
+                        },
+                        "horizontal_alignment": {
+                            "type": "string",
+                            "enum": [
+                                "center",
+                                "left",
+                                "right",
+                                "stretch"
+                            ]
+                        },
+                        "margins": {
+                            "type": "object",
+                            "properties": {
+                                "bottom": {
+                                    "type": "number"
+                                },
+                                "left": {
+                                    "type": "number"
+                                },
+                                "right": {
+                                    "type": "number"
+                                },
+                                "top": {
+                                    "type": "number"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "vertical_alignment": {
+                            "type": "string",
+                            "enum": [
+                                "center",
+                                "top",
+                                "bottom",
+                                "stretch"
+                            ]
+                        },
+                        "width": {
+                            "type": "number"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "modifier": {
+            "type": "object",
+            "properties": {
+                "empire_modifier_names": {
+                    "type": "object",
+                    "properties": {
+                        "civilian_research_rate": {
+                            "type": "string"
+                        },
+                        "credit_income_rate": {
+                            "type": "string"
+                        },
+                        "crystal_income_rate": {
+                            "type": "string"
+                        },
+                        "factory_build_exotic_price": {
+                            "type": "string"
+                        },
+                        "influence_points_recharge_rate": {
+                            "type": "string"
+                        },
+                        "max_influence_points": {
+                            "type": "string"
+                        },
+                        "max_supply": {
+                            "type": "string"
+                        },
+                        "metal_income_rate": {
+                            "type": "string"
+                        },
+                        "military_research_rate": {
+                            "type": "string"
+                        },
+                        "percentage_of_other_players_total_credit_income": {
+                            "type": "string"
+                        },
+                        "surveying_bonus_exotic_chance": {
+                            "type": "string"
+                        },
+                        "trade_credits_income_rate": {
+                            "type": "string"
+                        },
+                        "trade_crystal_income_rate": {
+                            "type": "string"
+                        },
+                        "trade_metal_income_rate": {
+                            "type": "string"
+                        },
+                        "unity_mana_restore_rate": {
+                            "type": "string"
+                        },
+                        "unity_max_mana_points": {
+                            "type": "string"
+                        },
+                        "unity_points": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "exotic_factory_modifier_names": {
+                    "type": "object",
+                    "properties": {
+                        "build_time": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "npc_modifier_names": {
+                    "type": "object",
+                    "properties": {
+                        "auction_bid_bonus_influence_points": {
+                            "type": "string"
+                        },
+                        "buy_crystal_credits_cost": {
+                            "type": "string"
+                        },
+                        "buy_metal_credits_cost": {
+                            "type": "string"
+                        },
+                        "reputation_ability_cooldown_duration": {
+                            "type": "string"
+                        },
+                        "sell_crystal_credits_received": {
+                            "type": "string"
+                        },
+                        "sell_exotic_credits_received": {
+                            "type": "string"
+                        },
+                        "sell_metal_credits_received": {
+                            "type": "string"
+                        },
+                        "send_raid_supply": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "planet_modifier_names": {
+                    "type": "object",
+                    "properties": {
+                        "any_development_track_build_price": {
+                            "type": "string"
+                        },
+                        "any_development_track_build_time": {
+                            "type": "string"
+                        },
+                        "bombing_damage_taken": {
+                            "type": "string"
+                        },
+                        "civilian_research_points": {
+                            "type": "string"
+                        },
+                        "civilian_research_rate": {
+                            "type": "string"
+                        },
+                        "commerce_track_build_price": {
+                            "type": "string"
+                        },
+                        "commerce_track_build_time": {
+                            "type": "string"
+                        },
+                        "commerce_track_credit_income_rate": {
+                            "type": "string"
+                        },
+                        "culture_rate": {
+                            "type": "string"
+                        },
+                        "culture_resistance_rate": {
+                            "type": "string"
+                        },
+                        "defense_track_build_price": {
+                            "type": "string"
+                        },
+                        "defense_track_build_time": {
+                            "type": "string"
+                        },
+                        "factory_exotic_build_time": {
+                            "type": "string"
+                        },
+                        "factory_unit_build_price": {
+                            "type": "string"
+                        },
+                        "factory_unit_build_time": {
+                            "type": "string"
+                        },
+                        "gravity_well_radius": {
+                            "type": "string"
+                        },
+                        "health_points_restore_rate": {
+                            "type": "string"
+                        },
+                        "logistics_track_build_price": {
+                            "type": "string"
+                        },
+                        "logistics_track_build_time": {
+                            "type": "string"
+                        },
+                        "max_civilian_structure_slots": {
+                            "type": "string"
+                        },
+                        "max_garrison_supply": {
+                            "type": "string"
+                        },
+                        "max_health_points": {
+                            "type": "string"
+                        },
+                        "max_influence_points": {
+                            "type": "string"
+                        },
+                        "max_military_structure_slots": {
+                            "type": "string"
+                        },
+                        "max_planet_component_slots": {
+                            "type": "string"
+                        },
+                        "max_shield_points": {
+                            "type": "string"
+                        },
+                        "military_research_points": {
+                            "type": "string"
+                        },
+                        "military_research_rate": {
+                            "type": "string"
+                        },
+                        "mining_track_build_price": {
+                            "type": "string"
+                        },
+                        "mining_track_build_time": {
+                            "type": "string"
+                        },
+                        "mining_track_crystal_income_rate": {
+                            "type": "string"
+                        },
+                        "mining_track_metal_income_rate": {
+                            "type": "string"
+                        },
+                        "orbital_extraction_crystal_income_rate": {
+                            "type": "string"
+                        },
+                        "orbital_extraction_metal_income_rate": {
+                            "type": "string"
+                        },
+                        "planet_component_price": {
+                            "type": "string"
+                        },
+                        "research_track_build_price": {
+                            "type": "string"
+                        },
+                        "research_track_build_time": {
+                            "type": "string"
+                        },
+                        "shield_points_restore_rate": {
+                            "type": "string"
+                        },
+                        "structure_build_price": {
+                            "type": "string"
+                        },
+                        "structure_build_time": {
+                            "type": "string"
+                        },
+                        "structure_builder_count": {
+                            "type": "string"
+                        },
+                        "surveying_track_build_price": {
+                            "type": "string"
+                        },
+                        "surveying_track_build_time": {
+                            "type": "string"
+                        },
+                        "unity_points": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "strikecraft_modifier_names": {
+                    "type": "object",
+                    "properties": {
+                        "squadron_size": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "unit_factory_modifier_names": {
+                    "type": "object",
+                    "properties": {
+                        "build_time": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "unit_modifier_names": {
+                    "type": "object",
+                    "properties": {
+                        "ability_antimatter_cost": {
+                            "type": "string"
+                        },
+                        "ability_armor_cost": {
+                            "type": "string"
+                        },
+                        "ability_cooldown_duration": {
+                            "type": "string"
+                        },
+                        "ability_hull_cost": {
+                            "type": "string"
+                        },
+                        "ability_range": {
+                            "type": "string"
+                        },
+                        "ability_shields_cost": {
+                            "type": "string"
+                        },
+                        "antimatter_restore_rate": {
+                            "type": "string"
+                        },
+                        "armor_point_restore_cooldown_duration_after_damage_taken": {
+                            "type": "string"
+                        },
+                        "armor_point_restore_rate": {
+                            "type": "string"
+                        },
+                        "armor_strength": {
+                            "type": "string"
+                        },
+                        "civilian_research_points": {
+                            "type": "string"
+                        },
+                        "credit_income_rate": {
+                            "type": "string"
+                        },
+                        "crystal_income_rate": {
+                            "type": "string"
+                        },
+                        "culture_rate": {
+                            "type": "string"
+                        },
+                        "culture_resistance_rate": {
+                            "type": "string"
+                        },
+                        "damage_taken": {
+                            "type": "string"
+                        },
+                        "experience_gained_from_loot_collection": {
+                            "type": "string"
+                        },
+                        "experience_gained_from_planet_bombing": {
+                            "type": "string"
+                        },
+                        "experience_gained_from_unit_death": {
+                            "type": "string"
+                        },
+                        "experience_given_on_death": {
+                            "type": "string"
+                        },
+                        "hull_crippled_percentage": {
+                            "type": "string"
+                        },
+                        "hull_point_restore_cooldown_duration_after_damage_taken": {
+                            "type": "string"
+                        },
+                        "hull_point_restore_rate": {
+                            "type": "string"
+                        },
+                        "hyperspace_charge_time": {
+                            "type": "string"
+                        },
+                        "hyperspace_speed": {
+                            "type": "string"
+                        },
+                        "loot_collection_duration": {
+                            "type": "string"
+                        },
+                        "max_angular_speed": {
+                            "type": "string"
+                        },
+                        "max_antimatter": {
+                            "type": "string"
+                        },
+                        "max_armor_points": {
+                            "type": "string"
+                        },
+                        "max_hull_points": {
+                            "type": "string"
+                        },
+                        "max_linear_acceleration": {
+                            "type": "string"
+                        },
+                        "max_linear_speed": {
+                            "type": "string"
+                        },
+                        "max_shield_points": {
+                            "type": "string"
+                        },
+                        "max_squadron_capacity": {
+                            "type": "string"
+                        },
+                        "metal_income_rate": {
+                            "type": "string"
+                        },
+                        "military_research_points": {
+                            "type": "string"
+                        },
+                        "phase_resonance_bonus_duration": {
+                            "type": "string"
+                        },
+                        "self_build_time": {
+                            "type": "string"
+                        },
+                        "shield_burst_restore_cooldown_duration": {
+                            "type": "string"
+                        },
+                        "shield_burst_restore_points": {
+                            "type": "string"
+                        },
+                        "shield_point_restore_cooldown_duration_after_damage_taken": {
+                            "type": "string"
+                        },
+                        "shield_point_restore_rate": {
+                            "type": "string"
+                        },
+                        "ship_component_price": {
+                            "type": "string"
+                        },
+                        "spell_power": {
+                            "type": "string"
+                        },
+                        "strikecraft_build_time": {
+                            "type": "string"
+                        },
+                        "trade_export_credits_points": {
+                            "type": "string"
+                        },
+                        "trade_export_crystal_points": {
+                            "type": "string"
+                        },
+                        "trade_export_metal_points": {
+                            "type": "string"
+                        },
+                        "trade_import_points": {
+                            "type": "string"
+                        },
+                        "unity_points": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "weapon_modifier_names": {
+                    "type": "object",
+                    "properties": {
+                        "normal": {
+                            "type": "object",
+                            "properties": {
+                                "bypass_shields_chance": {
+                                    "type": "string"
+                                },
+                                "cooldown_duration": {
+                                    "type": "string"
+                                },
+                                "damage": {
+                                    "type": "string"
+                                },
+                                "range": {
+                                    "type": "string"
+                                },
+                                "tracking_speed": {
+                                    "type": "string"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "planet_bombing": {
+                            "type": "object",
+                            "properties": {
+                                "bypass_shields_chance": {
+                                    "type": "string"
+                                },
+                                "cooldown_duration": {
+                                    "type": "string"
+                                },
+                                "damage": {
+                                    "type": "string"
+                                },
+                                "range": {
+                                    "type": "string"
+                                },
+                                "tracking_speed": {
+                                    "type": "string"
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "required": [
+                "empire_modifier_names",
+                "exotic_factory_modifier_names",
+                "npc_modifier_names",
+                "planet_modifier_names",
+                "strikecraft_modifier_names",
+                "unit_factory_modifier_names",
+                "unit_modifier_names",
+                "weapon_modifier_names"
+            ],
+            "unevaluatedProperties": false
+        },
+        "ping_icons": {
+            "type": "object",
+            "properties": {
+                "attack": {
+                    "type": "string"
+                },
+                "attention": {
+                    "type": "string"
+                },
+                "defend": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "ping_tooltip_icons": {
+            "type": "object",
+            "properties": {
+                "attack": {
+                    "type": "string"
+                },
+                "attention": {
+                    "type": "string"
+                },
+                "defend": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "planet_component_items_tooltip_icon": {
+            "type": "string"
+        },
+        "query_status": {
+            "type": "object",
+            "properties": {
+                "default_not_ok_icon": {
+                    "type": "string"
+                },
+                "icons": {
+                    "type": "object",
+                    "properties": {
+                        "ability_action_constraint_is_not_satisfied": {
+                            "type": "string"
+                        },
+                        "ability_auto_cast_target_action_constraint_satisfied": {
+                            "type": "string"
+                        },
+                        "ability_construction_not_finished": {
+                            "type": "string"
+                        },
+                        "ability_cooldown_is_not_completed": {
+                            "type": "string"
+                        },
+                        "ability_does_not_have_required_charge": {
+                            "type": "string"
+                        },
+                        "ability_is_already_in_use": {
+                            "type": "string"
+                        },
+                        "ability_is_disabled": {
+                            "type": "string"
+                        },
+                        "ability_is_missing_required_available_supply": {
+                            "type": "string"
+                        },
+                        "ability_is_missing_required_structure": {
+                            "type": "string"
+                        },
+                        "ability_level_is_not_valid": {
+                            "type": "string"
+                        },
+                        "ability_source_item_consumable_stack_count_zero": {
+                            "type": "string"
+                        },
+                        "ability_source_item_slot_unbuilt": {
+                            "type": "string"
+                        },
+                        "ability_source_item_unbuilt": {
+                            "type": "string"
+                        },
+                        "ability_source_item_unknown": {
+                            "type": "string"
+                        },
+                        "alliance_cannot_be_broken_when_locked": {
+                            "type": "string"
+                        },
+                        "alliance_cannot_be_broken_when_not_allied": {
+                            "type": "string"
+                        },
+                        "alliance_cannot_be_broken_when_permanently_allied": {
+                            "type": "string"
+                        },
+                        "alliance_cannot_be_broken_when_self": {
+                            "type": "string"
+                        },
+                        "alliance_offer_does_not_exist": {
+                            "type": "string"
+                        },
+                        "alliance_offer_envoy_mismatch": {
+                            "type": "string"
+                        },
+                        "alliance_offer_expired": {
+                            "type": "string"
+                        },
+                        "alliance_offer_has_unconfirmed_planet": {
+                            "type": "string"
+                        },
+                        "alliance_offer_has_unowned_planet": {
+                            "type": "string"
+                        },
+                        "alliance_offer_other_player_is_invalid": {
+                            "type": "string"
+                        },
+                        "alliance_offer_planet_never_detected": {
+                            "type": "string"
+                        },
+                        "alliance_offer_planet_not_a_planet": {
+                            "type": "string"
+                        },
+                        "alliance_offer_planet_not_owned_by_player": {
+                            "type": "string"
+                        },
+                        "alliance_offer_player_lost": {
+                            "type": "string"
+                        },
+                        "alliance_offer_version_mismatch": {
+                            "type": "string"
+                        },
+                        "buff_stack_limit_met": {
+                            "type": "string"
+                        },
+                        "cannot_be_damaged": {
+                            "type": "string"
+                        },
+                        "carrier_slot_index_is_invalid": {
+                            "type": "string"
+                        },
+                        "carrier_slot_is_already_empty": {
+                            "type": "string"
+                        },
+                        "colonization_is_disabled": {
+                            "type": "string"
+                        },
+                        "exotic_factory_does_not_exist": {
+                            "type": "string"
+                        },
+                        "exotic_factory_is_not_building_exotic": {
+                            "type": "string"
+                        },
+                        "exotic_factory_is_not_functional": {
+                            "type": "string"
+                        },
+                        "exotic_type_is_not_buildable_ever": {
+                            "type": "string"
+                        },
+                        "global_unit_limit_exceeded": {
+                            "type": "string"
+                        },
+                        "gravity_well_unit_limit_exceeded": {
+                            "type": "string"
+                        },
+                        "home_planet_cannot_be_changed_already_changing": {
+                            "type": "string"
+                        },
+                        "home_planet_cannot_be_changed_due_to_using_bonus_civilian_slots": {
+                            "type": "string"
+                        },
+                        "home_planet_cannot_be_changed_due_to_using_bonus_military_slots": {
+                            "type": "string"
+                        },
+                        "home_planet_cannot_be_changed_due_to_victory_condition": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_ability_not_owned_by_player": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_already_max_level": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_does_not_have_internal_level_source": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_owner_has_no_available_ability_points": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_owner_has_no_levels": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_owner_not_high_enough_level": {
+                            "type": "string"
+                        },
+                        "insufficient_antimatter": {
+                            "type": "string"
+                        },
+                        "insufficient_armor": {
+                            "type": "string"
+                        },
+                        "insufficient_civilian_research_points": {
+                            "type": "string"
+                        },
+                        "insufficient_civilian_research_tier": {
+                            "type": "string"
+                        },
+                        "insufficient_civilian_structure_slots": {
+                            "type": "string"
+                        },
+                        "insufficient_civilian_structure_slots_at_max": {
+                            "type": "string"
+                        },
+                        "insufficient_credits": {
+                            "type": "string"
+                        },
+                        "insufficient_crystal": {
+                            "type": "string"
+                        },
+                        "insufficient_exotics": {
+                            "type": "string"
+                        },
+                        "insufficient_hull": {
+                            "type": "string"
+                        },
+                        "insufficient_influence_points": {
+                            "type": "string"
+                        },
+                        "insufficient_metal": {
+                            "type": "string"
+                        },
+                        "insufficient_military_research_points": {
+                            "type": "string"
+                        },
+                        "insufficient_military_research_tier": {
+                            "type": "string"
+                        },
+                        "insufficient_military_structure_slots": {
+                            "type": "string"
+                        },
+                        "insufficient_military_structure_slots_at_max": {
+                            "type": "string"
+                        },
+                        "insufficient_planet_health": {
+                            "type": "string"
+                        },
+                        "insufficient_player_phase_resonance_points": {
+                            "type": "string"
+                        },
+                        "insufficient_shields": {
+                            "type": "string"
+                        },
+                        "insufficient_squadron_capacity": {
+                            "type": "string"
+                        },
+                        "insufficient_unit_supply": {
+                            "type": "string"
+                        },
+                        "insufficient_unit_supply_at_max_supply": {
+                            "type": "string"
+                        },
+                        "insufficient_unity_mana": {
+                            "type": "string"
+                        },
+                        "insufficient_unity_max_mana": {
+                            "type": "string"
+                        },
+                        "insufficient_unity_points": {
+                            "type": "string"
+                        },
+                        "insufficient_unused_trade_export_points": {
+                            "type": "string"
+                        },
+                        "insufficient_unused_trade_import_points": {
+                            "type": "string"
+                        },
+                        "insufficient_used_trade_export_points": {
+                            "type": "string"
+                        },
+                        "item_is_finite_and_available_count_is_zero": {
+                            "type": "string"
+                        },
+                        "item_is_infinite_and_already_in_inventory": {
+                            "type": "string"
+                        },
+                        "item_is_not_in_player_inventory": {
+                            "type": "string"
+                        },
+                        "item_type_is_not_valid_for_player_inventory": {
+                            "type": "string"
+                        },
+                        "no_available_planet": {
+                            "type": "string"
+                        },
+                        "no_free_asteroid": {
+                            "type": "string"
+                        },
+                        "no_unit_can_join_fleet": {
+                            "type": "string"
+                        },
+                        "npc_alliance_broken": {
+                            "type": "string"
+                        },
+                        "npc_auction_does_not_exist": {
+                            "type": "string"
+                        },
+                        "npc_is_already_revealed": {
+                            "type": "string"
+                        },
+                        "npc_is_dead": {
+                            "type": "string"
+                        },
+                        "npc_is_not_revealed": {
+                            "type": "string"
+                        },
+                        "npc_market_does_not_exist": {
+                            "type": "string"
+                        },
+                        "npc_market_does_not_match_exclusive_player": {
+                            "type": "string"
+                        },
+                        "npc_market_does_not_want_exotic": {
+                            "type": "string"
+                        },
+                        "npc_market_is_dead": {
+                            "type": "string"
+                        },
+                        "npc_market_is_not_discovered": {
+                            "type": "string"
+                        },
+                        "npc_market_requires_alliance": {
+                            "type": "string"
+                        },
+                        "npc_reputatation_level_is_at_max_level": {
+                            "type": "string"
+                        },
+                        "npc_reputatation_level_is_not_valid": {
+                            "type": "string"
+                        },
+                        "npc_reputation_reward_cooldown_is_not_completed": {
+                            "type": "string"
+                        },
+                        "npc_reputation_reward_target_is_out_of_gravity_well_range": {
+                            "type": "string"
+                        },
+                        "ok": {
+                            "type": "string"
+                        },
+                        "other_item_requirements_mutually_exclusive_item_already_exists": {
+                            "type": "string"
+                        },
+                        "other_item_requirements_needed_item_missing": {
+                            "type": "string"
+                        },
+                        "planet_is_already_a_home_planet": {
+                            "type": "string"
+                        },
+                        "planet_is_not_building_structure": {
+                            "type": "string"
+                        },
+                        "planet_track_is_not_upgrading": {
+                            "type": "string"
+                        },
+                        "planet_track_level_is_already_max": {
+                            "type": "string"
+                        },
+                        "planet_unit_limit_exceeded": {
+                            "type": "string"
+                        },
+                        "planet_was_recently_bombed": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_already_exists": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_cannot_reach_target": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_does_not_exist": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_is_owned_by_another_player": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_requires_ai_player": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_requires_synergy_alliance": {
+                            "type": "string"
+                        },
+                        "player_is_not_npc": {
+                            "type": "string"
+                        },
+                        "player_lost": {
+                            "type": "string"
+                        },
+                        "player_phase_resonance_does_not_exist": {
+                            "type": "string"
+                        },
+                        "player_phase_resonance_track_level_is_max": {
+                            "type": "string"
+                        },
+                        "player_unity_ability_does_not_exist": {
+                            "type": "string"
+                        },
+                        "player_unity_ability_is_max_level": {
+                            "type": "string"
+                        },
+                        "player_unity_does_not_exist": {
+                            "type": "string"
+                        },
+                        "position_has_overlapped_unit": {
+                            "type": "string"
+                        },
+                        "position_is_not_within_gravity_well": {
+                            "type": "string"
+                        },
+                        "position_is_not_within_structure_build_distance": {
+                            "type": "string"
+                        },
+                        "purchase_item_buying_player_is_not_planet_owner": {
+                            "type": "string"
+                        },
+                        "purchase_item_buying_player_is_not_ship_owner": {
+                            "type": "string"
+                        },
+                        "purchase_item_finite_item_and_none_in_inventory": {
+                            "type": "string"
+                        },
+                        "purchase_item_missing_required_trade_port_structure": {
+                            "type": "string"
+                        },
+                        "purchase_item_no_planet_component_slot_available": {
+                            "type": "string"
+                        },
+                        "purchase_item_no_ship_component_slot_available": {
+                            "type": "string"
+                        },
+                        "purchase_item_not_in_player_inventory": {
+                            "type": "string"
+                        },
+                        "purchase_item_owner_constraint_not_satisfied": {
+                            "type": "string"
+                        },
+                        "purchase_item_planet_not_at_required_level": {
+                            "type": "string"
+                        },
+                        "purchase_item_planet_type_is_never_valid": {
+                            "type": "string"
+                        },
+                        "purchase_item_type_not_valid": {
+                            "type": "string"
+                        },
+                        "purchase_item_unit_has_max_count_on_unit_already": {
+                            "type": "string"
+                        },
+                        "purchase_item_unit_is_not_fully_built": {
+                            "type": "string"
+                        },
+                        "purchase_item_unit_missing_required_tag": {
+                            "type": "string"
+                        },
+                        "remove_item_ability_being_used": {
+                            "type": "string"
+                        },
+                        "remove_item_cannot_remove_artifact": {
+                            "type": "string"
+                        },
+                        "remove_item_civilian_structure_slots_being_used": {
+                            "type": "string"
+                        },
+                        "remove_item_is_other_item_requirement": {
+                            "type": "string"
+                        },
+                        "remove_item_military_structure_slots_being_used": {
+                            "type": "string"
+                        },
+                        "remove_item_not_owned_by_unit": {
+                            "type": "string"
+                        },
+                        "remove_item_type_not_valid": {
+                            "type": "string"
+                        },
+                        "research_prerequisites_not_met": {
+                            "type": "string"
+                        },
+                        "research_subject_already_completed": {
+                            "type": "string"
+                        },
+                        "research_subject_already_researching": {
+                            "type": "string"
+                        },
+                        "research_subject_not_owned": {
+                            "type": "string"
+                        },
+                        "research_subject_not_researching": {
+                            "type": "string"
+                        },
+                        "research_subject_required_allied_player_race_missing": {
+                            "type": "string"
+                        },
+                        "research_tier_already_acquired": {
+                            "type": "string"
+                        },
+                        "research_tier_already_acquiring": {
+                            "type": "string"
+                        },
+                        "research_tier_is_invalid": {
+                            "type": "string"
+                        },
+                        "research_tier_not_acquiring": {
+                            "type": "string"
+                        },
+                        "special_operation_unit_cannot_move_out_of_gravity_well": {
+                            "type": "string"
+                        },
+                        "special_operation_unit_cannot_move_too_far": {
+                            "type": "string"
+                        },
+                        "star_unit_limit_exceeded": {
+                            "type": "string"
+                        },
+                        "structure_is_not_valid": {
+                            "type": "string"
+                        },
+                        "structure_requires_higher_planet_track_level": {
+                            "type": "string"
+                        },
+                        "structure_requires_phase_resonance_synchronizer_capacity": {
+                            "type": "string"
+                        },
+                        "structure_requires_planet_trade_capacity": {
+                            "type": "string"
+                        },
+                        "structure_requires_research_points": {
+                            "type": "string"
+                        },
+                        "structure_requires_unity_provider_capacity": {
+                            "type": "string"
+                        },
+                        "structure_will_never_fit_in_build_radius": {
+                            "type": "string"
+                        },
+                        "target_alliance_relationship_is_not_enemy": {
+                            "type": "string"
+                        },
+                        "target_already_being_colonized": {
+                            "type": "string"
+                        },
+                        "target_already_colonized": {
+                            "type": "string"
+                        },
+                        "target_can_never_be_colonized": {
+                            "type": "string"
+                        },
+                        "target_cannot_be_damaged": {
+                            "type": "string"
+                        },
+                        "target_cannot_be_targeted_by_allies": {
+                            "type": "string"
+                        },
+                        "target_cannot_be_targeted_by_enemies": {
+                            "type": "string"
+                        },
+                        "target_destination_is_not_within_gravity_well": {
+                            "type": "string"
+                        },
+                        "target_direction_not_valid": {
+                            "type": "string"
+                        },
+                        "target_has_failed_stateful_constraint": {
+                            "type": "string"
+                        },
+                        "target_has_failed_stateless_constraint": {
+                            "type": "string"
+                        },
+                        "target_has_no_matching_ownerships": {
+                            "type": "string"
+                        },
+                        "target_has_no_matching_unit_definition": {
+                            "type": "string"
+                        },
+                        "target_has_no_matching_unit_type": {
+                            "type": "string"
+                        },
+                        "target_is_dead": {
+                            "type": "string"
+                        },
+                        "target_is_fully_unbuilt": {
+                            "type": "string"
+                        },
+                        "target_is_in_phase_space": {
+                            "type": "string"
+                        },
+                        "target_is_not_a_planet": {
+                            "type": "string"
+                        },
+                        "target_is_not_detected": {
+                            "type": "string"
+                        },
+                        "target_is_not_explored": {
+                            "type": "string"
+                        },
+                        "target_is_out_of_gravity_well_range": {
+                            "type": "string"
+                        },
+                        "target_is_out_of_jump_count_range": {
+                            "type": "string"
+                        },
+                        "target_is_out_of_range_and_targetter_cannot_move": {
+                            "type": "string"
+                        },
+                        "target_is_out_of_range_and_targetter_has_no_path": {
+                            "type": "string"
+                        },
+                        "target_is_required": {
+                            "type": "string"
+                        },
+                        "target_is_unbuilt": {
+                            "type": "string"
+                        },
+                        "unit_cannot_hyperspace_ever": {
+                            "type": "string"
+                        },
+                        "unit_cannot_hyperspace_now": {
+                            "type": "string"
+                        },
+                        "unit_cannot_move": {
+                            "type": "string"
+                        },
+                        "unit_factory_does_not_exist": {
+                            "type": "string"
+                        },
+                        "unit_factory_does_not_support_build_kind": {
+                            "type": "string"
+                        },
+                        "unit_factory_is_not_building_unit": {
+                            "type": "string"
+                        },
+                        "unit_factory_is_not_functional": {
+                            "type": "string"
+                        },
+                        "unit_factory_is_structure": {
+                            "type": "string"
+                        },
+                        "unit_has_no_gravity_well_to_retreat_from": {
+                            "type": "string"
+                        },
+                        "unit_has_no_gravity_well_to_retreat_to": {
+                            "type": "string"
+                        },
+                        "unit_has_no_path_to_destination": {
+                            "type": "string"
+                        },
+                        "unit_has_no_path_to_destination_due_to_gravity_well_unit_limit": {
+                            "type": "string"
+                        },
+                        "unit_has_no_weapons": {
+                            "type": "string"
+                        },
+                        "unit_is_crippled": {
+                            "type": "string"
+                        },
+                        "unit_is_not_operational": {
+                            "type": "string"
+                        },
+                        "unit_is_not_owned_by_player": {
+                            "type": "string"
+                        },
+                        "unity_ability_cooldown_is_not_completed": {
+                            "type": "string"
+                        },
+                        "wormhole_travel_research_prerequisites_not_met": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "insufficient_exotics_message_format": {
+                    "type": "string"
+                },
+                "insufficient_research_points_message_format": {
+                    "type": "string"
+                },
+                "insufficient_research_tier_message_format": {
+                    "type": "string"
+                },
+                "messages": {
+                    "type": "object",
+                    "properties": {
+                        "ability_action_constraint_is_not_satisfied": {
+                            "type": "string"
+                        },
+                        "ability_auto_cast_target_action_constraint_satisfied": {
+                            "type": "string"
+                        },
+                        "ability_construction_not_finished": {
+                            "type": "string"
+                        },
+                        "ability_cooldown_is_not_completed": {
+                            "type": "string"
+                        },
+                        "ability_does_not_have_required_charge": {
+                            "type": "string"
+                        },
+                        "ability_is_already_in_use": {
+                            "type": "string"
+                        },
+                        "ability_is_disabled": {
+                            "type": "string"
+                        },
+                        "ability_is_missing_required_available_supply": {
+                            "type": "string"
+                        },
+                        "ability_is_missing_required_structure": {
+                            "type": "string"
+                        },
+                        "ability_level_is_not_valid": {
+                            "type": "string"
+                        },
+                        "ability_source_item_consumable_stack_count_zero": {
+                            "type": "string"
+                        },
+                        "ability_source_item_slot_unbuilt": {
+                            "type": "string"
+                        },
+                        "ability_source_item_unbuilt": {
+                            "type": "string"
+                        },
+                        "ability_source_item_unknown": {
+                            "type": "string"
+                        },
+                        "alliance_cannot_be_broken_when_locked": {
+                            "type": "string"
+                        },
+                        "alliance_cannot_be_broken_when_not_allied": {
+                            "type": "string"
+                        },
+                        "alliance_cannot_be_broken_when_permanently_allied": {
+                            "type": "string"
+                        },
+                        "alliance_cannot_be_broken_when_self": {
+                            "type": "string"
+                        },
+                        "alliance_offer_does_not_exist": {
+                            "type": "string"
+                        },
+                        "alliance_offer_envoy_mismatch": {
+                            "type": "string"
+                        },
+                        "alliance_offer_expired": {
+                            "type": "string"
+                        },
+                        "alliance_offer_has_unconfirmed_planet": {
+                            "type": "string"
+                        },
+                        "alliance_offer_has_unowned_planet": {
+                            "type": "string"
+                        },
+                        "alliance_offer_other_player_is_invalid": {
+                            "type": "string"
+                        },
+                        "alliance_offer_planet_never_detected": {
+                            "type": "string"
+                        },
+                        "alliance_offer_planet_not_a_planet": {
+                            "type": "string"
+                        },
+                        "alliance_offer_planet_not_owned_by_player": {
+                            "type": "string"
+                        },
+                        "alliance_offer_player_lost": {
+                            "type": "string"
+                        },
+                        "alliance_offer_version_mismatch": {
+                            "type": "string"
+                        },
+                        "buff_stack_limit_met": {
+                            "type": "string"
+                        },
+                        "cannot_be_damaged": {
+                            "type": "string"
+                        },
+                        "carrier_slot_index_is_invalid": {
+                            "type": "string"
+                        },
+                        "carrier_slot_is_already_empty": {
+                            "type": "string"
+                        },
+                        "colonization_is_disabled": {
+                            "type": "string"
+                        },
+                        "exotic_factory_does_not_exist": {
+                            "type": "string"
+                        },
+                        "exotic_factory_is_not_building_exotic": {
+                            "type": "string"
+                        },
+                        "exotic_factory_is_not_functional": {
+                            "type": "string"
+                        },
+                        "exotic_type_is_not_buildable_ever": {
+                            "type": "string"
+                        },
+                        "global_unit_limit_exceeded": {
+                            "type": "string"
+                        },
+                        "gravity_well_unit_limit_exceeded": {
+                            "type": "string"
+                        },
+                        "home_planet_cannot_be_changed_already_changing": {
+                            "type": "string"
+                        },
+                        "home_planet_cannot_be_changed_due_to_using_bonus_civilian_slots": {
+                            "type": "string"
+                        },
+                        "home_planet_cannot_be_changed_due_to_using_bonus_military_slots": {
+                            "type": "string"
+                        },
+                        "home_planet_cannot_be_changed_due_to_victory_condition": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_ability_not_owned_by_player": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_already_max_level": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_does_not_have_internal_level_source": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_owner_has_no_available_ability_points": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_owner_has_no_levels": {
+                            "type": "string"
+                        },
+                        "increase_ability_level_owner_not_high_enough_level": {
+                            "type": "string"
+                        },
+                        "insufficient_antimatter": {
+                            "type": "string"
+                        },
+                        "insufficient_armor": {
+                            "type": "string"
+                        },
+                        "insufficient_civilian_research_points": {
+                            "type": "string"
+                        },
+                        "insufficient_civilian_research_tier": {
+                            "type": "string"
+                        },
+                        "insufficient_civilian_structure_slots": {
+                            "type": "string"
+                        },
+                        "insufficient_civilian_structure_slots_at_max": {
+                            "type": "string"
+                        },
+                        "insufficient_credits": {
+                            "type": "string"
+                        },
+                        "insufficient_crystal": {
+                            "type": "string"
+                        },
+                        "insufficient_exotics": {
+                            "type": "string"
+                        },
+                        "insufficient_hull": {
+                            "type": "string"
+                        },
+                        "insufficient_influence_points": {
+                            "type": "string"
+                        },
+                        "insufficient_metal": {
+                            "type": "string"
+                        },
+                        "insufficient_military_research_points": {
+                            "type": "string"
+                        },
+                        "insufficient_military_research_tier": {
+                            "type": "string"
+                        },
+                        "insufficient_military_structure_slots": {
+                            "type": "string"
+                        },
+                        "insufficient_military_structure_slots_at_max": {
+                            "type": "string"
+                        },
+                        "insufficient_planet_health": {
+                            "type": "string"
+                        },
+                        "insufficient_player_phase_resonance_points": {
+                            "type": "string"
+                        },
+                        "insufficient_shields": {
+                            "type": "string"
+                        },
+                        "insufficient_squadron_capacity": {
+                            "type": "string"
+                        },
+                        "insufficient_unit_supply": {
+                            "type": "string"
+                        },
+                        "insufficient_unit_supply_at_max_supply": {
+                            "type": "string"
+                        },
+                        "insufficient_unity_mana": {
+                            "type": "string"
+                        },
+                        "insufficient_unity_max_mana": {
+                            "type": "string"
+                        },
+                        "insufficient_unity_points": {
+                            "type": "string"
+                        },
+                        "insufficient_unused_trade_export_points": {
+                            "type": "string"
+                        },
+                        "insufficient_unused_trade_import_points": {
+                            "type": "string"
+                        },
+                        "insufficient_used_trade_export_points": {
+                            "type": "string"
+                        },
+                        "item_is_finite_and_available_count_is_zero": {
+                            "type": "string"
+                        },
+                        "item_is_infinite_and_already_in_inventory": {
+                            "type": "string"
+                        },
+                        "item_is_not_in_player_inventory": {
+                            "type": "string"
+                        },
+                        "item_type_is_not_valid_for_player_inventory": {
+                            "type": "string"
+                        },
+                        "no_available_planet": {
+                            "type": "string"
+                        },
+                        "no_free_asteroid": {
+                            "type": "string"
+                        },
+                        "no_unit_can_join_fleet": {
+                            "type": "string"
+                        },
+                        "npc_alliance_broken": {
+                            "type": "string"
+                        },
+                        "npc_auction_does_not_exist": {
+                            "type": "string"
+                        },
+                        "npc_is_already_revealed": {
+                            "type": "string"
+                        },
+                        "npc_is_dead": {
+                            "type": "string"
+                        },
+                        "npc_is_not_revealed": {
+                            "type": "string"
+                        },
+                        "npc_market_does_not_exist": {
+                            "type": "string"
+                        },
+                        "npc_market_does_not_match_exclusive_player": {
+                            "type": "string"
+                        },
+                        "npc_market_does_not_want_exotic": {
+                            "type": "string"
+                        },
+                        "npc_market_is_dead": {
+                            "type": "string"
+                        },
+                        "npc_market_is_not_discovered": {
+                            "type": "string"
+                        },
+                        "npc_market_requires_alliance": {
+                            "type": "string"
+                        },
+                        "npc_reputatation_level_is_at_max_level": {
+                            "type": "string"
+                        },
+                        "npc_reputatation_level_is_not_valid": {
+                            "type": "string"
+                        },
+                        "npc_reputation_reward_cooldown_is_not_completed": {
+                            "type": "string"
+                        },
+                        "npc_reputation_reward_target_is_out_of_gravity_well_range": {
+                            "type": "string"
+                        },
+                        "ok": {
+                            "type": "string"
+                        },
+                        "other_item_requirements_mutually_exclusive_item_already_exists": {
+                            "type": "string"
+                        },
+                        "other_item_requirements_needed_item_missing": {
+                            "type": "string"
+                        },
+                        "planet_is_already_a_home_planet": {
+                            "type": "string"
+                        },
+                        "planet_is_not_building_structure": {
+                            "type": "string"
+                        },
+                        "planet_track_is_not_upgrading": {
+                            "type": "string"
+                        },
+                        "planet_track_level_is_already_max": {
+                            "type": "string"
+                        },
+                        "planet_unit_limit_exceeded": {
+                            "type": "string"
+                        },
+                        "planet_was_recently_bombed": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_already_exists": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_cannot_reach_target": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_does_not_exist": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_is_owned_by_another_player": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_requires_ai_player": {
+                            "type": "string"
+                        },
+                        "player_ai_directive_requires_synergy_alliance": {
+                            "type": "string"
+                        },
+                        "player_is_not_npc": {
+                            "type": "string"
+                        },
+                        "player_lost": {
+                            "type": "string"
+                        },
+                        "player_phase_resonance_does_not_exist": {
+                            "type": "string"
+                        },
+                        "player_phase_resonance_track_level_is_max": {
+                            "type": "string"
+                        },
+                        "player_unity_ability_does_not_exist": {
+                            "type": "string"
+                        },
+                        "player_unity_ability_is_max_level": {
+                            "type": "string"
+                        },
+                        "player_unity_does_not_exist": {
+                            "type": "string"
+                        },
+                        "position_has_overlapped_unit": {
+                            "type": "string"
+                        },
+                        "position_is_not_within_gravity_well": {
+                            "type": "string"
+                        },
+                        "position_is_not_within_structure_build_distance": {
+                            "type": "string"
+                        },
+                        "purchase_item_buying_player_is_not_planet_owner": {
+                            "type": "string"
+                        },
+                        "purchase_item_buying_player_is_not_ship_owner": {
+                            "type": "string"
+                        },
+                        "purchase_item_finite_item_and_none_in_inventory": {
+                            "type": "string"
+                        },
+                        "purchase_item_missing_required_trade_port_structure": {
+                            "type": "string"
+                        },
+                        "purchase_item_no_planet_component_slot_available": {
+                            "type": "string"
+                        },
+                        "purchase_item_no_ship_component_slot_available": {
+                            "type": "string"
+                        },
+                        "purchase_item_not_in_player_inventory": {
+                            "type": "string"
+                        },
+                        "purchase_item_owner_constraint_not_satisfied": {
+                            "type": "string"
+                        },
+                        "purchase_item_planet_not_at_required_level": {
+                            "type": "string"
+                        },
+                        "purchase_item_planet_type_is_never_valid": {
+                            "type": "string"
+                        },
+                        "purchase_item_type_not_valid": {
+                            "type": "string"
+                        },
+                        "purchase_item_unit_has_max_count_on_unit_already": {
+                            "type": "string"
+                        },
+                        "purchase_item_unit_is_not_fully_built": {
+                            "type": "string"
+                        },
+                        "purchase_item_unit_missing_required_tag": {
+                            "type": "string"
+                        },
+                        "remove_item_ability_being_used": {
+                            "type": "string"
+                        },
+                        "remove_item_cannot_remove_artifact": {
+                            "type": "string"
+                        },
+                        "remove_item_civilian_structure_slots_being_used": {
+                            "type": "string"
+                        },
+                        "remove_item_is_other_item_requirement": {
+                            "type": "string"
+                        },
+                        "remove_item_military_structure_slots_being_used": {
+                            "type": "string"
+                        },
+                        "remove_item_not_owned_by_unit": {
+                            "type": "string"
+                        },
+                        "remove_item_type_not_valid": {
+                            "type": "string"
+                        },
+                        "research_prerequisites_not_met": {
+                            "type": "string"
+                        },
+                        "research_subject_already_completed": {
+                            "type": "string"
+                        },
+                        "research_subject_already_researching": {
+                            "type": "string"
+                        },
+                        "research_subject_not_owned": {
+                            "type": "string"
+                        },
+                        "research_subject_not_researching": {
+                            "type": "string"
+                        },
+                        "research_subject_required_allied_player_race_missing": {
+                            "type": "string"
+                        },
+                        "research_tier_already_acquired": {
+                            "type": "string"
+                        },
+                        "research_tier_already_acquiring": {
+                            "type": "string"
+                        },
+                        "research_tier_is_invalid": {
+                            "type": "string"
+                        },
+                        "research_tier_not_acquiring": {
+                            "type": "string"
+                        },
+                        "special_operation_unit_cannot_move_out_of_gravity_well": {
+                            "type": "string"
+                        },
+                        "special_operation_unit_cannot_move_too_far": {
+                            "type": "string"
+                        },
+                        "star_unit_limit_exceeded": {
+                            "type": "string"
+                        },
+                        "structure_is_not_valid": {
+                            "type": "string"
+                        },
+                        "structure_requires_higher_planet_track_level": {
+                            "type": "string"
+                        },
+                        "structure_requires_phase_resonance_synchronizer_capacity": {
+                            "type": "string"
+                        },
+                        "structure_requires_planet_trade_capacity": {
+                            "type": "string"
+                        },
+                        "structure_requires_research_points": {
+                            "type": "string"
+                        },
+                        "structure_requires_unity_provider_capacity": {
+                            "type": "string"
+                        },
+                        "structure_will_never_fit_in_build_radius": {
+                            "type": "string"
+                        },
+                        "target_alliance_relationship_is_not_enemy": {
+                            "type": "string"
+                        },
+                        "target_already_being_colonized": {
+                            "type": "string"
+                        },
+                        "target_already_colonized": {
+                            "type": "string"
+                        },
+                        "target_can_never_be_colonized": {
+                            "type": "string"
+                        },
+                        "target_cannot_be_damaged": {
+                            "type": "string"
+                        },
+                        "target_cannot_be_targeted_by_allies": {
+                            "type": "string"
+                        },
+                        "target_cannot_be_targeted_by_enemies": {
+                            "type": "string"
+                        },
+                        "target_destination_is_not_within_gravity_well": {
+                            "type": "string"
+                        },
+                        "target_direction_not_valid": {
+                            "type": "string"
+                        },
+                        "target_has_failed_stateful_constraint": {
+                            "type": "string"
+                        },
+                        "target_has_failed_stateless_constraint": {
+                            "type": "string"
+                        },
+                        "target_has_no_matching_ownerships": {
+                            "type": "string"
+                        },
+                        "target_has_no_matching_unit_definition": {
+                            "type": "string"
+                        },
+                        "target_has_no_matching_unit_type": {
+                            "type": "string"
+                        },
+                        "target_is_dead": {
+                            "type": "string"
+                        },
+                        "target_is_fully_unbuilt": {
+                            "type": "string"
+                        },
+                        "target_is_in_phase_space": {
+                            "type": "string"
+                        },
+                        "target_is_not_a_planet": {
+                            "type": "string"
+                        },
+                        "target_is_not_detected": {
+                            "type": "string"
+                        },
+                        "target_is_not_explored": {
+                            "type": "string"
+                        },
+                        "target_is_out_of_gravity_well_range": {
+                            "type": "string"
+                        },
+                        "target_is_out_of_jump_count_range": {
+                            "type": "string"
+                        },
+                        "target_is_out_of_range_and_targetter_cannot_move": {
+                            "type": "string"
+                        },
+                        "target_is_out_of_range_and_targetter_has_no_path": {
+                            "type": "string"
+                        },
+                        "target_is_required": {
+                            "type": "string"
+                        },
+                        "target_is_unbuilt": {
+                            "type": "string"
+                        },
+                        "unit_cannot_hyperspace_ever": {
+                            "type": "string"
+                        },
+                        "unit_cannot_hyperspace_now": {
+                            "type": "string"
+                        },
+                        "unit_cannot_move": {
+                            "type": "string"
+                        },
+                        "unit_factory_does_not_exist": {
+                            "type": "string"
+                        },
+                        "unit_factory_does_not_support_build_kind": {
+                            "type": "string"
+                        },
+                        "unit_factory_is_not_building_unit": {
+                            "type": "string"
+                        },
+                        "unit_factory_is_not_functional": {
+                            "type": "string"
+                        },
+                        "unit_factory_is_structure": {
+                            "type": "string"
+                        },
+                        "unit_has_no_gravity_well_to_retreat_from": {
+                            "type": "string"
+                        },
+                        "unit_has_no_gravity_well_to_retreat_to": {
+                            "type": "string"
+                        },
+                        "unit_has_no_path_to_destination": {
+                            "type": "string"
+                        },
+                        "unit_has_no_path_to_destination_due_to_gravity_well_unit_limit": {
+                            "type": "string"
+                        },
+                        "unit_has_no_weapons": {
+                            "type": "string"
+                        },
+                        "unit_is_crippled": {
+                            "type": "string"
+                        },
+                        "unit_is_not_operational": {
+                            "type": "string"
+                        },
+                        "unit_is_not_owned_by_player": {
+                            "type": "string"
+                        },
+                        "unity_ability_cooldown_is_not_completed": {
+                            "type": "string"
+                        },
+                        "wormhole_travel_research_prerequisites_not_met": {
+                            "type": "string"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "missing_weapon_constraint_message_prefix": {
+                    "type": "string"
+                },
+                "missing_weapon_constraint_message_suffix": {
+                    "type": "string"
+                },
+                "unmet_is_carrier_constraint_message": {
+                    "type": "string"
+                },
+                "unmet_is_in_ally_dominant_culture_constraint_message": {
+                    "type": "string"
+                },
+                "unmet_is_in_any_dominant_culture_constraint_message": {
+                    "type": "string"
+                },
+                "unmet_is_in_enemy_dominant_culture_constraint_message": {
+                    "type": "string"
+                },
+                "unmet_is_in_own_dominant_culture_constraint_message": {
+                    "type": "string"
+                },
+                "unmet_is_not_ally_home_planet_constraint_message": {
+                    "type": "string"
+                },
+                "unmet_is_not_any_home_planet_constraint_message": {
+                    "type": "string"
+                },
+                "unmet_is_not_enemy_home_planet_constraint_message": {
+                    "type": "string"
+                },
+                "unmet_is_not_own_home_planet_constraint_message": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "server_tag_descriptions": {
+            "type": "object",
+            "properties": {
+                "casual_ffa": {
+                    "type": "string"
+                },
+                "casual_teams": {
+                    "type": "string"
+                },
+                "casual_vs_ai": {
+                    "type": "string"
+                },
+                "expert_ffa": {
+                    "type": "string"
+                },
+                "expert_teams": {
+                    "type": "string"
+                },
+                "expert_vs_ai": {
+                    "type": "string"
+                },
+                "mentoring": {
+                    "type": "string"
+                },
+                "normal_ffa": {
+                    "type": "string"
+                },
+                "normal_teams": {
+                    "type": "string"
+                },
+                "normal_vs_ai": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "server_tag_names": {
+            "type": "object",
+            "properties": {
+                "casual_ffa": {
+                    "type": "string"
+                },
+                "casual_teams": {
+                    "type": "string"
+                },
+                "casual_vs_ai": {
+                    "type": "string"
+                },
+                "expert_ffa": {
+                    "type": "string"
+                },
+                "expert_teams": {
+                    "type": "string"
+                },
+                "expert_vs_ai": {
+                    "type": "string"
+                },
+                "mentoring": {
+                    "type": "string"
+                },
+                "normal_ffa": {
+                    "type": "string"
+                },
+                "normal_teams": {
+                    "type": "string"
+                },
+                "normal_vs_ai": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "simulation_float_option_scalar_value_color": {
+            "type": "string"
+        },
+        "structure_builder_tooltip_icon": {
+            "type": "string"
+        },
+        "structure_slot_tooltip_icons": {
+            "type": "object",
+            "properties": {
+                "civilian": {
+                    "type": "string"
+                },
+                "military": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "target_filter_unit_type_names": {
+            "type": "object",
+            "properties": {
+                "asteroid": {
+                    "type": "string"
+                },
+                "cannon_shell": {
+                    "type": "string"
+                },
+                "capital_ship": {
+                    "type": "string"
+                },
+                "corvette": {
+                    "type": "string"
+                },
+                "cruiser": {
+                    "type": "string"
+                },
+                "debris": {
+                    "type": "string"
+                },
+                "frigate": {
+                    "type": "string"
+                },
+                "gravity_well": {
+                    "type": "string"
+                },
+                "loot": {
+                    "type": "string"
+                },
+                "phase_lane": {
+                    "type": "string"
+                },
+                "planet": {
+                    "type": "string"
+                },
+                "star": {
+                    "type": "string"
+                },
+                "starbase": {
+                    "type": "string"
+                },
+                "strikecraft": {
+                    "type": "string"
+                },
+                "structure": {
+                    "type": "string"
+                },
+                "titan": {
+                    "type": "string"
+                },
+                "torpedo": {
+                    "type": "string"
+                },
+                "untargetable": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "unit_attribute": {
+            "type": "object",
+            "properties": {
+                "colors": {
+                    "type": "object",
+                    "properties": {
+                        "antimatter": {
+                            "type": "object",
+                            "properties": {
+                                "high": {
+                                    "type": "string"
+                                },
+                                "low": {
+                                    "type": "string"
+                                },
+                                "medium": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "high",
+                                "low",
+                                "medium"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "armor_points": {
+                            "type": "object",
+                            "properties": {
+                                "high": {
+                                    "type": "string"
+                                },
+                                "low": {
+                                    "type": "string"
+                                },
+                                "medium": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "high",
+                                "low",
+                                "medium"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "build_progress": {
+                            "type": "object",
+                            "properties": {
+                                "high": {
+                                    "type": "string"
+                                },
+                                "low": {
+                                    "type": "string"
+                                },
+                                "medium": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "high",
+                                "low",
+                                "medium"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "crippled_hull_points": {
+                            "type": "object",
+                            "properties": {
+                                "high": {
+                                    "type": "string"
+                                },
+                                "low": {
+                                    "type": "string"
+                                },
+                                "medium": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "high",
+                                "low",
+                                "medium"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "hull_points": {
+                            "type": "object",
+                            "properties": {
+                                "high": {
+                                    "type": "string"
+                                },
+                                "low": {
+                                    "type": "string"
+                                },
+                                "medium": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "high",
+                                "low",
+                                "medium"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "planet_health_points": {
+                            "type": "object",
+                            "properties": {
+                                "high": {
+                                    "type": "string"
+                                },
+                                "low": {
+                                    "type": "string"
+                                },
+                                "medium": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "high",
+                                "low",
+                                "medium"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "planet_shield_points": {
+                            "type": "object",
+                            "properties": {
+                                "high": {
+                                    "type": "string"
+                                },
+                                "low": {
+                                    "type": "string"
+                                },
+                                "medium": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "high",
+                                "low",
+                                "medium"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "scuttle_progress": {
+                            "type": "object",
+                            "properties": {
+                                "high": {
+                                    "type": "string"
+                                },
+                                "low": {
+                                    "type": "string"
+                                },
+                                "medium": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "high",
+                                "low",
+                                "medium"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "shield_points": {
+                            "type": "object",
+                            "properties": {
+                                "high": {
+                                    "type": "string"
+                                },
+                                "low": {
+                                    "type": "string"
+                                },
+                                "medium": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "high",
+                                "low",
+                                "medium"
+                            ],
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "unevaluatedProperties": false
+                }
+            },
+            "required": [
+                "colors"
+            ],
+            "unevaluatedProperties": false
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "asset",
+        "home_planet_tooltip_icon",
+        "hud_empire_units_window",
+        "hud_unit_icon",
+        "modifier",
+        "ping_icons",
+        "ping_tooltip_icons",
+        "planet_component_items_tooltip_icon",
+        "query_status",
+        "server_tag_descriptions",
+        "server_tag_names",
+        "simulation_float_option_scalar_value_color",
+        "structure_builder_tooltip_icon",
+        "structure_slot_tooltip_icons",
+        "target_filter_unit_type_names",
+        "unit_attribute"
+    ],
+    "unevaluatedProperties": false
+}

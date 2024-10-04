@@ -16,6 +16,9 @@
                 "toggle_structures_window"
             ]
         },
+        "arbitary_pre_details_label": {
+            "type": "string"
+        },
         "description": {
             "$ref": "#/$defs/localized_text_ptr"
         },
@@ -47,6 +50,22 @@
         },
         "name": {
             "$ref": "#/$defs/localized_text_ptr"
+        },
+        "npc_range_origin": {
+            "type": "object",
+            "properties": {
+                "between_gravity_well_range": {
+                    "type": "number",
+                    "exclusiveMinimum": 0.0
+                },
+                "npc_tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/npc_tags"
+                    }
+                }
+            },
+            "unevaluatedProperties": false
         },
         "owner_unit_ability_tooltips": {
             "type": "array",
@@ -536,6 +555,10 @@
             "items": {
                 "$ref": "#/$defs/unit_item_weapon_modifier"
             }
+        },
+        "will_make_planet_invulnerable": {
+            "description": "used by AI to indentify planet shield items",
+            "type": "boolean"
         }
     },
     "required": [
@@ -1531,72 +1554,186 @@
         "action_position_operator": {
             "type": "object",
             "properties": {
-                "buff_agent_effect_size_reference_unit": {
-                    "description": "determines the action_effect size of the buff agent that is created, default is current_spawner",
-                    "$ref": "#/$defs/action_unit"
-                },
-                "buff_on_agent": {
-                    "type": "string"
-                },
-                "buff_on_created_unit": {
-                    "type": "string"
-                },
-                "copy_parent_buff_memory_values": {
-                    "type": "boolean"
-                },
-                "effect_definition": {
-                    "$ref": "#/$defs/action_effect_definition"
-                },
-                "effect_destination_unit": {
-                    "description": "the unit the effect is attached to",
-                    "$ref": "#/$defs/action_unit"
-                },
-                "effect_forward": {
-                    "$ref": "#/$defs/action_direction"
-                },
-                "effect_up": {
-                    "$ref": "#/$defs/action_direction"
-                },
-                "hyperspace_destination_position": {
-                    "$ref": "#/$defs/action_position"
-                },
-                "is_change_gravity_well_to_hyperspace_destination_enabled": {
-                    "description": "Set to false if this unit is not intended to live on in the destination gravity well. For example orbital cannon shell.",
-                    "type": "boolean"
-                },
-                "is_self_building": {
-                    "type": "boolean"
-                },
                 "operator_type": {
                     "type": "string",
                     "enum": [
                         "create_buff_agent",
                         "create_unit",
+                        "create_torpedo",
                         "play_point_effect"
                     ]
-                },
-                "special_operation_unit_kind": {
-                    "$ref": "#/$defs/special_operation_unit_kind"
-                },
-                "torpedo_enable_steering_distance_as_radius_scalar_value": {
-                    "$ref": "#/$defs/action_value_id"
-                },
-                "torpedo_source_unit": {
-                    "$ref": "#/$defs/action_unit"
-                },
-                "torpedo_target_position": {
-                    "$ref": "#/$defs/action_position"
-                },
-                "torpedo_target_unit": {
-                    "$ref": "#/$defs/action_unit"
-                },
-                "unit_forward": {
-                    "$ref": "#/$defs/action_direction"
-                },
-                "unit_to_create": {
-                    "type": "string"
                 }
             },
+            "required": [
+                "operator_type"
+            ],
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "operator_type": {
+                                "const": "create_buff_agent"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "buff_agent_effect_size_reference_unit": {
+                                "description": "determines the action_effect size of the buff agent that is created, default is current_spawner",
+                                "$ref": "#/$defs/action_unit"
+                            },
+                            "buff_on_agent": {
+                                "type": "string"
+                            },
+                            "copy_parent_buff_memory_values": {
+                                "description": "default=false",
+                                "type": "boolean"
+                            },
+                            "is_culture_provider": {
+                                "description": "specify whether the buff_agent supports culture_provider functionality or not. default=false",
+                                "type": "boolean"
+                            }
+                        },
+                        "required": [
+                            "buff_on_agent"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "operator_type": {
+                                "const": "create_unit"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "buff_on_created_unit": {
+                                "type": "string"
+                            },
+                            "copy_parent_buff_memory_values": {
+                                "description": "default=false",
+                                "type": "boolean"
+                            },
+                            "hyperspace_destination_position": {
+                                "$ref": "#/$defs/action_position"
+                            },
+                            "is_change_gravity_well_to_hyperspace_destination_enabled": {
+                                "description": "Set to false if this unit is not intended to live on in the destination gravity well. For example orbital cannon shell.",
+                                "type": "boolean"
+                            },
+                            "is_self_building": {
+                                "description": "default=false",
+                                "type": "boolean"
+                            },
+                            "special_operation_unit_kind": {
+                                "$ref": "#/$defs/special_operation_unit_kind"
+                            },
+                            "unit_forward": {
+                                "$ref": "#/$defs/action_direction"
+                            },
+                            "unit_to_create": {
+                                "$ref": "#/$defs/unit_definition_ptr"
+                            }
+                        },
+                        "required": [
+                            "unit_forward",
+                            "unit_to_create"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "operator_type": {
+                                "const": "create_torpedo"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "bypass_shields_chance_value": {
+                                "$ref": "#/$defs/action_value_id"
+                            },
+                            "damage_affect_type": {
+                                "$ref": "#/$defs/damage_affect_type"
+                            },
+                            "damage_value": {
+                                "$ref": "#/$defs/action_value_id"
+                            },
+                            "duration_value": {
+                                "$ref": "#/$defs/action_value_id"
+                            },
+                            "penetration_value": {
+                                "$ref": "#/$defs/action_value_id"
+                            },
+                            "torpedo_can_retarget": {
+                                "description": "default=empty",
+                                "type": "boolean"
+                            },
+                            "torpedo_enable_steering_distance_as_radius_scalar_value": {
+                                "$ref": "#/$defs/action_value_id"
+                            },
+                            "torpedo_forward": {
+                                "$ref": "#/$defs/action_direction"
+                            },
+                            "torpedo_source_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            },
+                            "torpedo_target_position": {
+                                "$ref": "#/$defs/action_position"
+                            },
+                            "torpedo_target_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            },
+                            "torpedo_to_create": {
+                                "$ref": "#/$defs/unit_definition_ptr"
+                            }
+                        },
+                        "required": [
+                            "damage_affect_type",
+                            "damage_value",
+                            "duration_value",
+                            "penetration_value",
+                            "torpedo_forward",
+                            "torpedo_source_unit",
+                            "torpedo_to_create"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "operator_type": {
+                                "const": "play_point_effect"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "effect_definition": {
+                                "$ref": "#/$defs/action_effect_definition"
+                            },
+                            "effect_destination_unit": {
+                                "description": "the unit the effect is attached to",
+                                "$ref": "#/$defs/action_unit"
+                            },
+                            "effect_forward": {
+                                "$ref": "#/$defs/action_direction"
+                            },
+                            "effect_up": {
+                                "$ref": "#/$defs/action_direction"
+                            }
+                        },
+                        "required": [
+                            "effect_definition",
+                            "effect_destination_unit",
+                            "effect_forward"
+                        ]
+                    }
+                }
+            ],
             "unevaluatedProperties": false
         },
         "action_travel_time": {
@@ -1897,6 +2034,7 @@
                                 "enum": [
                                     "single_value",
                                     "asset_values",
+                                    "single_line",
                                     "unit_item_value",
                                     "unit_icon_and_name",
                                     "exotic_counts",
@@ -1905,7 +2043,8 @@
                                     "buff_weapon_modifier",
                                     "buff_empire_modifier",
                                     "buff_unit_factory_modifier",
-                                    "buff_trade_capacity"
+                                    "buff_trade_capacity",
+                                    "exotic_income"
                                 ]
                             },
                             "trade_export_credits_points_id": {
@@ -2178,7 +2317,6 @@
                         "change_ability_remaining_cooldown",
                         "change_buff_memory_float_value",
                         "change_buff_memory_unit_value",
-                        "disable_collision_displacement",
                         "make_buff_dead",
                         "start_buff_effect",
                         "stop_buff_effect",
@@ -2214,22 +2352,6 @@
                     ]
                 },
                 "constraint": {
-                    "$ref": "#/$defs/action_constraint"
-                },
-                "constraint_not_satisified_operators": {
-                    "description": "operators to execute if the operators_constraint is NOT satisified",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/action_unit_operator"
-                    }
-                },
-                "operators": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/action_unit_operator"
-                    }
-                },
-                "operators_constraint": {
                     "$ref": "#/$defs/action_constraint"
                 }
             },
@@ -2321,6 +2443,10 @@
                             "change_type": {
                                 "$ref": "#/$defs/ability_cooldown_change_type"
                             },
+                            "cooldown_type": {
+                                "description": "default=active",
+                                "$ref": "#/$defs/ability_cooldown_type"
+                            },
                             "reduction_value": {
                                 "$ref": "#/$defs/action_value_id"
                             }
@@ -2388,16 +2514,6 @@
                             "unit_variable"
                         ]
                     }
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "action_type": {
-                                "const": "disable_collision_displacement"
-                            }
-                        }
-                    },
-                    "then": {}
                 },
                 {
                     "if": {
@@ -2604,7 +2720,6 @@
                                 "$ref": "#/$defs/action_player"
                             },
                             "gravity_well_origin_unit": {
-                                "description": "default=current_spawner",
                                 "$ref": "#/$defs/action_unit"
                             },
                             "initial_float_values": {
@@ -2691,6 +2806,7 @@
                         },
                         "required": [
                             "dead_units_player",
+                            "gravity_well_origin_unit",
                             "unit_types_to_resurrect"
                         ]
                     }
@@ -3088,7 +3204,6 @@
                     "then": {
                         "properties": {
                             "gravity_well_origin_unit": {
-                                "description": "default=current_spawner",
                                 "$ref": "#/$defs/action_unit"
                             },
                             "max_target_count_value": {
@@ -3118,6 +3233,7 @@
                                                         "damage_has_weapon_tag",
                                                         "distance_between_units_comparison",
                                                         "has_resurrectable_units_in_gravity_well",
+                                                        "has_enemy_units_in_gravity_well",
                                                         "has_valid_targets_in_radius",
                                                         "is_empowered",
                                                         "player_has_available_supply",
@@ -3138,7 +3254,7 @@
                                             "required": [
                                                 "constraint_type"
                                             ],
-                                            "anyOf": [
+                                            "allOf": [
                                                 {
                                                     "if": {
                                                         "properties": {
@@ -3344,7 +3460,6 @@
                                                                 "$ref": "#/$defs/action_player"
                                                             },
                                                             "gravity_well_reference_unit": {
-                                                                "description": "default=current_spawner",
                                                                 "$ref": "#/$defs/action_unit"
                                                             },
                                                             "min_supply_value": {
@@ -3362,7 +3477,31 @@
                                                         },
                                                         "required": [
                                                             "dead_units_player",
+                                                            "gravity_well_reference_unit",
                                                             "unit_types_to_resurrect"
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "if": {
+                                                        "properties": {
+                                                            "constraint_type": {
+                                                                "const": "has_enemy_units_in_gravity_well"
+                                                            }
+                                                        }
+                                                    },
+                                                    "then": {
+                                                        "properties": {
+                                                            "gravity_well_reference_unit": {
+                                                                "$ref": "#/$defs/action_unit"
+                                                            },
+                                                            "target_filter_id": {
+                                                                "$ref": "#/$defs/target_filter_id"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "gravity_well_reference_unit",
+                                                            "target_filter_id"
                                                         ]
                                                     }
                                                 },
@@ -3729,7 +3868,10 @@
                             "target_sort": {
                                 "$ref": "#/$defs/action_unit_sort"
                             }
-                        }
+                        },
+                        "required": [
+                            "gravity_well_origin_unit"
+                        ]
                     }
                 },
                 {
@@ -3790,7 +3932,6 @@
                                 }
                             },
                             "gravity_well_origin_unit": {
-                                "description": "default=current_spawner",
                                 "$ref": "#/$defs/action_unit"
                             },
                             "max_jump_distance_value": {
@@ -3807,6 +3948,7 @@
                             }
                         },
                         "required": [
+                            "gravity_well_origin_unit",
                             "max_jump_distance_value",
                             "operators"
                         ]
@@ -3943,7 +4085,6 @@
                                 }
                             },
                             "gravity_well_origin_unit": {
-                                "description": "default=current_spawner",
                                 "$ref": "#/$defs/action_unit"
                             },
                             "operators": {
@@ -3967,6 +4108,7 @@
                             }
                         },
                         "required": [
+                            "gravity_well_origin_unit",
                             "operators"
                         ]
                     }
@@ -4471,11 +4613,731 @@
                 "asteroid",
                 "torpedo",
                 "cannon_shell",
-                "buff_agent",
                 "loot",
                 "debris",
                 "untargetable"
             ]
+        },
+        "action_data_source_definition_ptr": {
+            "type": "string"
+        },
+        "action_value": {
+            "type": "object",
+            "properties": {
+                "ratio": {
+                    "$ref": "#/$defs/action_value_ratio"
+                },
+                "transform_type": {
+                    "type": "string",
+                    "enum": [
+                        "fixed",
+                        "simulation_time",
+                        "action_level",
+                        "current_buff_memory_value",
+                        "operand_buff_memory_value",
+                        "pending_child_buff_count",
+                        "active_child_buff_count",
+                        "pending_and_active_child_buff_count",
+                        "per_raw_damage_dealt",
+                        "per_total_resolved_damage_dealt",
+                        "per_resolved_shield_damage_dealt",
+                        "per_resolved_armor_damage_dealt",
+                        "per_resolved_hull_damage_dealt",
+                        "per_resolved_planet_health_damage_dealt",
+                        "per_damage_event_penetration",
+                        "per_trigger_event_antimatter",
+                        "per_current_antimatter",
+                        "per_max_antimatter",
+                        "per_planet_level",
+                        "per_planet_future_level",
+                        "per_planet_current_health_points",
+                        "per_planet_max_health_points",
+                        "per_planet_current_shield_points",
+                        "per_planet_max_shield_points",
+                        "per_planet_max_civilian_slots",
+                        "per_planet_max_military_slots",
+                        "per_planet_commerce_track_credit_income",
+                        "per_planet_mining_track_metal_income",
+                        "per_planet_mining_track_crystal_income",
+                        "per_current_hull_points",
+                        "per_missing_hull_points",
+                        "per_max_hull_points",
+                        "per_percent_missing_hull_points",
+                        "per_current_crippled_hull_points",
+                        "per_missing_crippled_hull_points",
+                        "per_max_crippled_hull_points",
+                        "per_percent_missing_crippled_hull_points",
+                        "per_current_armor_points",
+                        "per_missing_armor_points",
+                        "per_max_armor_points",
+                        "per_percent_missing_armor_points",
+                        "per_current_shield_points",
+                        "per_missing_shield_points",
+                        "per_max_shield_points",
+                        "source_ability_range",
+                        "surface_radius",
+                        "per_credit_price",
+                        "per_metal_price",
+                        "per_crystal_price",
+                        "per_allied_player_in_gravity_well",
+                        "per_enemy_unit_in_gravity_well",
+                        "per_unit_level",
+                        "per_build_or_virtual_supply",
+                        "per_unit_id"
+                    ]
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_current_antimatter"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_max_antimatter"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_planet_level"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_planet_future_level"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_planet_current_health_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_planet_max_health_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_planet_current_shield_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_planet_max_shield_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_planet_max_civilian_slots"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_planet_max_military_slots"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_planet_commerce_track_credit_income"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_planet_mining_track_metal_income"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_planet_mining_track_crystal_income"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_current_hull_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_missing_hull_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_max_hull_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_percent_missing_hull_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_current_crippled_hull_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_missing_crippled_hull_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_max_crippled_hull_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_percent_missing_crippled_hull_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_current_armor_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_missing_armor_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_max_armor_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_percent_missing_armor_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_current_shield_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_missing_shield_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_max_shield_points"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "surface_radius"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_credit_price"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_metal_price"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_crystal_price"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_allied_player_in_gravity_well"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_enemy_unit_in_gravity_well"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_unit_level"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_build_or_virtual_supply"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "per_unit_id"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "transform_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "current_buff_memory_value"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "memory_float_variable_id": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "transform_type": {
+                                "const": "operand_buff_memory_value"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "memory_float_variable_id": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            ],
+            "unevaluatedProperties": false
+        },
+        "action_value_ratio": {
+            "type": "object",
+            "properties": {
+                "ratio_type": {
+                    "type": "string",
+                    "enum": [
+                        "per_spell_power"
+                    ]
+                },
+                "ratio_values": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    }
+                }
+            },
+            "unevaluatedProperties": false
         },
         "time_action": {
             "type": "object",
@@ -4517,184 +5379,7 @@
         "buff_empire_modifier_id": {
             "type": "string"
         },
-        "action_tooltip_line": {
-            "type": "object",
-            "properties": {
-                "asset_value_ids": {
-                    "type": "object",
-                    "properties": {
-                        "credits": {
-                            "$ref": "#/$defs/action_value_id"
-                        },
-                        "crystal": {
-                            "$ref": "#/$defs/action_value_id"
-                        },
-                        "metal": {
-                            "$ref": "#/$defs/action_value_id"
-                        }
-                    },
-                    "unevaluatedProperties": false
-                },
-                "empire_modifier_id": {
-                    "$ref": "#/$defs/buff_empire_modifier_id"
-                },
-                "exotic_counts": {
-                    "type": "array",
-                    "items": {
-                        "type": "object",
-                        "properties": {
-                            "count": {
-                                "$ref": "#/$defs/action_value_id"
-                            },
-                            "type": {
-                                "$ref": "#/$defs/exotic_type"
-                            }
-                        },
-                        "unevaluatedProperties": false
-                    }
-                },
-                "is_culture_rate": {
-                    "type": "boolean"
-                },
-                "is_resolved_value": {
-                    "type": "boolean"
-                },
-                "label_text": {
-                    "$ref": "#/$defs/localized_text_ptr"
-                },
-                "planet_modifier_id": {
-                    "$ref": "#/$defs/buff_planet_modifier_id"
-                },
-                "ratio_float_format": {
-                    "description": "default=no_decimal_place_with_sign",
-                    "type": "string",
-                    "enum": [
-                        "no_decimal_place",
-                        "one_decimal_place",
-                        "one_decimal_place_if_not_whole",
-                        "two_decimal_place",
-                        "no_decimal_place_with_sign",
-                        "one_decimal_place_with_sign",
-                        "two_decimal_place_with_sign",
-                        "percentage",
-                        "percentage_one_decimal_place",
-                        "percentage_with_sign",
-                        "percentage_one_decimal_place_with_sign"
-                    ]
-                },
-                "rendering_type": {
-                    "type": "string",
-                    "enum": [
-                        "single_value",
-                        "asset_values",
-                        "unit_item_value",
-                        "unit_icon_and_name",
-                        "exotic_counts",
-                        "buff_unit_modifier",
-                        "buff_planet_modifier",
-                        "buff_weapon_modifier",
-                        "buff_empire_modifier",
-                        "buff_unit_factory_modifier",
-                        "buff_trade_capacity"
-                    ]
-                },
-                "trade_export_credits_points_id": {
-                    "$ref": "#/$defs/buff_unit_modifier_id"
-                },
-                "trade_export_crystal_points_id": {
-                    "$ref": "#/$defs/buff_unit_modifier_id"
-                },
-                "trade_export_metal_points_id": {
-                    "$ref": "#/$defs/buff_unit_modifier_id"
-                },
-                "trade_import_points_id": {
-                    "$ref": "#/$defs/buff_unit_modifier_id"
-                },
-                "unit": {
-                    "$ref": "#/$defs/unit_definition_ptr"
-                },
-                "unit_factory_modifier_id": {
-                    "$ref": "#/$defs/buff_unit_factory_modifier_id"
-                },
-                "unit_item": {
-                    "$ref": "#/$defs/unit_item_definition_ptr"
-                },
-                "unit_modifier_id": {
-                    "$ref": "#/$defs/buff_unit_modifier_id"
-                },
-                "value_color": {
-                    "description": "default=neutral",
-                    "type": "string",
-                    "enum": [
-                        "neutral",
-                        "positive",
-                        "negative"
-                    ]
-                },
-                "value_float_format": {
-                    "description": "default=no_decimal_place",
-                    "type": "string",
-                    "enum": [
-                        "no_decimal_place",
-                        "one_decimal_place",
-                        "one_decimal_place_if_not_whole",
-                        "two_decimal_place",
-                        "no_decimal_place_with_sign",
-                        "one_decimal_place_with_sign",
-                        "two_decimal_place_with_sign",
-                        "percentage",
-                        "percentage_one_decimal_place",
-                        "percentage_with_sign",
-                        "percentage_one_decimal_place_with_sign"
-                    ]
-                },
-                "value_id": {
-                    "$ref": "#/$defs/action_value_id"
-                },
-                "value_modifiers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/action_math_operator"
-                    }
-                },
-                "value_suffix": {
-                    "type": "string",
-                    "enum": [
-                        "seconds",
-                        "minutes",
-                        "per_second",
-                        "per_minute"
-                    ]
-                },
-                "value_suffix_text": {
-                    "$ref": "#/$defs/localized_text_ptr"
-                },
-                "visibility": {
-                    "description": "default=any",
-                    "type": "string",
-                    "enum": [
-                        "any",
-                        "use_only",
-                        "upgrade_only"
-                    ]
-                },
-                "visible_if_value_zero": {
-                    "description": "default=false",
-                    "type": "boolean"
-                },
-                "weapon_modifier_id": {
-                    "$ref": "#/$defs/buff_weapon_modifier_id"
-                }
-            },
-            "required": [
-                "rendering_type"
-            ],
-            "unevaluatedProperties": false
-        },
         "buff_unit_factory_modifier_id": {
-            "type": "string"
-        },
-        "action_data_source_definition_ptr": {
             "type": "string"
         },
         "action_exotics": {
@@ -4869,6 +5554,7 @@
                         "damage_has_weapon_tag",
                         "distance_between_units_comparison",
                         "has_resurrectable_units_in_gravity_well",
+                        "has_enemy_units_in_gravity_well",
                         "has_valid_targets_in_radius",
                         "is_empowered",
                         "player_has_available_supply",
@@ -4889,7 +5575,7 @@
             "required": [
                 "constraint_type"
             ],
-            "anyOf": [
+            "allOf": [
                 {
                     "if": {
                         "properties": {
@@ -5095,7 +5781,6 @@
                                 "$ref": "#/$defs/action_player"
                             },
                             "gravity_well_reference_unit": {
-                                "description": "default=current_spawner",
                                 "$ref": "#/$defs/action_unit"
                             },
                             "min_supply_value": {
@@ -5113,7 +5798,31 @@
                         },
                         "required": [
                             "dead_units_player",
+                            "gravity_well_reference_unit",
                             "unit_types_to_resurrect"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
+                                "const": "has_enemy_units_in_gravity_well"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "gravity_well_reference_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            },
+                            "target_filter_id": {
+                                "$ref": "#/$defs/target_filter_id"
+                            }
+                        },
+                        "required": [
+                            "gravity_well_reference_unit",
+                            "target_filter_id"
                         ]
                     }
                 },
@@ -5517,8 +6226,11 @@
         "action_effect_definition": {
             "type": "object",
             "properties": {
+                "allow_binding_of_unit_skin_without_unit": {
+                    "description": "default=false",
+                    "type": "boolean"
+                },
                 "binding": {
-                    "description": "default=unit_skin",
                     "$ref": "#/$defs/action_effect_alias_binding"
                 },
                 "effect": {
@@ -5545,7 +6257,6 @@
                     "unevaluatedProperties": false
                 },
                 "mesh_point": {
-                    "description": "default=center",
                     "$ref": "#/$defs/mesh_point_name"
                 },
                 "mesh_point_index": {
@@ -5560,6 +6271,10 @@
                     "type": "boolean"
                 }
             },
+            "required": [
+                "binding",
+                "mesh_point"
+            ],
             "unevaluatedProperties": false
         },
         "action_effect_alias_binding": {
@@ -5872,6 +6587,22 @@
                     },
                     "then": {
                         "properties": {
+                            "buff_on_planet": {
+                                "$ref": "#/$defs/buff_definition_ptr"
+                            },
+                            "copy_parent_buff_memory_values": {
+                                "description": "default=false",
+                                "type": "boolean"
+                            },
+                            "initial_float_values": {
+                                "$ref": "#/$defs/action_memory_float_value_vector"
+                            },
+                            "override_ownership_player": {
+                                "$ref": "#/$defs/action_player"
+                            },
+                            "override_ownership_unit": {
+                                "$ref": "#/$defs/action_unit"
+                            },
                             "show_planet_colonized_notification": {
                                 "description": "default=true",
                                 "type": "boolean"
@@ -5918,7 +6649,6 @@
                             }
                         },
                         "required": [
-                            "buff_on_clone",
                             "clone_forward",
                             "clone_spawn_position"
                         ]
@@ -6084,9 +6814,6 @@
                     },
                     "then": {
                         "properties": {
-                            "collision_unit": {
-                                "$ref": "#/$defs/action_unit"
-                            },
                             "skip_awarding_experience": {
                                 "description": "default=true",
                                 "type": "boolean"
@@ -6138,7 +6865,6 @@
                                 "$ref": "#/$defs/action_value_id"
                             },
                             "effect_alias_binding": {
-                                "description": "default=unit_skin",
                                 "$ref": "#/$defs/action_effect_alias_binding"
                             },
                             "effects": {
@@ -6149,6 +6875,7 @@
                             }
                         },
                         "required": [
+                            "effect_alias_binding",
                             "effects",
                             "mesh_point"
                         ]
@@ -6593,6 +7320,182 @@
                 "trigger_event_weapon"
             ]
         },
+        "action_tooltip_line": {
+            "type": "object",
+            "properties": {
+                "asset_value_ids": {
+                    "type": "object",
+                    "properties": {
+                        "credits": {
+                            "$ref": "#/$defs/action_value_id"
+                        },
+                        "crystal": {
+                            "$ref": "#/$defs/action_value_id"
+                        },
+                        "metal": {
+                            "$ref": "#/$defs/action_value_id"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "empire_modifier_id": {
+                    "$ref": "#/$defs/buff_empire_modifier_id"
+                },
+                "exotic_counts": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "count": {
+                                "$ref": "#/$defs/action_value_id"
+                            },
+                            "type": {
+                                "$ref": "#/$defs/exotic_type"
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    }
+                },
+                "is_culture_rate": {
+                    "type": "boolean"
+                },
+                "is_resolved_value": {
+                    "type": "boolean"
+                },
+                "label_text": {
+                    "$ref": "#/$defs/localized_text_ptr"
+                },
+                "planet_modifier_id": {
+                    "$ref": "#/$defs/buff_planet_modifier_id"
+                },
+                "ratio_float_format": {
+                    "description": "default=no_decimal_place_with_sign",
+                    "type": "string",
+                    "enum": [
+                        "no_decimal_place",
+                        "one_decimal_place",
+                        "one_decimal_place_if_not_whole",
+                        "two_decimal_place",
+                        "no_decimal_place_with_sign",
+                        "one_decimal_place_with_sign",
+                        "two_decimal_place_with_sign",
+                        "percentage",
+                        "percentage_one_decimal_place",
+                        "percentage_with_sign",
+                        "percentage_one_decimal_place_with_sign"
+                    ]
+                },
+                "rendering_type": {
+                    "type": "string",
+                    "enum": [
+                        "single_value",
+                        "asset_values",
+                        "single_line",
+                        "unit_item_value",
+                        "unit_icon_and_name",
+                        "exotic_counts",
+                        "buff_unit_modifier",
+                        "buff_planet_modifier",
+                        "buff_weapon_modifier",
+                        "buff_empire_modifier",
+                        "buff_unit_factory_modifier",
+                        "buff_trade_capacity",
+                        "exotic_income"
+                    ]
+                },
+                "trade_export_credits_points_id": {
+                    "$ref": "#/$defs/buff_unit_modifier_id"
+                },
+                "trade_export_crystal_points_id": {
+                    "$ref": "#/$defs/buff_unit_modifier_id"
+                },
+                "trade_export_metal_points_id": {
+                    "$ref": "#/$defs/buff_unit_modifier_id"
+                },
+                "trade_import_points_id": {
+                    "$ref": "#/$defs/buff_unit_modifier_id"
+                },
+                "unit": {
+                    "$ref": "#/$defs/unit_definition_ptr"
+                },
+                "unit_factory_modifier_id": {
+                    "$ref": "#/$defs/buff_unit_factory_modifier_id"
+                },
+                "unit_item": {
+                    "$ref": "#/$defs/unit_item_definition_ptr"
+                },
+                "unit_modifier_id": {
+                    "$ref": "#/$defs/buff_unit_modifier_id"
+                },
+                "value_color": {
+                    "description": "default=neutral",
+                    "type": "string",
+                    "enum": [
+                        "neutral",
+                        "positive",
+                        "negative"
+                    ]
+                },
+                "value_float_format": {
+                    "description": "default=no_decimal_place",
+                    "type": "string",
+                    "enum": [
+                        "no_decimal_place",
+                        "one_decimal_place",
+                        "one_decimal_place_if_not_whole",
+                        "two_decimal_place",
+                        "no_decimal_place_with_sign",
+                        "one_decimal_place_with_sign",
+                        "two_decimal_place_with_sign",
+                        "percentage",
+                        "percentage_one_decimal_place",
+                        "percentage_with_sign",
+                        "percentage_one_decimal_place_with_sign"
+                    ]
+                },
+                "value_id": {
+                    "$ref": "#/$defs/action_value_id"
+                },
+                "value_modifiers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/action_math_operator"
+                    }
+                },
+                "value_suffix": {
+                    "type": "string",
+                    "enum": [
+                        "seconds",
+                        "minutes",
+                        "per_second",
+                        "per_minute"
+                    ]
+                },
+                "value_suffix_text": {
+                    "$ref": "#/$defs/localized_text_ptr"
+                },
+                "visibility": {
+                    "description": "default=any",
+                    "type": "string",
+                    "enum": [
+                        "any",
+                        "use_only",
+                        "upgrade_only"
+                    ]
+                },
+                "visible_if_value_zero": {
+                    "description": "default=false",
+                    "type": "boolean"
+                },
+                "weapon_modifier_id": {
+                    "$ref": "#/$defs/buff_weapon_modifier_id"
+                }
+            },
+            "required": [
+                "rendering_type"
+            ],
+            "unevaluatedProperties": false
+        },
         "action_tooltip_line_group": {
             "type": "object",
             "properties": {
@@ -6822,6 +7725,7 @@
                         "is_culture_provider",
                         "is_explored_planet",
                         "is_fully_built",
+                        "is_home_planet",
                         "is_unit_factory",
                         "is_unit_factory_building_units",
                         "is_structure_with_slot_type",
@@ -6836,6 +7740,7 @@
                         "is_inner_planet",
                         "can_ever_hyperspace",
                         "can_ever_move",
+                        "is_structure_builder",
                         "not_self",
                         "composite_not",
                         "composite_and",
@@ -6846,7 +7751,7 @@
             "required": [
                 "constraint_type"
             ],
-            "anyOf": [
+            "allOf": [
                 {
                     "if": {
                         "properties": {
@@ -6928,6 +7833,10 @@
                         "properties": {
                             "buff": {
                                 "type": "string"
+                            },
+                            "include_pending_buffs": {
+                                "description": "default=false",
+                                "type": "boolean"
                             }
                         },
                         "required": [
@@ -7389,6 +8298,28 @@
                     "if": {
                         "properties": {
                             "constraint_type": {
+                                "const": "is_home_planet"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "targeter_relationship_type": {
+                                "type": "string",
+                                "enum": [
+                                    "self",
+                                    "ally",
+                                    "enemy",
+                                    "none"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
                                 "const": "is_unit_factory"
                             }
                         }
@@ -7558,6 +8489,16 @@
                     "if": {
                         "properties": {
                             "constraint_type": {
+                                "const": "is_structure_builder"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
                                 "const": "not_self"
                             }
                         }
@@ -7652,6 +8593,7 @@
                 "can_passively_regenerate_shields",
                 "can_update_build_progress",
                 "can_use_weapons",
+                "can_use_weapons_when_crippled",
                 "can_use_active_abilities",
                 "can_use_abilities_when_crippled",
                 "can_be_colonized",
@@ -7739,6 +8681,13 @@
                 "reduce_percentage_of_total"
             ]
         },
+        "ability_cooldown_type": {
+            "type": "string",
+            "enum": [
+                "passive",
+                "active"
+            ]
+        },
         "ability_position_picking_type": {
             "type": "string",
             "enum": [
@@ -7762,7 +8711,6 @@
                 "on_current_spawner_antimatter_consumed",
                 "on_current_spawner_antimatter_restored",
                 "on_current_spawner_antimatter_removed",
-                "on_current_spawner_collision_detected",
                 "on_current_spawner_augment_pending_damage_as_source",
                 "on_current_spawner_augment_pending_damage_as_destination",
                 "on_current_spawner_damaged",

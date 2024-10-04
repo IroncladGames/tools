@@ -142,46 +142,23 @@
                 "torpedo_firing_definition": {
                     "type": "object",
                     "properties": {
-                        "buff": {
-                            "type": "string"
-                        },
-                        "buff_data_source": {
-                            "type": "string"
-                        },
                         "bypass_shields_chance": {
                             "description": "default=0",
                             "type": "number",
                             "minimum": 0.0
                         },
-                        "bypass_shields_chance_variable_id": {
-                            "$ref": "#/$defs/action_memory_float_variable_id"
-                        },
-                        "damage_variable_id": {
-                            "$ref": "#/$defs/action_memory_float_variable_id"
-                        },
                         "duration": {
                             "type": "number"
-                        },
-                        "duration_variable_id": {
-                            "$ref": "#/$defs/action_memory_float_variable_id"
                         },
                         "enable_steering_distance_as_radius_scalar": {
                             "description": "default=1",
                             "type": "number"
-                        },
-                        "hull_armor_penetration_variable_id": {
-                            "$ref": "#/$defs/action_memory_float_variable_id"
-                        },
-                        "penetration_variable_id": {
-                            "$ref": "#/$defs/action_memory_float_variable_id"
                         },
                         "spawned_unit": {
                             "type": "string"
                         }
                     },
                     "required": [
-                        "buff",
-                        "buff_data_source",
                         "duration",
                         "spawned_unit"
                     ],
@@ -257,6 +234,9 @@
                 "$ref": "#/$defs/weapon_tag"
             },
             "maxItems": 32
+        },
+        "target_acquired_duration_required_to_fire": {
+            "type": "number"
         },
         "turret": {
             "type": "object",
@@ -441,7 +421,7 @@
             "items": {
                 "$ref": "#/$defs/target_filter_unit_type"
             },
-            "maxItems": 19
+            "maxItems": 18
         },
         "target_filter_id": {
             "type": "string"
@@ -503,6 +483,7 @@
                                     "is_culture_provider",
                                     "is_explored_planet",
                                     "is_fully_built",
+                                    "is_home_planet",
                                     "is_unit_factory",
                                     "is_unit_factory_building_units",
                                     "is_structure_with_slot_type",
@@ -517,6 +498,7 @@
                                     "is_inner_planet",
                                     "can_ever_hyperspace",
                                     "can_ever_move",
+                                    "is_structure_builder",
                                     "not_self",
                                     "composite_not",
                                     "composite_and",
@@ -527,7 +509,7 @@
                         "required": [
                             "constraint_type"
                         ],
-                        "anyOf": [
+                        "allOf": [
                             {
                                 "if": {
                                     "properties": {
@@ -609,6 +591,10 @@
                                     "properties": {
                                         "buff": {
                                             "type": "string"
+                                        },
+                                        "include_pending_buffs": {
+                                            "description": "default=false",
+                                            "type": "boolean"
                                         }
                                     },
                                     "required": [
@@ -1070,6 +1056,28 @@
                                 "if": {
                                     "properties": {
                                         "constraint_type": {
+                                            "const": "is_home_planet"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "targeter_relationship_type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "self",
+                                                "ally",
+                                                "enemy",
+                                                "none"
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
                                             "const": "is_unit_factory"
                                         }
                                     }
@@ -1239,6 +1247,16 @@
                                 "if": {
                                     "properties": {
                                         "constraint_type": {
+                                            "const": "is_structure_builder"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
                                             "const": "not_self"
                                         }
                                     }
@@ -1356,7 +1374,7 @@
                     "items": {
                         "$ref": "#/$defs/target_filter_unit_type"
                     },
-                    "maxItems": 19
+                    "maxItems": 18
                 }
             },
             "required": [
@@ -1420,7 +1438,6 @@
                 "asteroid",
                 "torpedo",
                 "cannon_shell",
-                "buff_agent",
                 "loot",
                 "debris",
                 "untargetable"
@@ -1464,6 +1481,7 @@
                         "is_culture_provider",
                         "is_explored_planet",
                         "is_fully_built",
+                        "is_home_planet",
                         "is_unit_factory",
                         "is_unit_factory_building_units",
                         "is_structure_with_slot_type",
@@ -1478,6 +1496,7 @@
                         "is_inner_planet",
                         "can_ever_hyperspace",
                         "can_ever_move",
+                        "is_structure_builder",
                         "not_self",
                         "composite_not",
                         "composite_and",
@@ -1488,7 +1507,7 @@
             "required": [
                 "constraint_type"
             ],
-            "anyOf": [
+            "allOf": [
                 {
                     "if": {
                         "properties": {
@@ -1570,6 +1589,10 @@
                         "properties": {
                             "buff": {
                                 "type": "string"
+                            },
+                            "include_pending_buffs": {
+                                "description": "default=false",
+                                "type": "boolean"
                             }
                         },
                         "required": [
@@ -2031,6 +2054,28 @@
                     "if": {
                         "properties": {
                             "constraint_type": {
+                                "const": "is_home_planet"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "targeter_relationship_type": {
+                                "type": "string",
+                                "enum": [
+                                    "self",
+                                    "ally",
+                                    "enemy",
+                                    "none"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
                                 "const": "is_unit_factory"
                             }
                         }
@@ -2200,6 +2245,16 @@
                     "if": {
                         "properties": {
                             "constraint_type": {
+                                "const": "is_structure_builder"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
                                 "const": "not_self"
                             }
                         }
@@ -2297,6 +2352,7 @@
                 "can_passively_regenerate_shields",
                 "can_update_build_progress",
                 "can_use_weapons",
+                "can_use_weapons_when_crippled",
                 "can_use_active_abilities",
                 "can_use_abilities_when_crippled",
                 "can_be_colonized",

@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Unit Attack Target Type Group Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "attack_target_type_groups": {
+            "$ref": "#/$defs/unit_attack_target_type_group_map"
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "attack_target_type_groups"
+    ],
+    "unevaluatedProperties": false,
+    "$defs": {
+        "unit_attack_target_type_group_map": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "unit_attack_target_type_group": {
+                        "type": "object",
+                        "properties": {
+                            "types": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "torpedo",
+                                        "strikecraft",
+                                        "corvette",
+                                        "light",
+                                        "flak",
+                                        "heavy",
+                                        "lrm",
+                                        "capital",
+                                        "titan",
+                                        "starbase",
+                                        "defense"
+                                    ]
+                                }
+                            }
+                        },
+                        "unevaluatedProperties": false
+                    },
+                    "unit_attack_target_type_group_id": {
+                        "type": "string"
+                    }
+                },
+                "unevaluatedProperties": false
+            }
+        }
+    }
+}

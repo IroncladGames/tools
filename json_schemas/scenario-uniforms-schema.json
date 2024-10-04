@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Scenario Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "fake_server_scenarios": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "scenarios": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "fake_server_scenarios",
+        "scenarios"
+    ],
+    "unevaluatedProperties": false
+}

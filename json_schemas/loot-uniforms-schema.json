@@ -1,0 +1,293 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Loot Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "levels": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "collection_duration": {
+                        "type": "number"
+                    },
+                    "collection_range": {
+                        "type": "number"
+                    },
+                    "decay_duration": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "spawn_guardians_within_collection_range_scalar": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        },
+                        "maxItems": 2
+                    },
+                    "spawn_position_radius_percentage_from_center": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "collection_duration",
+                    "collection_range",
+                    "decay_duration",
+                    "name",
+                    "spawn_guardians_within_collection_range_scalar",
+                    "spawn_position_radius_percentage_from_center"
+                ],
+                "unevaluatedProperties": false
+            }
+        },
+        "random_loots": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "levels": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "assets": {
+                                    "type": "object",
+                                    "properties": {
+                                        "credits": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "crystal": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "metal": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    },
+                                    "unevaluatedProperties": false
+                                },
+                                "chance_for_exotics": {
+                                    "type": "number"
+                                },
+                                "chance_for_three_assets": {
+                                    "type": "number"
+                                },
+                                "chance_for_two_assets": {
+                                    "type": "number"
+                                },
+                                "exotics": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "bundles": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "counts": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "types": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "counts",
+                                                        "types"
+                                                    ],
+                                                    "unevaluatedProperties": false
+                                                }
+                                            },
+                                            "weight": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "required": [
+                                            "bundles",
+                                            "weight"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "experience_given": {
+                                    "type": "number"
+                                },
+                                "guardian_npc_name": {
+                                    "type": "string"
+                                },
+                                "guardian_supply": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "integer"
+                                    },
+                                    "maxItems": 2
+                                },
+                                "guardian_units": {
+                                    "type": "object",
+                                    "properties": {
+                                        "formation_type": {
+                                            "$ref": "#/$defs/formation_type"
+                                        },
+                                        "random_units": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "options": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "forced_leveled_up_ability": {
+                                                                "$ref": "#/$defs/ability_definition_ptr"
+                                                            },
+                                                            "forced_strikecraft_index": {
+                                                                "type": "integer"
+                                                            },
+                                                            "is_temporary_ruler_ship": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "items": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "$ref": "#/$defs/unit_item_definition_ptr"
+                                                                }
+                                                            },
+                                                            "level": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "unevaluatedProperties": false
+                                                    },
+                                                    "unit": {
+                                                        "$ref": "#/$defs/unit_definition_ptr"
+                                                    },
+                                                    "weight": {
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "unit",
+                                                    "weight"
+                                                ],
+                                                "unevaluatedProperties": false
+                                            }
+                                        },
+                                        "required_units": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "count": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "integer"
+                                                        },
+                                                        "minItems": 2,
+                                                        "maxItems": 2
+                                                    },
+                                                    "options": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "forced_leveled_up_ability": {
+                                                                "$ref": "#/$defs/ability_definition_ptr"
+                                                            },
+                                                            "forced_strikecraft_index": {
+                                                                "type": "integer"
+                                                            },
+                                                            "is_temporary_ruler_ship": {
+                                                                "type": "boolean"
+                                                            },
+                                                            "items": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "$ref": "#/$defs/unit_item_definition_ptr"
+                                                                }
+                                                            },
+                                                            "level": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "unevaluatedProperties": false
+                                                    },
+                                                    "unit": {
+                                                        "$ref": "#/$defs/unit_definition_ptr"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "unit"
+                                                ],
+                                                "unevaluatedProperties": false
+                                            }
+                                        }
+                                    },
+                                    "unevaluatedProperties": false
+                                },
+                                "loot_units": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "rotation_angle_variance": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "number"
+                                    },
+                                    "maxItems": 2
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "weignt": {
+                        "type": "number"
+                    }
+                },
+                "unevaluatedProperties": false
+            }
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "levels",
+        "random_loots"
+    ],
+    "unevaluatedProperties": false,
+    "$defs": {
+        "ability_definition_ptr": {
+            "type": "string"
+        },
+        "formation_type": {
+            "type": "string",
+            "enum": [
+                "ships_and_structures",
+                "strikecraft_only"
+            ]
+        },
+        "unit_item_definition_ptr": {
+            "type": "string"
+        },
+        "unit_definition_ptr": {
+            "type": "string"
+        }
+    }
+}

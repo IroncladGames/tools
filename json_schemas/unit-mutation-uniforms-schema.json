@@ -1,0 +1,79 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Random Skybox Filling Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "mutations": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "is_positive": {
+                        "type": "boolean"
+                    },
+                    "localized_name": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "show_in_buff_tooltip": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "is_positive",
+                    "localized_name",
+                    "name"
+                ],
+                "unevaluatedProperties": false
+            }
+        },
+        "permission_infos": {
+            "type": "object",
+            "properties": {
+                "disabling_mutations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "enabling_mutation": {
+                    "type": "string"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "suppressors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "suppressed_mutations": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "suppressing_mutation": {
+                        "type": "string"
+                    }
+                },
+                "unevaluatedProperties": false
+            }
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "mutations",
+        "permission_infos",
+        "suppressors"
+    ],
+    "unevaluatedProperties": false
+}

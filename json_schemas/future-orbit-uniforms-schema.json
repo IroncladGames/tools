@@ -1,0 +1,18 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Future Orbit Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "frame_interval_in_seconds": {
+            "type": "number"
+        },
+        "total_frame_range_in_seconds": {
+            "type": "number"
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "unevaluatedProperties": false
+}

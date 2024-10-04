@@ -1,0 +1,243 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Planet Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "artifact_to_planet_count_ratio": {
+            "type": "number"
+        },
+        "artifacts": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "asteroid_y_offset_range": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+        },
+        "chance_of_easter_egg_planet_bonus": {
+            "type": "number"
+        },
+        "chance_of_first_planet_bonus": {
+            "type": "number"
+        },
+        "chance_of_second_planet_bonus": {
+            "type": "number"
+        },
+        "crystal_asteroids": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "destroyed_planet_mutation": {
+            "type": "string"
+        },
+        "easter_egg_planet_bonuses": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "max_elevator_connection_distance_surface_radius_scalar": {
+            "type": "number"
+        },
+        "metal_asteroids": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "min_elevator_buffer_distance_surface_radius_scalar": {
+            "type": "number"
+        },
+        "planet_types": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "can_have_artifacts": {
+                        "type": "boolean"
+                    },
+                    "can_have_planet_elevators": {
+                        "type": "boolean"
+                    },
+                    "localized_name": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "surveying_track_levels": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "exotics": {
+                                    "type": "object",
+                                    "properties": {
+                                        "bonus_exotic_chances": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "chance": {
+                                                        "type": "number"
+                                                    },
+                                                    "exotic_type": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "chance",
+                                                    "exotic_type"
+                                                ],
+                                                "unevaluatedProperties": false
+                                            }
+                                        },
+                                        "guaranteed_counts": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "count": {
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "number"
+                                                        }
+                                                    },
+                                                    "exotic_type": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "count",
+                                                    "exotic_type"
+                                                ],
+                                                "unevaluatedProperties": false
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "bonus_exotic_chances",
+                                        "guaranteed_counts"
+                                    ],
+                                    "unevaluatedProperties": false
+                                },
+                                "rewards": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "reward": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "assets_amount": {
+                                                        "type": "integer"
+                                                    },
+                                                    "exotic_count": {
+                                                        "type": "number"
+                                                    },
+                                                    "exotic_type": {
+                                                        "type": "string"
+                                                    },
+                                                    "item": {
+                                                        "type": "string"
+                                                    },
+                                                    "type": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "assets",
+                                                            "exotics",
+                                                            "unit_item"
+                                                        ]
+                                                    }
+                                                },
+                                                "required": [
+                                                    "assets_amount",
+                                                    "exotic_count",
+                                                    "exotic_type",
+                                                    "item",
+                                                    "type"
+                                                ],
+                                                "unevaluatedProperties": false
+                                            },
+                                            "weight": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "required": [
+                                            "weight"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                }
+                            },
+                            "required": [
+                                "exotics"
+                            ],
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "tooltip_icon": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "localized_name",
+                    "name",
+                    "surveying_track_levels",
+                    "tooltip_icon"
+                ],
+                "unevaluatedProperties": false
+            }
+        },
+        "planets": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "random_planet_bonuses": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "scuttle_duration": {
+            "type": "number"
+        },
+        "structure_plate_spin_speed": {
+            "type": "number"
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "artifact_to_planet_count_ratio",
+        "artifacts",
+        "asteroid_y_offset_range",
+        "chance_of_easter_egg_planet_bonus",
+        "chance_of_first_planet_bonus",
+        "chance_of_second_planet_bonus",
+        "crystal_asteroids",
+        "destroyed_planet_mutation",
+        "easter_egg_planet_bonuses",
+        "max_elevator_connection_distance_surface_radius_scalar",
+        "metal_asteroids",
+        "min_elevator_buffer_distance_surface_radius_scalar",
+        "planet_types",
+        "planets",
+        "random_planet_bonuses",
+        "scuttle_duration",
+        "structure_plate_spin_speed"
+    ],
+    "unevaluatedProperties": false
+}

@@ -1,0 +1,3079 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Player AI Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "asset_ai_trade_values": {
+            "type": "object",
+            "properties": {
+                "credits": {
+                    "type": "number"
+                },
+                "crystal": {
+                    "type": "number"
+                },
+                "metal": {
+                    "type": "number"
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "behaviors": {
+            "type": "object",
+            "properties": {
+                "aggressive": {
+                    "type": "object",
+                    "properties": {
+                        "chance_to_ally_with_other_players": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "defense_to_offsense_spend_ratio": {
+                            "type": "number"
+                        },
+                        "desired_explore_ship_count": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "constant",
+                                        "per_planet_count",
+                                        "per_max_supply",
+                                        "per_built_supply",
+                                        "per_used_military_slots_at_planet"
+                                    ]
+                                }
+                            },
+                            "allOf": [
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "type": {
+                                                "const": "constant"
+                                            }
+                                        }
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "value": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "type": {
+                                                "const": "per_used_military_slots_at_planet"
+                                            }
+                                        }
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "max_value": {
+                                                "type": "number"
+                                            },
+                                            "per_count": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "required": [
+                                            "per_count"
+                                        ]
+                                    }
+                                }
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "steal_ships_from_roam_fleets_to_defend_supply_percentage": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "chance_to_ally_with_other_players",
+                        "defense_to_offsense_spend_ratio",
+                        "desired_explore_ship_count",
+                        "steal_ships_from_roam_fleets_to_defend_supply_percentage"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "defensive": {
+                    "type": "object",
+                    "properties": {
+                        "chance_to_ally_with_other_players": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "defense_to_offsense_spend_ratio": {
+                            "type": "number"
+                        },
+                        "desired_explore_ship_count": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "constant",
+                                        "per_planet_count",
+                                        "per_max_supply",
+                                        "per_built_supply",
+                                        "per_used_military_slots_at_planet"
+                                    ]
+                                }
+                            },
+                            "allOf": [
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "type": {
+                                                "const": "constant"
+                                            }
+                                        }
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "value": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "if": {
+                                        "properties": {
+                                            "type": {
+                                                "const": "per_used_military_slots_at_planet"
+                                            }
+                                        }
+                                    },
+                                    "then": {
+                                        "properties": {
+                                            "max_value": {
+                                                "type": "number"
+                                            },
+                                            "per_count": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "required": [
+                                            "per_count"
+                                        ]
+                                    }
+                                }
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "steal_ships_from_roam_fleets_to_defend_supply_percentage": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "chance_to_ally_with_other_players",
+                        "defense_to_offsense_spend_ratio",
+                        "desired_explore_ship_count",
+                        "steal_ships_from_roam_fleets_to_defend_supply_percentage"
+                    ],
+                    "unevaluatedProperties": false
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "capital_ship_build_kind": {
+            "type": "string"
+        },
+        "difficulties": {
+            "type": "object",
+            "properties": {
+                "easy": {
+                    "type": "object",
+                    "properties": {
+                        "bonus_modifiers": {
+                            "type": "object",
+                            "properties": {
+                                "empire_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "percentage_of_other_players_total_credit_income",
+                                                    "surveying_bonus_exotic_chance",
+                                                    "factory_build_exotic_price",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "max_supply",
+                                                    "trade_credits_income_rate",
+                                                    "trade_metal_income_rate",
+                                                    "trade_crystal_income_rate",
+                                                    "max_influence_points",
+                                                    "influence_points_recharge_rate",
+                                                    "unity_points",
+                                                    "unity_max_mana_points",
+                                                    "unity_mana_restore_rate"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "exotic_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exotic_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/exotic_type"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "npc_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "buy_metal_credits_cost",
+                                                    "sell_metal_credits_received",
+                                                    "buy_crystal_credits_cost",
+                                                    "sell_crystal_credits_received",
+                                                    "sell_exotic_credits_received",
+                                                    "send_raid_supply",
+                                                    "auction_bid_bonus_influence_points",
+                                                    "reputation_ability_cooldown_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/npc_tags"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "planet_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "dynamic_multiplier": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "used_supply_percentage",
+                                                    "inverse_used_supply_percentage"
+                                                ]
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "max_civilian_structure_slots",
+                                                    "max_military_structure_slots",
+                                                    "commerce_track_credit_income_rate",
+                                                    "mining_track_metal_income_rate",
+                                                    "mining_track_crystal_income_rate",
+                                                    "orbital_extraction_metal_income_rate",
+                                                    "orbital_extraction_crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "unity_points",
+                                                    "max_health_points",
+                                                    "health_points_restore_rate",
+                                                    "max_shield_points",
+                                                    "shield_points_restore_rate",
+                                                    "factory_unit_build_price",
+                                                    "factory_unit_build_time",
+                                                    "factory_exotic_build_time",
+                                                    "any_development_track_build_price",
+                                                    "any_development_track_build_time",
+                                                    "defense_track_build_price",
+                                                    "defense_track_build_time",
+                                                    "logistics_track_build_price",
+                                                    "logistics_track_build_time",
+                                                    "commerce_track_build_price",
+                                                    "commerce_track_build_time",
+                                                    "mining_track_build_price",
+                                                    "mining_track_build_time",
+                                                    "research_track_build_price",
+                                                    "research_track_build_time",
+                                                    "surveying_track_build_price",
+                                                    "surveying_track_build_time",
+                                                    "structure_build_price",
+                                                    "structure_build_time",
+                                                    "gravity_well_radius",
+                                                    "structure_builder_count",
+                                                    "max_garrison_supply",
+                                                    "bombing_damage_taken",
+                                                    "planet_component_price",
+                                                    "max_planet_component_slots",
+                                                    "max_influence_points"
+                                                ]
+                                            },
+                                            "planet_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/planet_type"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "strikecraft_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "squadron_size"
+                                                ]
+                                            },
+                                            "strikecraft_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/strikecraft_types"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "build_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_build_kind_name"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "ability_cooldown_duration",
+                                                    "ability_antimatter_cost",
+                                                    "ability_hull_cost",
+                                                    "ability_armor_cost",
+                                                    "ability_shields_cost",
+                                                    "ability_range",
+                                                    "max_antimatter",
+                                                    "antimatter_restore_rate",
+                                                    "max_linear_speed",
+                                                    "max_linear_acceleration",
+                                                    "max_angular_speed",
+                                                    "hyperspace_charge_time",
+                                                    "hyperspace_speed",
+                                                    "max_hull_points",
+                                                    "hull_crippled_percentage",
+                                                    "hull_point_restore_rate",
+                                                    "hull_point_restore_cooldown_duration_after_damage_taken",
+                                                    "max_armor_points",
+                                                    "armor_point_restore_rate",
+                                                    "armor_point_restore_cooldown_duration_after_damage_taken",
+                                                    "armor_strength",
+                                                    "max_shield_points",
+                                                    "shield_point_restore_rate",
+                                                    "shield_point_restore_cooldown_duration_after_damage_taken",
+                                                    "shield_burst_restore_points",
+                                                    "shield_burst_restore_cooldown_duration",
+                                                    "damage_taken",
+                                                    "experience_gained_from_unit_death",
+                                                    "experience_gained_from_planet_bombing",
+                                                    "experience_gained_from_loot_collection",
+                                                    "experience_given_on_death",
+                                                    "max_squadron_capacity",
+                                                    "strikecraft_build_time",
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "ship_component_price",
+                                                    "self_build_time",
+                                                    "spell_power",
+                                                    "unity_points",
+                                                    "trade_import_points",
+                                                    "trade_export_credits_points",
+                                                    "trade_export_metal_points",
+                                                    "trade_export_crystal_points",
+                                                    "loot_collection_duration",
+                                                    "phase_resonance_bonus_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_tag"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "weapon_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "damage",
+                                                    "cooldown_duration",
+                                                    "range",
+                                                    "tracking_speed",
+                                                    "bypass_shields_chance"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "$ref": "#/$defs/weapon_tag_set"
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            },
+                                            "weapon_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "normal",
+                                                    "planet_bombing"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "chance_for_full_bid_on_auctions": {
+                            "type": "number"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "fleet_attack_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_colonize_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_will_probably_defeat_ratio_range": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "icon": {
+                            "type": "string"
+                        },
+                        "max_fleet_capital_ship_count": {
+                            "type": "integer"
+                        },
+                        "max_supply_percentage_relative_to_human_players": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "update_interval": {
+                            "type": "number"
+                        },
+                        "when_build_titan_in_minutes": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "will_attack_other_ai_before_human_players": {
+                            "type": "boolean"
+                        },
+                        "will_build_super_weapons": {
+                            "type": "boolean"
+                        },
+                        "will_fleet_retreat": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "description",
+                        "icon",
+                        "name",
+                        "update_interval"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "hard": {
+                    "type": "object",
+                    "properties": {
+                        "bonus_modifiers": {
+                            "type": "object",
+                            "properties": {
+                                "empire_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "percentage_of_other_players_total_credit_income",
+                                                    "surveying_bonus_exotic_chance",
+                                                    "factory_build_exotic_price",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "max_supply",
+                                                    "trade_credits_income_rate",
+                                                    "trade_metal_income_rate",
+                                                    "trade_crystal_income_rate",
+                                                    "max_influence_points",
+                                                    "influence_points_recharge_rate",
+                                                    "unity_points",
+                                                    "unity_max_mana_points",
+                                                    "unity_mana_restore_rate"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "exotic_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exotic_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/exotic_type"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "npc_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "buy_metal_credits_cost",
+                                                    "sell_metal_credits_received",
+                                                    "buy_crystal_credits_cost",
+                                                    "sell_crystal_credits_received",
+                                                    "sell_exotic_credits_received",
+                                                    "send_raid_supply",
+                                                    "auction_bid_bonus_influence_points",
+                                                    "reputation_ability_cooldown_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/npc_tags"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "planet_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "dynamic_multiplier": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "used_supply_percentage",
+                                                    "inverse_used_supply_percentage"
+                                                ]
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "max_civilian_structure_slots",
+                                                    "max_military_structure_slots",
+                                                    "commerce_track_credit_income_rate",
+                                                    "mining_track_metal_income_rate",
+                                                    "mining_track_crystal_income_rate",
+                                                    "orbital_extraction_metal_income_rate",
+                                                    "orbital_extraction_crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "unity_points",
+                                                    "max_health_points",
+                                                    "health_points_restore_rate",
+                                                    "max_shield_points",
+                                                    "shield_points_restore_rate",
+                                                    "factory_unit_build_price",
+                                                    "factory_unit_build_time",
+                                                    "factory_exotic_build_time",
+                                                    "any_development_track_build_price",
+                                                    "any_development_track_build_time",
+                                                    "defense_track_build_price",
+                                                    "defense_track_build_time",
+                                                    "logistics_track_build_price",
+                                                    "logistics_track_build_time",
+                                                    "commerce_track_build_price",
+                                                    "commerce_track_build_time",
+                                                    "mining_track_build_price",
+                                                    "mining_track_build_time",
+                                                    "research_track_build_price",
+                                                    "research_track_build_time",
+                                                    "surveying_track_build_price",
+                                                    "surveying_track_build_time",
+                                                    "structure_build_price",
+                                                    "structure_build_time",
+                                                    "gravity_well_radius",
+                                                    "structure_builder_count",
+                                                    "max_garrison_supply",
+                                                    "bombing_damage_taken",
+                                                    "planet_component_price",
+                                                    "max_planet_component_slots",
+                                                    "max_influence_points"
+                                                ]
+                                            },
+                                            "planet_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/planet_type"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "strikecraft_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "squadron_size"
+                                                ]
+                                            },
+                                            "strikecraft_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/strikecraft_types"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "build_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_build_kind_name"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "ability_cooldown_duration",
+                                                    "ability_antimatter_cost",
+                                                    "ability_hull_cost",
+                                                    "ability_armor_cost",
+                                                    "ability_shields_cost",
+                                                    "ability_range",
+                                                    "max_antimatter",
+                                                    "antimatter_restore_rate",
+                                                    "max_linear_speed",
+                                                    "max_linear_acceleration",
+                                                    "max_angular_speed",
+                                                    "hyperspace_charge_time",
+                                                    "hyperspace_speed",
+                                                    "max_hull_points",
+                                                    "hull_crippled_percentage",
+                                                    "hull_point_restore_rate",
+                                                    "hull_point_restore_cooldown_duration_after_damage_taken",
+                                                    "max_armor_points",
+                                                    "armor_point_restore_rate",
+                                                    "armor_point_restore_cooldown_duration_after_damage_taken",
+                                                    "armor_strength",
+                                                    "max_shield_points",
+                                                    "shield_point_restore_rate",
+                                                    "shield_point_restore_cooldown_duration_after_damage_taken",
+                                                    "shield_burst_restore_points",
+                                                    "shield_burst_restore_cooldown_duration",
+                                                    "damage_taken",
+                                                    "experience_gained_from_unit_death",
+                                                    "experience_gained_from_planet_bombing",
+                                                    "experience_gained_from_loot_collection",
+                                                    "experience_given_on_death",
+                                                    "max_squadron_capacity",
+                                                    "strikecraft_build_time",
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "ship_component_price",
+                                                    "self_build_time",
+                                                    "spell_power",
+                                                    "unity_points",
+                                                    "trade_import_points",
+                                                    "trade_export_credits_points",
+                                                    "trade_export_metal_points",
+                                                    "trade_export_crystal_points",
+                                                    "loot_collection_duration",
+                                                    "phase_resonance_bonus_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_tag"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "weapon_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "damage",
+                                                    "cooldown_duration",
+                                                    "range",
+                                                    "tracking_speed",
+                                                    "bypass_shields_chance"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "$ref": "#/$defs/weapon_tag_set"
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            },
+                                            "weapon_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "normal",
+                                                    "planet_bombing"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "chance_for_full_bid_on_auctions": {
+                            "type": "number"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "fleet_attack_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_colonize_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_will_probably_defeat_ratio_range": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "icon": {
+                            "type": "string"
+                        },
+                        "max_fleet_capital_ship_count": {
+                            "type": "integer"
+                        },
+                        "max_supply_percentage_relative_to_human_players": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "update_interval": {
+                            "type": "number"
+                        },
+                        "when_build_titan_in_minutes": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "will_attack_other_ai_before_human_players": {
+                            "type": "boolean"
+                        },
+                        "will_build_super_weapons": {
+                            "type": "boolean"
+                        },
+                        "will_fleet_retreat": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "description",
+                        "icon",
+                        "name",
+                        "update_interval"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "impossible": {
+                    "type": "object",
+                    "properties": {
+                        "bonus_modifiers": {
+                            "type": "object",
+                            "properties": {
+                                "empire_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "percentage_of_other_players_total_credit_income",
+                                                    "surveying_bonus_exotic_chance",
+                                                    "factory_build_exotic_price",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "max_supply",
+                                                    "trade_credits_income_rate",
+                                                    "trade_metal_income_rate",
+                                                    "trade_crystal_income_rate",
+                                                    "max_influence_points",
+                                                    "influence_points_recharge_rate",
+                                                    "unity_points",
+                                                    "unity_max_mana_points",
+                                                    "unity_mana_restore_rate"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "exotic_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exotic_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/exotic_type"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "npc_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "buy_metal_credits_cost",
+                                                    "sell_metal_credits_received",
+                                                    "buy_crystal_credits_cost",
+                                                    "sell_crystal_credits_received",
+                                                    "sell_exotic_credits_received",
+                                                    "send_raid_supply",
+                                                    "auction_bid_bonus_influence_points",
+                                                    "reputation_ability_cooldown_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/npc_tags"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "planet_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "dynamic_multiplier": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "used_supply_percentage",
+                                                    "inverse_used_supply_percentage"
+                                                ]
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "max_civilian_structure_slots",
+                                                    "max_military_structure_slots",
+                                                    "commerce_track_credit_income_rate",
+                                                    "mining_track_metal_income_rate",
+                                                    "mining_track_crystal_income_rate",
+                                                    "orbital_extraction_metal_income_rate",
+                                                    "orbital_extraction_crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "unity_points",
+                                                    "max_health_points",
+                                                    "health_points_restore_rate",
+                                                    "max_shield_points",
+                                                    "shield_points_restore_rate",
+                                                    "factory_unit_build_price",
+                                                    "factory_unit_build_time",
+                                                    "factory_exotic_build_time",
+                                                    "any_development_track_build_price",
+                                                    "any_development_track_build_time",
+                                                    "defense_track_build_price",
+                                                    "defense_track_build_time",
+                                                    "logistics_track_build_price",
+                                                    "logistics_track_build_time",
+                                                    "commerce_track_build_price",
+                                                    "commerce_track_build_time",
+                                                    "mining_track_build_price",
+                                                    "mining_track_build_time",
+                                                    "research_track_build_price",
+                                                    "research_track_build_time",
+                                                    "surveying_track_build_price",
+                                                    "surveying_track_build_time",
+                                                    "structure_build_price",
+                                                    "structure_build_time",
+                                                    "gravity_well_radius",
+                                                    "structure_builder_count",
+                                                    "max_garrison_supply",
+                                                    "bombing_damage_taken",
+                                                    "planet_component_price",
+                                                    "max_planet_component_slots",
+                                                    "max_influence_points"
+                                                ]
+                                            },
+                                            "planet_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/planet_type"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "strikecraft_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "squadron_size"
+                                                ]
+                                            },
+                                            "strikecraft_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/strikecraft_types"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "build_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_build_kind_name"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "ability_cooldown_duration",
+                                                    "ability_antimatter_cost",
+                                                    "ability_hull_cost",
+                                                    "ability_armor_cost",
+                                                    "ability_shields_cost",
+                                                    "ability_range",
+                                                    "max_antimatter",
+                                                    "antimatter_restore_rate",
+                                                    "max_linear_speed",
+                                                    "max_linear_acceleration",
+                                                    "max_angular_speed",
+                                                    "hyperspace_charge_time",
+                                                    "hyperspace_speed",
+                                                    "max_hull_points",
+                                                    "hull_crippled_percentage",
+                                                    "hull_point_restore_rate",
+                                                    "hull_point_restore_cooldown_duration_after_damage_taken",
+                                                    "max_armor_points",
+                                                    "armor_point_restore_rate",
+                                                    "armor_point_restore_cooldown_duration_after_damage_taken",
+                                                    "armor_strength",
+                                                    "max_shield_points",
+                                                    "shield_point_restore_rate",
+                                                    "shield_point_restore_cooldown_duration_after_damage_taken",
+                                                    "shield_burst_restore_points",
+                                                    "shield_burst_restore_cooldown_duration",
+                                                    "damage_taken",
+                                                    "experience_gained_from_unit_death",
+                                                    "experience_gained_from_planet_bombing",
+                                                    "experience_gained_from_loot_collection",
+                                                    "experience_given_on_death",
+                                                    "max_squadron_capacity",
+                                                    "strikecraft_build_time",
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "ship_component_price",
+                                                    "self_build_time",
+                                                    "spell_power",
+                                                    "unity_points",
+                                                    "trade_import_points",
+                                                    "trade_export_credits_points",
+                                                    "trade_export_metal_points",
+                                                    "trade_export_crystal_points",
+                                                    "loot_collection_duration",
+                                                    "phase_resonance_bonus_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_tag"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "weapon_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "damage",
+                                                    "cooldown_duration",
+                                                    "range",
+                                                    "tracking_speed",
+                                                    "bypass_shields_chance"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "$ref": "#/$defs/weapon_tag_set"
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            },
+                                            "weapon_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "normal",
+                                                    "planet_bombing"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "chance_for_full_bid_on_auctions": {
+                            "type": "number"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "fleet_attack_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_colonize_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_will_probably_defeat_ratio_range": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "icon": {
+                            "type": "string"
+                        },
+                        "max_fleet_capital_ship_count": {
+                            "type": "integer"
+                        },
+                        "max_supply_percentage_relative_to_human_players": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "update_interval": {
+                            "type": "number"
+                        },
+                        "when_build_titan_in_minutes": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "will_attack_other_ai_before_human_players": {
+                            "type": "boolean"
+                        },
+                        "will_build_super_weapons": {
+                            "type": "boolean"
+                        },
+                        "will_fleet_retreat": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "description",
+                        "icon",
+                        "name",
+                        "update_interval"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "medium": {
+                    "type": "object",
+                    "properties": {
+                        "bonus_modifiers": {
+                            "type": "object",
+                            "properties": {
+                                "empire_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "percentage_of_other_players_total_credit_income",
+                                                    "surveying_bonus_exotic_chance",
+                                                    "factory_build_exotic_price",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "max_supply",
+                                                    "trade_credits_income_rate",
+                                                    "trade_metal_income_rate",
+                                                    "trade_crystal_income_rate",
+                                                    "max_influence_points",
+                                                    "influence_points_recharge_rate",
+                                                    "unity_points",
+                                                    "unity_max_mana_points",
+                                                    "unity_mana_restore_rate"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "exotic_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exotic_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/exotic_type"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "npc_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "buy_metal_credits_cost",
+                                                    "sell_metal_credits_received",
+                                                    "buy_crystal_credits_cost",
+                                                    "sell_crystal_credits_received",
+                                                    "sell_exotic_credits_received",
+                                                    "send_raid_supply",
+                                                    "auction_bid_bonus_influence_points",
+                                                    "reputation_ability_cooldown_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/npc_tags"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "planet_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "dynamic_multiplier": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "used_supply_percentage",
+                                                    "inverse_used_supply_percentage"
+                                                ]
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "max_civilian_structure_slots",
+                                                    "max_military_structure_slots",
+                                                    "commerce_track_credit_income_rate",
+                                                    "mining_track_metal_income_rate",
+                                                    "mining_track_crystal_income_rate",
+                                                    "orbital_extraction_metal_income_rate",
+                                                    "orbital_extraction_crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "unity_points",
+                                                    "max_health_points",
+                                                    "health_points_restore_rate",
+                                                    "max_shield_points",
+                                                    "shield_points_restore_rate",
+                                                    "factory_unit_build_price",
+                                                    "factory_unit_build_time",
+                                                    "factory_exotic_build_time",
+                                                    "any_development_track_build_price",
+                                                    "any_development_track_build_time",
+                                                    "defense_track_build_price",
+                                                    "defense_track_build_time",
+                                                    "logistics_track_build_price",
+                                                    "logistics_track_build_time",
+                                                    "commerce_track_build_price",
+                                                    "commerce_track_build_time",
+                                                    "mining_track_build_price",
+                                                    "mining_track_build_time",
+                                                    "research_track_build_price",
+                                                    "research_track_build_time",
+                                                    "surveying_track_build_price",
+                                                    "surveying_track_build_time",
+                                                    "structure_build_price",
+                                                    "structure_build_time",
+                                                    "gravity_well_radius",
+                                                    "structure_builder_count",
+                                                    "max_garrison_supply",
+                                                    "bombing_damage_taken",
+                                                    "planet_component_price",
+                                                    "max_planet_component_slots",
+                                                    "max_influence_points"
+                                                ]
+                                            },
+                                            "planet_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/planet_type"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "strikecraft_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "squadron_size"
+                                                ]
+                                            },
+                                            "strikecraft_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/strikecraft_types"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "build_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_build_kind_name"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "ability_cooldown_duration",
+                                                    "ability_antimatter_cost",
+                                                    "ability_hull_cost",
+                                                    "ability_armor_cost",
+                                                    "ability_shields_cost",
+                                                    "ability_range",
+                                                    "max_antimatter",
+                                                    "antimatter_restore_rate",
+                                                    "max_linear_speed",
+                                                    "max_linear_acceleration",
+                                                    "max_angular_speed",
+                                                    "hyperspace_charge_time",
+                                                    "hyperspace_speed",
+                                                    "max_hull_points",
+                                                    "hull_crippled_percentage",
+                                                    "hull_point_restore_rate",
+                                                    "hull_point_restore_cooldown_duration_after_damage_taken",
+                                                    "max_armor_points",
+                                                    "armor_point_restore_rate",
+                                                    "armor_point_restore_cooldown_duration_after_damage_taken",
+                                                    "armor_strength",
+                                                    "max_shield_points",
+                                                    "shield_point_restore_rate",
+                                                    "shield_point_restore_cooldown_duration_after_damage_taken",
+                                                    "shield_burst_restore_points",
+                                                    "shield_burst_restore_cooldown_duration",
+                                                    "damage_taken",
+                                                    "experience_gained_from_unit_death",
+                                                    "experience_gained_from_planet_bombing",
+                                                    "experience_gained_from_loot_collection",
+                                                    "experience_given_on_death",
+                                                    "max_squadron_capacity",
+                                                    "strikecraft_build_time",
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "ship_component_price",
+                                                    "self_build_time",
+                                                    "spell_power",
+                                                    "unity_points",
+                                                    "trade_import_points",
+                                                    "trade_export_credits_points",
+                                                    "trade_export_metal_points",
+                                                    "trade_export_crystal_points",
+                                                    "loot_collection_duration",
+                                                    "phase_resonance_bonus_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_tag"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "weapon_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "damage",
+                                                    "cooldown_duration",
+                                                    "range",
+                                                    "tracking_speed",
+                                                    "bypass_shields_chance"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "$ref": "#/$defs/weapon_tag_set"
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            },
+                                            "weapon_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "normal",
+                                                    "planet_bombing"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "chance_for_full_bid_on_auctions": {
+                            "type": "number"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "fleet_attack_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_colonize_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_will_probably_defeat_ratio_range": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "icon": {
+                            "type": "string"
+                        },
+                        "max_fleet_capital_ship_count": {
+                            "type": "integer"
+                        },
+                        "max_supply_percentage_relative_to_human_players": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "update_interval": {
+                            "type": "number"
+                        },
+                        "when_build_titan_in_minutes": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "will_attack_other_ai_before_human_players": {
+                            "type": "boolean"
+                        },
+                        "will_build_super_weapons": {
+                            "type": "boolean"
+                        },
+                        "will_fleet_retreat": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "description",
+                        "icon",
+                        "name",
+                        "update_interval"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "nightmare": {
+                    "type": "object",
+                    "properties": {
+                        "bonus_modifiers": {
+                            "type": "object",
+                            "properties": {
+                                "empire_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "percentage_of_other_players_total_credit_income",
+                                                    "surveying_bonus_exotic_chance",
+                                                    "factory_build_exotic_price",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "max_supply",
+                                                    "trade_credits_income_rate",
+                                                    "trade_metal_income_rate",
+                                                    "trade_crystal_income_rate",
+                                                    "max_influence_points",
+                                                    "influence_points_recharge_rate",
+                                                    "unity_points",
+                                                    "unity_max_mana_points",
+                                                    "unity_mana_restore_rate"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "exotic_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exotic_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/exotic_type"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "npc_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "buy_metal_credits_cost",
+                                                    "sell_metal_credits_received",
+                                                    "buy_crystal_credits_cost",
+                                                    "sell_crystal_credits_received",
+                                                    "sell_exotic_credits_received",
+                                                    "send_raid_supply",
+                                                    "auction_bid_bonus_influence_points",
+                                                    "reputation_ability_cooldown_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/npc_tags"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "planet_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "dynamic_multiplier": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "used_supply_percentage",
+                                                    "inverse_used_supply_percentage"
+                                                ]
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "max_civilian_structure_slots",
+                                                    "max_military_structure_slots",
+                                                    "commerce_track_credit_income_rate",
+                                                    "mining_track_metal_income_rate",
+                                                    "mining_track_crystal_income_rate",
+                                                    "orbital_extraction_metal_income_rate",
+                                                    "orbital_extraction_crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "unity_points",
+                                                    "max_health_points",
+                                                    "health_points_restore_rate",
+                                                    "max_shield_points",
+                                                    "shield_points_restore_rate",
+                                                    "factory_unit_build_price",
+                                                    "factory_unit_build_time",
+                                                    "factory_exotic_build_time",
+                                                    "any_development_track_build_price",
+                                                    "any_development_track_build_time",
+                                                    "defense_track_build_price",
+                                                    "defense_track_build_time",
+                                                    "logistics_track_build_price",
+                                                    "logistics_track_build_time",
+                                                    "commerce_track_build_price",
+                                                    "commerce_track_build_time",
+                                                    "mining_track_build_price",
+                                                    "mining_track_build_time",
+                                                    "research_track_build_price",
+                                                    "research_track_build_time",
+                                                    "surveying_track_build_price",
+                                                    "surveying_track_build_time",
+                                                    "structure_build_price",
+                                                    "structure_build_time",
+                                                    "gravity_well_radius",
+                                                    "structure_builder_count",
+                                                    "max_garrison_supply",
+                                                    "bombing_damage_taken",
+                                                    "planet_component_price",
+                                                    "max_planet_component_slots",
+                                                    "max_influence_points"
+                                                ]
+                                            },
+                                            "planet_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/planet_type"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "strikecraft_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "squadron_size"
+                                                ]
+                                            },
+                                            "strikecraft_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/strikecraft_types"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "build_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_build_kind_name"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "ability_cooldown_duration",
+                                                    "ability_antimatter_cost",
+                                                    "ability_hull_cost",
+                                                    "ability_armor_cost",
+                                                    "ability_shields_cost",
+                                                    "ability_range",
+                                                    "max_antimatter",
+                                                    "antimatter_restore_rate",
+                                                    "max_linear_speed",
+                                                    "max_linear_acceleration",
+                                                    "max_angular_speed",
+                                                    "hyperspace_charge_time",
+                                                    "hyperspace_speed",
+                                                    "max_hull_points",
+                                                    "hull_crippled_percentage",
+                                                    "hull_point_restore_rate",
+                                                    "hull_point_restore_cooldown_duration_after_damage_taken",
+                                                    "max_armor_points",
+                                                    "armor_point_restore_rate",
+                                                    "armor_point_restore_cooldown_duration_after_damage_taken",
+                                                    "armor_strength",
+                                                    "max_shield_points",
+                                                    "shield_point_restore_rate",
+                                                    "shield_point_restore_cooldown_duration_after_damage_taken",
+                                                    "shield_burst_restore_points",
+                                                    "shield_burst_restore_cooldown_duration",
+                                                    "damage_taken",
+                                                    "experience_gained_from_unit_death",
+                                                    "experience_gained_from_planet_bombing",
+                                                    "experience_gained_from_loot_collection",
+                                                    "experience_given_on_death",
+                                                    "max_squadron_capacity",
+                                                    "strikecraft_build_time",
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "ship_component_price",
+                                                    "self_build_time",
+                                                    "spell_power",
+                                                    "unity_points",
+                                                    "trade_import_points",
+                                                    "trade_export_credits_points",
+                                                    "trade_export_metal_points",
+                                                    "trade_export_crystal_points",
+                                                    "loot_collection_duration",
+                                                    "phase_resonance_bonus_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_tag"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "weapon_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "damage",
+                                                    "cooldown_duration",
+                                                    "range",
+                                                    "tracking_speed",
+                                                    "bypass_shields_chance"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "$ref": "#/$defs/weapon_tag_set"
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            },
+                                            "weapon_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "normal",
+                                                    "planet_bombing"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "chance_for_full_bid_on_auctions": {
+                            "type": "number"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "fleet_attack_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_colonize_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_will_probably_defeat_ratio_range": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "icon": {
+                            "type": "string"
+                        },
+                        "max_fleet_capital_ship_count": {
+                            "type": "integer"
+                        },
+                        "max_supply_percentage_relative_to_human_players": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "update_interval": {
+                            "type": "number"
+                        },
+                        "when_build_titan_in_minutes": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "will_attack_other_ai_before_human_players": {
+                            "type": "boolean"
+                        },
+                        "will_build_super_weapons": {
+                            "type": "boolean"
+                        },
+                        "will_fleet_retreat": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "description",
+                        "icon",
+                        "name",
+                        "update_interval"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "unfair": {
+                    "type": "object",
+                    "properties": {
+                        "bonus_modifiers": {
+                            "type": "object",
+                            "properties": {
+                                "empire_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "percentage_of_other_players_total_credit_income",
+                                                    "surveying_bonus_exotic_chance",
+                                                    "factory_build_exotic_price",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "max_supply",
+                                                    "trade_credits_income_rate",
+                                                    "trade_metal_income_rate",
+                                                    "trade_crystal_income_rate",
+                                                    "max_influence_points",
+                                                    "influence_points_recharge_rate",
+                                                    "unity_points",
+                                                    "unity_max_mana_points",
+                                                    "unity_mana_restore_rate"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "exotic_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "exotic_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/exotic_type"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "npc_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "buy_metal_credits_cost",
+                                                    "sell_metal_credits_received",
+                                                    "buy_crystal_credits_cost",
+                                                    "sell_crystal_credits_received",
+                                                    "sell_exotic_credits_received",
+                                                    "send_raid_supply",
+                                                    "auction_bid_bonus_influence_points",
+                                                    "reputation_ability_cooldown_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/npc_tags"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "planet_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "dynamic_multiplier": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "used_supply_percentage",
+                                                    "inverse_used_supply_percentage"
+                                                ]
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "max_civilian_structure_slots",
+                                                    "max_military_structure_slots",
+                                                    "commerce_track_credit_income_rate",
+                                                    "mining_track_metal_income_rate",
+                                                    "mining_track_crystal_income_rate",
+                                                    "orbital_extraction_metal_income_rate",
+                                                    "orbital_extraction_crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "civilian_research_rate",
+                                                    "military_research_rate",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "unity_points",
+                                                    "max_health_points",
+                                                    "health_points_restore_rate",
+                                                    "max_shield_points",
+                                                    "shield_points_restore_rate",
+                                                    "factory_unit_build_price",
+                                                    "factory_unit_build_time",
+                                                    "factory_exotic_build_time",
+                                                    "any_development_track_build_price",
+                                                    "any_development_track_build_time",
+                                                    "defense_track_build_price",
+                                                    "defense_track_build_time",
+                                                    "logistics_track_build_price",
+                                                    "logistics_track_build_time",
+                                                    "commerce_track_build_price",
+                                                    "commerce_track_build_time",
+                                                    "mining_track_build_price",
+                                                    "mining_track_build_time",
+                                                    "research_track_build_price",
+                                                    "research_track_build_time",
+                                                    "surveying_track_build_price",
+                                                    "surveying_track_build_time",
+                                                    "structure_build_price",
+                                                    "structure_build_time",
+                                                    "gravity_well_radius",
+                                                    "structure_builder_count",
+                                                    "max_garrison_supply",
+                                                    "bombing_damage_taken",
+                                                    "planet_component_price",
+                                                    "max_planet_component_slots",
+                                                    "max_influence_points"
+                                                ]
+                                            },
+                                            "planet_types": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/planet_type"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "strikecraft_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "squadron_size"
+                                                ]
+                                            },
+                                            "strikecraft_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/strikecraft_types"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_factory_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "build_kinds": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_build_kind_name"
+                                                }
+                                            },
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "build_time"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "unit_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "ability_cooldown_duration",
+                                                    "ability_antimatter_cost",
+                                                    "ability_hull_cost",
+                                                    "ability_armor_cost",
+                                                    "ability_shields_cost",
+                                                    "ability_range",
+                                                    "max_antimatter",
+                                                    "antimatter_restore_rate",
+                                                    "max_linear_speed",
+                                                    "max_linear_acceleration",
+                                                    "max_angular_speed",
+                                                    "hyperspace_charge_time",
+                                                    "hyperspace_speed",
+                                                    "max_hull_points",
+                                                    "hull_crippled_percentage",
+                                                    "hull_point_restore_rate",
+                                                    "hull_point_restore_cooldown_duration_after_damage_taken",
+                                                    "max_armor_points",
+                                                    "armor_point_restore_rate",
+                                                    "armor_point_restore_cooldown_duration_after_damage_taken",
+                                                    "armor_strength",
+                                                    "max_shield_points",
+                                                    "shield_point_restore_rate",
+                                                    "shield_point_restore_cooldown_duration_after_damage_taken",
+                                                    "shield_burst_restore_points",
+                                                    "shield_burst_restore_cooldown_duration",
+                                                    "damage_taken",
+                                                    "experience_gained_from_unit_death",
+                                                    "experience_gained_from_planet_bombing",
+                                                    "experience_gained_from_loot_collection",
+                                                    "experience_given_on_death",
+                                                    "max_squadron_capacity",
+                                                    "strikecraft_build_time",
+                                                    "credit_income_rate",
+                                                    "metal_income_rate",
+                                                    "crystal_income_rate",
+                                                    "civilian_research_points",
+                                                    "military_research_points",
+                                                    "culture_rate",
+                                                    "culture_resistance_rate",
+                                                    "ship_component_price",
+                                                    "self_build_time",
+                                                    "spell_power",
+                                                    "unity_points",
+                                                    "trade_import_points",
+                                                    "trade_export_credits_points",
+                                                    "trade_export_metal_points",
+                                                    "trade_export_crystal_points",
+                                                    "loot_collection_duration",
+                                                    "phase_resonance_bonus_duration"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "type": "array",
+                                                "items": {
+                                                    "$ref": "#/$defs/unit_tag"
+                                                }
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "modifier_type",
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                },
+                                "weapon_modifiers": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "modifier_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "damage",
+                                                    "cooldown_duration",
+                                                    "range",
+                                                    "tracking_speed",
+                                                    "bypass_shields_chance"
+                                                ]
+                                            },
+                                            "tags": {
+                                                "$ref": "#/$defs/weapon_tag_set"
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            },
+                                            "value_behavior": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "additive",
+                                                    "scalar"
+                                                ]
+                                            },
+                                            "weapon_type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "normal",
+                                                    "planet_bombing"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "value",
+                                            "value_behavior"
+                                        ],
+                                        "unevaluatedProperties": false
+                                    }
+                                }
+                            },
+                            "unevaluatedProperties": false
+                        },
+                        "chance_for_full_bid_on_auctions": {
+                            "type": "number"
+                        },
+                        "description": {
+                            "type": "string"
+                        },
+                        "fleet_attack_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_colonize_timeout_duration_in_minutes": {
+                            "type": "number"
+                        },
+                        "fleet_will_probably_defeat_ratio_range": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "icon": {
+                            "type": "string"
+                        },
+                        "max_fleet_capital_ship_count": {
+                            "type": "integer"
+                        },
+                        "max_supply_percentage_relative_to_human_players": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "update_interval": {
+                            "type": "number"
+                        },
+                        "when_build_titan_in_minutes": {
+                            "$ref": "#/$defs/float_range"
+                        },
+                        "will_attack_other_ai_before_human_players": {
+                            "type": "boolean"
+                        },
+                        "will_build_super_weapons": {
+                            "type": "boolean"
+                        },
+                        "will_fleet_retreat": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "description",
+                        "icon",
+                        "name",
+                        "update_interval"
+                    ],
+                    "unevaluatedProperties": false
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "random_exotics": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "ship_factory_build_kinds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "titan_build_kind": {
+            "type": "string"
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "asset_ai_trade_values",
+        "behaviors",
+        "capital_ship_build_kind",
+        "difficulties",
+        "random_exotics",
+        "ship_factory_build_kinds",
+        "titan_build_kind"
+    ],
+    "unevaluatedProperties": false,
+    "$defs": {
+        "unit_tag": {
+            "type": "string"
+        },
+        "npc_tags": {
+            "type": "string"
+        },
+        "exotic_type": {
+            "type": "string"
+        },
+        "float_range": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            },
+            "maxItems": 2
+        },
+        "planet_type": {
+            "type": "string"
+        },
+        "weapon_tag_set": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "strikecraft_types": {
+            "type": "string"
+        },
+        "unit_build_kind_name": {
+            "type": "string"
+        }
+    }
+}

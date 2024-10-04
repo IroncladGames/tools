@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Unit Build Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "build_kinds": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "localized_name": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "localized_name",
+                    "name"
+                ],
+                "unevaluatedProperties": false
+            }
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "build_kinds"
+    ],
+    "unevaluatedProperties": false
+}

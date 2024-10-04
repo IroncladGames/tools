@@ -1,0 +1,362 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Player Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "alliance": {
+            "type": "object",
+            "properties": {
+                "alliance_offer_duration": {
+                    "type": "integer"
+                },
+                "alliance_types": {
+                    "type": "object",
+                    "properties": {
+                        "cease_fire": {
+                            "type": "object",
+                            "properties": {
+                                "description": {
+                                    "type": "string"
+                                },
+                                "hud_icon": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "tooltip_icon": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "description",
+                                "hud_icon",
+                                "name",
+                                "tooltip_icon"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "share_vision": {
+                            "type": "object",
+                            "properties": {
+                                "description": {
+                                    "type": "string"
+                                },
+                                "hud_icon": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "tooltip_icon": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "description",
+                                "hud_icon",
+                                "name",
+                                "tooltip_icon"
+                            ],
+                            "unevaluatedProperties": false
+                        },
+                        "synergy": {
+                            "type": "object",
+                            "properties": {
+                                "description": {
+                                    "type": "string"
+                                },
+                                "hud_icon": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "tooltip_icon": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "description",
+                                "hud_icon",
+                                "name",
+                                "tooltip_icon"
+                            ],
+                            "unevaluatedProperties": false
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "max_alliance_lock_duration": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "alliance_offer_duration",
+                "alliance_types",
+                "max_alliance_lock_duration"
+            ],
+            "unevaluatedProperties": false
+        },
+        "auto_upgrade_planet_track_price_threshold_multiplier": {
+            "type": "number"
+        },
+        "colonization_victory_planet_count_percentage": {
+            "type": "number"
+        },
+        "dominant_culture_influence_points_gained_duration": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "fallback_theme_picker_skybox": {
+            "type": "string"
+        },
+        "fleet_factory_rally_hyperspace_charge_time": {
+            "type": "number"
+        },
+        "fleet_factory_rally_hyperspace_speed": {
+            "type": "number"
+        },
+        "fleet_factory_rally_hyperspace_speed_between_stars": {
+            "type": "number"
+        },
+        "fleet_factory_rally_subspace_speed": {
+            "type": "number"
+        },
+        "marginal_tax_rate_levels": {
+            "type": "object",
+            "properties": {
+                "credits": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "rate_taxable": {
+                                "type": "number"
+                            },
+                            "tax_rate": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "tax_rate"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "crystal": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "rate_taxable": {
+                                "type": "number"
+                            },
+                            "tax_rate": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "tax_rate"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "metal": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "rate_taxable": {
+                                "type": "number"
+                            },
+                            "tax_rate": {
+                                "type": "number"
+                            }
+                        },
+                        "required": [
+                            "tax_rate"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "max_fleet_count": {
+            "type": "integer"
+        },
+        "max_research_points_overflow": {
+            "type": "number"
+        },
+        "max_research_rate_scalar": {
+            "type": "number"
+        },
+        "npc": {
+            "type": "object",
+            "properties": {
+                "asset_market": {
+                    "type": "object",
+                    "properties": {
+                        "demand_level_change_cooldown_duration": {
+                            "type": "number"
+                        },
+                        "demand_level_change_thresholds": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        },
+                        "demand_levels": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "buy_credits_cost_scalar": {
+                                        "type": "number"
+                                    },
+                                    "color": {
+                                        "type": "string"
+                                    },
+                                    "hud_icon": {
+                                        "type": "string"
+                                    },
+                                    "is_visible_in_npc_markets_window": {
+                                        "type": "boolean"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "sell_credits_received_scalar": {
+                                        "type": "number"
+                                    }
+                                },
+                                "required": [
+                                    "buy_credits_cost_scalar",
+                                    "color",
+                                    "hud_icon",
+                                    "name",
+                                    "sell_credits_received_scalar"
+                                ],
+                                "unevaluatedProperties": false
+                            }
+                        },
+                        "initial_demand_level": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "demand_level_change_cooldown_duration",
+                        "demand_level_change_thresholds",
+                        "initial_demand_level"
+                    ],
+                    "unevaluatedProperties": false
+                },
+                "auction_cooldown_durations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/float_range"
+                    }
+                },
+                "break_alliance_duration": {
+                    "type": "number"
+                },
+                "forced_alliances": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "npcs": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": [
+                            "npcs"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "npc_level_minimum_fleet_supply_thresholds": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "npc_tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "localized_name": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "localized_name",
+                            "name"
+                        ],
+                        "unevaluatedProperties": false
+                    }
+                },
+                "reputation_level_texts": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "unevaluatedProperties": false
+        },
+        "pickable_players": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "refund_percentage": {
+            "type": "number"
+        },
+        "research_overflow_tier_nth_root_modifier": {
+            "type": "number"
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "auto_upgrade_planet_track_price_threshold_multiplier",
+        "colonization_victory_planet_count_percentage",
+        "dominant_culture_influence_points_gained_duration",
+        "fallback_theme_picker_skybox",
+        "fleet_factory_rally_hyperspace_charge_time",
+        "fleet_factory_rally_hyperspace_speed",
+        "fleet_factory_rally_hyperspace_speed_between_stars",
+        "fleet_factory_rally_subspace_speed",
+        "marginal_tax_rate_levels",
+        "max_fleet_count",
+        "max_research_points_overflow",
+        "max_research_rate_scalar",
+        "pickable_players",
+        "refund_percentage",
+        "research_overflow_tier_nth_root_modifier"
+    ],
+    "unevaluatedProperties": false,
+    "$defs": {
+        "float_range": {
+            "type": "array",
+            "items": {
+                "type": "number"
+            },
+            "maxItems": 2
+        }
+    }
+}

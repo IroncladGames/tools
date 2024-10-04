@@ -180,6 +180,10 @@
                         "$ref": "#/$defs/unit_item_definition_ptr"
                     }
                 },
+                "establish_duration": {
+                    "type": "number",
+                    "minimum": 0.0
+                },
                 "establish_price": {
                     "$ref": "#/$defs/asset_price"
                 },
@@ -2201,8 +2205,7 @@
                     "exotic_type"
                 ],
                 "unevaluatedProperties": false
-            },
-            "maxItems": 10
+            }
         },
         "npc_auction_penalty_level_definition": {
             "type": "object",
@@ -2718,6 +2721,14 @@
                     "description": "throttle fleets from colonizing too aggresively",
                     "type": "number"
                 },
+                "fleet_retreat_tolerance_range": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "minItems": 2,
+                    "maxItems": 2
+                },
                 "fleet_will_probably_defeat_ratio_range": {
                     "type": "array",
                     "items": {
@@ -2749,6 +2760,9 @@
                     "type": "number"
                 },
                 "will_attack_other_ai_before_human_players": {
+                    "type": "boolean"
+                },
+                "will_build_super_weapons": {
                     "type": "boolean"
                 },
                 "will_fleet_colonize": {
@@ -3205,6 +3219,10 @@
                         "$ref": "#/$defs/npc_reputation_level_definition"
                     }
                 },
+                "reward_between_gravity_well_range": {
+                    "type": "number",
+                    "exclusiveMinimum": 0.0
+                },
                 "rewards": {
                     "type": "array",
                     "items": {
@@ -3214,6 +3232,7 @@
             },
             "required": [
                 "levels",
+                "reward_between_gravity_well_range",
                 "rewards"
             ],
             "unevaluatedProperties": false
@@ -7622,12 +7641,6 @@
         "player_unity_definition": {
             "type": "object",
             "properties": {
-                "abilities": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/$defs/ability_definition_ptr"
-                    }
-                },
                 "base_mana_restore_rate": {
                     "type": "number",
                     "minimum": 0.0
@@ -7635,12 +7648,15 @@
                 "base_max_mana": {
                     "type": "number",
                     "minimum": 0.0
+                },
+                "unity_agent": {
+                    "$ref": "#/$defs/unit_definition_ptr"
                 }
             },
             "required": [
-                "abilities",
                 "base_mana_restore_rate",
-                "base_max_mana"
+                "base_max_mana",
+                "unity_agent"
             ],
             "unevaluatedProperties": false
         },

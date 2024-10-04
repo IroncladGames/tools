@@ -4,10 +4,6 @@
     "description": "",
     "type": "object",
     "properties": {
-        "between_gravity_well_range": {
-            "type": "number",
-            "minimum": 0.0
-        },
         "gravity_well_fixture_target_filter_id": {
             "type": "string"
         },
@@ -93,6 +89,10 @@
                 "alliance",
                 "player_modifiers"
             ]
+        },
+        "uses_range": {
+            "description": "default=false",
+            "type": "boolean"
         },
         "version": {
             "type": "integer"
@@ -256,7 +256,7 @@
                                     }
                                 },
                                 "weight": {
-                                    "type": "integer"
+                                    "type": "number"
                                 }
                             },
                             "required": [
@@ -1261,6 +1261,7 @@
                                     "is_culture_provider",
                                     "is_explored_planet",
                                     "is_fully_built",
+                                    "is_home_planet",
                                     "is_unit_factory",
                                     "is_unit_factory_building_units",
                                     "is_structure_with_slot_type",
@@ -1275,6 +1276,7 @@
                                     "is_inner_planet",
                                     "can_ever_hyperspace",
                                     "can_ever_move",
+                                    "is_structure_builder",
                                     "not_self",
                                     "composite_not",
                                     "composite_and",
@@ -1285,7 +1287,7 @@
                         "required": [
                             "constraint_type"
                         ],
-                        "anyOf": [
+                        "allOf": [
                             {
                                 "if": {
                                     "properties": {
@@ -1367,6 +1369,10 @@
                                     "properties": {
                                         "buff": {
                                             "type": "string"
+                                        },
+                                        "include_pending_buffs": {
+                                            "description": "default=false",
+                                            "type": "boolean"
                                         }
                                     },
                                     "required": [
@@ -1828,6 +1834,28 @@
                                 "if": {
                                     "properties": {
                                         "constraint_type": {
+                                            "const": "is_home_planet"
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "properties": {
+                                        "targeter_relationship_type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "self",
+                                                "ally",
+                                                "enemy",
+                                                "none"
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
                                             "const": "is_unit_factory"
                                         }
                                     }
@@ -1997,6 +2025,16 @@
                                 "if": {
                                     "properties": {
                                         "constraint_type": {
+                                            "const": "is_structure_builder"
+                                        }
+                                    }
+                                },
+                                "then": {}
+                            },
+                            {
+                                "if": {
+                                    "properties": {
+                                        "constraint_type": {
                                             "const": "not_self"
                                         }
                                     }
@@ -2114,7 +2152,7 @@
                     "items": {
                         "$ref": "#/$defs/target_filter_unit_type"
                     },
-                    "maxItems": 19
+                    "maxItems": 18
                 }
             },
             "required": [
@@ -2166,6 +2204,7 @@
                         "is_culture_provider",
                         "is_explored_planet",
                         "is_fully_built",
+                        "is_home_planet",
                         "is_unit_factory",
                         "is_unit_factory_building_units",
                         "is_structure_with_slot_type",
@@ -2180,6 +2219,7 @@
                         "is_inner_planet",
                         "can_ever_hyperspace",
                         "can_ever_move",
+                        "is_structure_builder",
                         "not_self",
                         "composite_not",
                         "composite_and",
@@ -2190,7 +2230,7 @@
             "required": [
                 "constraint_type"
             ],
-            "anyOf": [
+            "allOf": [
                 {
                     "if": {
                         "properties": {
@@ -2272,6 +2312,10 @@
                         "properties": {
                             "buff": {
                                 "type": "string"
+                            },
+                            "include_pending_buffs": {
+                                "description": "default=false",
+                                "type": "boolean"
                             }
                         },
                         "required": [
@@ -2733,6 +2777,28 @@
                     "if": {
                         "properties": {
                             "constraint_type": {
+                                "const": "is_home_planet"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "targeter_relationship_type": {
+                                "type": "string",
+                                "enum": [
+                                    "self",
+                                    "ally",
+                                    "enemy",
+                                    "none"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
                                 "const": "is_unit_factory"
                             }
                         }
@@ -2902,6 +2968,16 @@
                     "if": {
                         "properties": {
                             "constraint_type": {
+                                "const": "is_structure_builder"
+                            }
+                        }
+                    },
+                    "then": {}
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "constraint_type": {
                                 "const": "not_self"
                             }
                         }
@@ -2996,6 +3072,7 @@
                 "can_passively_regenerate_shields",
                 "can_update_build_progress",
                 "can_use_weapons",
+                "can_use_weapons_when_crippled",
                 "can_use_active_abilities",
                 "can_use_abilities_when_crippled",
                 "can_be_colonized",

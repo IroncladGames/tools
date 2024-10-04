@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Player Color Uniforms",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "minimal_team_color_primary_color": {
+            "type": "string"
+        },
+        "null_player_colors": {
+            "type": "string"
+        },
+        "playable_player_color_groups": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "player_alliance_relationship_colors": {
+            "type": "object",
+            "properties": {
+                "ally": {
+                    "type": "string"
+                },
+                "enemy": {
+                    "type": "string"
+                },
+                "none": {
+                    "type": "string"
+                },
+                "self": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ally",
+                "enemy",
+                "none",
+                "self"
+            ],
+            "unevaluatedProperties": false
+        },
+        "version": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "minimal_team_color_primary_color",
+        "null_player_colors",
+        "playable_player_color_groups",
+        "player_alliance_relationship_colors"
+    ],
+    "unevaluatedProperties": false
+}
