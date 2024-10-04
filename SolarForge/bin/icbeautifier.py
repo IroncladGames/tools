@@ -1,8 +1,8 @@
 import os
+import jsbeautifier
 import json
 import re
 import functools
-import subprocess, sys, importlib.util
 
 
 # exclude lists where order in data matters
@@ -23,23 +23,10 @@ EXCLUDE_SORT_LIST_KEYS = [
     "faction_research_subjects",
     "faction_buildable_units",
     "attack_target_type_groups",
-    "attack_target_type_group_ids"
+    "attack_target_type_group_ids",
+    "pickable_players"
 ]
 
-# installs jsbeautifier dependency
-def install_jsbeautifier_pkg():
-    return subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'jsbeautifier'])
-
-def jsbeautifier():
-    if importlib.util.find_spec('jsbeautifier') is None:
-        try:
-            install_jsbeautifier_pkg()
-        except:
-            pass
-    import jsbeautifier
-    return jsbeautifier
-
-jsbeautifier = jsbeautifier()
 
 def make_options():
     options = jsbeautifier.default_options()
@@ -48,7 +35,7 @@ def make_options():
     options.end_with_newline = True # github always complains if there is no newline at end of file
     options.wrap_line_length = 100
     return options
-
+    
 
 def is_hex(string):
     try:
@@ -62,7 +49,7 @@ def is_list_of_sortable_strings(obj):
     if isinstance(obj, list) and len(obj) > 0:
         are_all_hex = True
         are_all_strings = True
-
+        
         for item in obj:
             if not isinstance(item, str):
                 are_all_strings = False
@@ -72,19 +59,19 @@ def is_list_of_sortable_strings(obj):
 
         # don't sort hex values (colors) as the order matters in data
         return are_all_strings and not are_all_hex
-
+    
     return False
 
 # if strings ends with digits returns a tuple of the (prefix,enddigits)
 # ex. 'foo_123' -> ('foo', 123)
 def split_string_with_end_digits(s):
-    # https://stackoverflow.com/questions/14471177/python-check-if-the-last-characters-in-a-string-are-numbers
+    # https://stackoverflow.com/questions/14471177/python-check-if-the-last-characters-in-a-string-are-numbers    
     m = re.search(r'\d+$', s)
     if m is not None:
         d = m.group(0)
         return (s[:-len(d)], int(d))
     return (s, 0)
-
+           
 def cmp_strings(a, b):
     split_a = split_string_with_end_digits(a)
     split_b = split_string_with_end_digits(b)
@@ -100,18 +87,18 @@ def sort_lists(obj_key, json_obj):
         return json_obj
 
     if isinstance(json_obj, dict):
-        for key, value in json_obj.items():
+        for key, value in json_obj.items():            
             sort_lists(key, value)
     elif isinstance(json_obj, list):
         if is_list_of_sortable_strings(json_obj):
             # sort so that lower numbers appear before higher numbers e.g. advent_2 before advent_13
             json_obj.sort(key=functools.cmp_to_key(cmp_strings))
-        else:
-            for value in json_obj:
+        else:            
+            for value in json_obj:          
                 sort_lists(None, value)
 
     return json_obj
-
+    
 # convenient for testing as you iterate through the characters
 def print_current_line(text, index, level):
     next_newline_index = text.find('\n', index)
@@ -121,11 +108,11 @@ def print_current_line(text, index, level):
     else:
         # print the characters from the current index up to (but not including) the newline character
         print(f"level {level}: " + text[index:next_newline_index])
-
+        
 def post_beautify(text):
     # this relies heavily on the predictable behavior of jsbeautify.
     # will likely not work well for json text from another source
-
+    
     # jsbeautify has a bug where it will create a corrupt json file by
     # splitting up a negative number across a new line if it is within a big list of numbers.
     # [1, 2, 3, -4]
@@ -134,7 +121,7 @@ def post_beautify(text):
     #   4]
     # fix it up the best we can here be moving the negative sign next to the value after the newline
     text = re.sub(r'-\n(?P<whitespace>\s*)', r'\n\g<whitespace>-', text)
-
+    
     text = re.sub(r'", ', '",\n', text)
     text = re.sub(r'": \["', '": [\n"', text)
     text = re.sub(r'","', '",\n', text)
@@ -143,26 +130,27 @@ def post_beautify(text):
     prev_was_newline = False
     new_text = ""
     for i in range(len(text)):
-        c = text[i]
+        c = text[i]   
 
-        if i > 0 and c == "\"" and text[i-1] == "\n":
+        if i > 0 and c == "\"" and text[i-1] == "\n":            
             #print_current_line(text, i, level)
             new_text += " " * (level + 1) * 4
 
         # put-closing-list-bracket-on-newline (indent closing bracket properly)
-        if i > 0 and c == ']' and text[i-1] == "\n":
+        if i > 0 and c == ']' and text[i-1] == "\n":            
             #print_current_line(text, i, level)
             new_text += " " * (level) * 4
 
         if c == '{':
             level += 1
         elif c == '}':
-            level -= 1
+            level -= 1        
         new_text += c
-    return new_text
+    return new_text       
+        
 
 def beautify(json_data):
-    options = make_options()
+    options = make_options()       
     json_data = sort_lists(None, json_data)
     output_text = jsbeautifier.beautify(json.dumps(json_data), options)
     return post_beautify(output_text)
